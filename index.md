@@ -1,6 +1,6 @@
 # A 
 
-Great — you're building a full-stack project. Here's how each component ties into your Signal Noise Toolkit and how I suggest you structure and coordinate them:
+Great — you're building a [full-stack project](https://abikesa.github.io/inversion/). Here's how each component ties into your Signal Noise Toolkit and how I suggest you structure and coordinate them:
 
 ---
 
