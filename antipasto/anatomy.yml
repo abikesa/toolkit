@@ -1,0 +1,35 @@
+# anatomy.yml — Core Org Logic
+roles:
+  - name: Founder
+    responsibilities: [vision, architecture, external strategy]
+  - name: Engineer
+    responsibilities: [API, dashboard, automation]
+  - name: Regulator
+    responsibilities: [compliance, auditing, documentation]
+
+layers:
+  - name: Tactical
+    color: blue
+    scope: 1-7 days
+  - name: Strategic
+    color: purple
+    scope: 1-6 months
+  - name: Existential
+    color: red
+    scope: 3+ years
+
+tasks:
+  - id: T-001
+    title: "Launch GitHub Pages dashboard"
+    role: Engineer
+    layer: Tactical
+    deadline: 2025-06-10
+    status: pending
+
+  - id: T-002
+    title: "Define Signal Noise Doctrine"
+    role: Founder
+    layer: Existential
+    deadline: 2025-07-01
+    status: in-progress
+
