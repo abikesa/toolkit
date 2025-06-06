@@ -1,0 +1,35 @@
+layers:
+  - name: Origins
+    icon: 🌊
+    neurobiology: Molecular Noise
+    dialectic: Random vs Law
+    axis: Temporal
+    realm: Signal
+
+  - name: Commons
+    icon: ❤️
+    neurobiology: Homeostasis
+    dialectic: Risk vs Care
+    axis: Ethical
+    realm: Stewardship
+
+  - name: Trust vs Faust
+    icon: 🌀
+    neurobiology: Synaptic Reweighting
+    dialectic: Trust vs Doubt
+    axis: Cognitive
+    realm: Mediation
+
+  - name: Nature/Man/Artifice
+    icon: 🐬
+    neurobiology: Symbolic Representation
+    dialectic: Nature vs Artifice
+    axis: Symbolic
+    realm: Civilization
+
+  - name: Sustained
+    icon: 🔁
+    neurobiology: Recursive Control
+    dialectic: Regeneration vs Decay
+    axis: Systemic
+    realm: Continuity

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neurocosmic Framework</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: radial-gradient(circle at top left, #111, #222);
+      color: #eee;
+      margin: 0;
+      padding: 2em;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2em;
+    }
+    th, td {
+      padding: 1em;
+      border: 1px solid #444;
+      text-align: center;
+    }
+    th {
+      background: #333;
+    }
+    tr:nth-child(even) {
+      background: #2a2a2a;
+    }
+    .icon {
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dantean Neurocosmic Framework</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Icon</th>
+        <th>Layer</th>
+        <th>Neurobiology</th>
+        <th>Dialectic</th>
+        <th>Axis</th>
+        <th>Realm</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for layer in layers %}
+      <tr>
+        <td class="icon">{{ layer.icon }}</td>
+        <td>{{ layer.name }}</td>
+        <td>{{ layer.neurobiology }}</td>
+        <td>{{ layer.dialectic }}</td>
+        <td>{{ layer.axis }}</td>
+        <td>{{ layer.realm }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

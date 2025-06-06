@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neurocosmic Layers</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0d0d0d;
+      color: #e0e0e0;
+      margin: 2em;
+    }
+    h1 {
+      color: #66ffcc;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 1.5em;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 0.75em;
+      text-align: left;
+    }
+    th {
+      background-color: #111;
+      color: #00ffff;
+    }
+    tr:nth-child(even) {
+      background-color: #1a1a1a;
+    }
+    .export-links {
+      margin-top: 1em;
+    }
+    .export-links a {
+      color: #99ffcc;
+      text-decoration: none;
+      margin-right: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Neurocosmic Layer Framework</h1>
+  <div class="export-links">
+    <a href="/api/export/json">⬇️ Export JSON</a>
+    <a href="/api/export/markdown">⬇️ Export Markdown</a>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Icon</th>
+        <th>Layer</th>
+        <th>Neurobiology</th>
+        <th>Dialectic</th>
+        <th>Axis</th>
+        <th>Realm</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for layer in layers %}
+      <tr>
+        <td>{{ layer.icon }}</td>
+        <td>{{ layer.name }}</td>
+        <td>{{ layer.neurobiology }}</td>
+        <td>{{ layer.dialectic }}</td>
+        <td>{{ layer.axis }}</td>
+        <td>{{ layer.realm }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

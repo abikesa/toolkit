@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Origins",
+    "icon": "\ud83c\udf0a",
+    "neurobiology": "Molecular",
+    "dialectic": "Random vs Rhythm",
+    "axis": "Source",
+    "realm": "Foundation"
+  },
+  {
+    "name": "Commons",
+    "icon": "\u2764\ufe0f",
+    "neurobiology": "Cellular",
+    "dialectic": "Need vs Care",
+    "axis": "Social",
+    "realm": "Exchange"
+  },
+  {
+    "name": "Trust vs Faust",
+    "icon": "\ud83c\udf00",
+    "neurobiology": "Circuitry",
+    "dialectic": "Truth vs Power",
+    "axis": "Ethical",
+    "realm": "Conflict"
+  },
+  {
+    "name": "Nature / Man / Artifice",
+    "icon": "\ud83d\udc2c",
+    "neurobiology": "Cognitive",
+    "dialectic": "Embodiment vs Simulation",
+    "axis": "Technological",
+    "realm": "Environment"
+  },
+  {
+    "name": "Sustained",
+    "icon": "\ud83d\udd01",
+    "neurobiology": "Cultural",
+    "dialectic": "Memory vs Collapse",
+    "axis": "Temporal",
+    "realm": "Continuity"
+  }
+]
