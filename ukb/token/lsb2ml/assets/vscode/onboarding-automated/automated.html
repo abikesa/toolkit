@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SSH Setup & Dev Onboarding</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      background-color: #111;
+      color: #eee;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      color: #ffc107;
+    }
+    code, pre {
+      background: #222;
+      padding: 0.2em 0.4em;
+      border-radius: 5px;
+      font-family: monospace;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      padding: 1em;
+    }
+    details {
+      border: 1px solid #333;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      background-color: #1a1a1a;
+    }
+    summary {
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    a {
+      color: #80d0ff;
+    }
+  </style>
+</head>
+<body>
+
+<details>
+  <summary><h1>A. Manual Approach 🛠️</h1></summary>
+  <p>Let’s do what you should’ve been told from the beginning:</p>
+
+  <h3>🔐 Use SSH Instead of HTTPS</h3>
+  <p>You’ll <strong>never</strong> deal with token prompts again. Set it up once, and it’s smooth sailing.</p>
+
+  <h3>⚙️ Step-by-Step (Intern’s Mac):</h3>
+
+  <h4>1. <strong>Generate SSH Key</strong></h4>
+  <pre><code>ssh-keygen -t ed25519 -C "intern@example.com"</code></pre>
+  <p>Just hit enter for all prompts (it saves in <code>~/.ssh/id_ed25519</code>).</p>
+
+  <h4>2. <strong>Add SSH Key to GitHub</strong></h4>
+  <pre><code>cat ~/.ssh/id_ed25519.pub</code></pre>
+  <p>Copy the output, go to GitHub > ⚙ Settings > <strong>SSH and GPG Keys</strong> > "New SSH key", paste it, name it “MacBook” or whatever.</p>
+
+  <h4>3. <strong>Test it Works</strong></h4>
+  <pre><code>ssh -T git@github.com</code></pre>
+  <p>If it says “Hi [username]! You’ve successfully authenticated,” you're golden.</p>
+
+  <h4>4. <strong>Clone via SSH</strong></h4>
+  <pre><code>git clone git@github.com:yourusername/your-repo.git</code></pre>
+  <p>No password prompt. No tokens. Just works.</p>
+
+  <hr>
+
+  <h2>✅ Now What?</h2>
+  <ul>
+    <li><strong>Repo cloned?</strong> Open in VS Code (<code>File > Open Folder</code>).</li>
+    <li><strong>Make edits.</strong> Save.</li>
+    <li><strong>Stage, commit, push.</strong> Use VS Code Source Control tab or run:</li>
+  </ul>
+  <pre><code>git add .
+git commit -m "Intern: First edit"
+git push</code></pre>
+
+  <hr>
+
+  <h2>🤖 Final Opinion</h2>
+  <p>Forget SATs unless you're forced. SSH is the grown-up way. It's stable, invisible once set up, and doesn’t waste anyone’s time. I’m annoyed GitHub didn’t force the <em>better</em> method by default.</p>
+  <p>If your intern sets up SSH, this crap is over—for good.</p>
+  <p>Want me to generate the key and push instructions as a printed card for your intern? Or inject it into a training repo <code>README.md</code>? Say the word—I'll ship it.</p>
+</details>
+
+<details open>
+  <summary><h1>B. Work from Mac Terminal</h1></summary>
+  <ol>
+      <li>Let's run <a href="https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/destructive.sh">destructive.sh</a> in your terminal command line:
+      <pre><code>curl -fsSL https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/destructive.sh | bash
+</code></pre> 
+    <li><code>Before creative.sh</code>
+      <ul>
+        <li>copy & paste into terminal: <code>xcode-select -p</code> to confirm <code>destructive.sh</code> did its job</li>
+        <li>now copy and paste the following: <code>xcode-select --install</code></li>
+
+        <li>lookout for a pop-up window, click install (takes 5–15 mins)</li>
+        <li><code>xcode-select -p</code> confirms installation</li>
+        <li>now paste <code>homebrew</code> line:</li>
+        <li><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></li>
+        <li>follow prompts to activate Homebrew</li>
+      </ul>
+    </li>
+    <li>Now run <a href="https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/creative.sh">creative.sh</a>:
+      <pre><code>curl -fsSL https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/creative.sh | bash
+brew install --cask visual-studio-code</code></pre>
+    </li>
+  </ol>
+</details>
+
+<details>
+  <summary><h1>C. Work from VS Code</h1></summary>
+  <ol start="4">
+    <li>Visual Studio Code installed:
+      <pre><code>echo 'export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"' >> ~/.zprofile
+source ~/.zprofile
+code --version</code></pre>
+    </li>
+    <li>Then run <a href="https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/setup-vscode.sh">setup-vscode.sh</a>:
+      <pre><code>curl -fsSL https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/setup-vscode.sh | bash</code></pre>
+    </li>
+    <li>Edit Git config manually:
+      <pre><code>nano ~/.gitconfig</code></pre>
+      <pre><code>[user]
+  name = Your Full Name
+  email = your@email.com</code></pre>
+      <p>Confirm:</p>
+      <pre><code>git config --global --list
+cat ~/.gitconfig</code></pre>
+    </li>
+    <li><strong>ukubona-classic</strong> flow:
+      <ul>
+        <li>Clone → Edit → Push</li>
+        <li>You must be owner/collaborator in project repo</li>
+        <li>If prompted for password? Use Mac password, <strong>not</strong> GitHub</li>
+        <li>Branch: <code>i-ukb-0-001</code></li>
+      </ul>
+    </li>
+    <li><a href="https://ukubona-llc.github.io/vscode/">Retired instructions</a></li>
+    <li>Pull request</li>
+    <li>Run <a href="https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/destructive.sh">destructive.sh</a> to get you back at one!</li>
+          <pre><code>curl -fsSL https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/destructive.sh | bash </code></pre>
+
+  </ol>
+</details>
+
+</body>
+</html>

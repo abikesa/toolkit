@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NMDA - Ukubona Wiki</title>
+
+  <!-- PrismJS for syntax highlighting -->
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+  <!-- Favicon (light/dark theme) -->
+  <link rel="icon" href="https://abikesa.github.io/favicon/favicon-light.ico" type="image/x-icon" />
+  <link rel="icon" href="https://abikesa.github.io/favicon/favicon-light.ico" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="https://abikesa.github.io/favicon/favicon-dark.ico" media="(prefers-color-scheme: dark)" />
+
+  <!-- Preload Logo Assets -->
+  <link rel="preload" href="https://abikesa.github.io/logos/ukubona-light.png" as="image" />
+  <link rel="preload" href="https://abikesa.github.io/logos/ukubona-dark.png" as="image" />
+
+  <!-- Stylesheets -->
+  <link href="https://abikesa.github.io/css/article.css" rel="stylesheet" />
+  <link href="https://abikesa.github.io/css/settings-bar.css" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <style>
+    .glyph-note { display: none; }
+    .glyph:hover + .glyph-note { display: inline; color: #888; font-size: 0.9em; }
+    .easter-egg { color: #666; font-style: italic; font-size: 0.9em; }
+    .wiki-float {
+      float: right;
+      margin: 0 0 1em 1em;
+      width: 250px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+    aside.wiki-float {
+      width: 300px;
+      font-size: 0.85em;
+      overflow: hidden;
+    }
+    .section-title { font-size: 1.8em; margin-bottom: 0.5em; color: #1a1a1a; }
+    .back-ref {
+      font-size: 0.8em;
+      vertical-align: super;
+      text-decoration: none;
+      color: #007bff;
+    }
+    .back-ref:hover { text-decoration: underline; }
+    .highlight {
+      background: #f0f8ff;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    .quote-block {
+      border-left: 4px solid #007bff;
+      padding-left: 1em;
+      margin: 1em 0;
+      font-style: italic;
+    }
+    #codeblock {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    #codeblock.show {
+      opacity: 1;
+    }
+  </style>
+
+  <!-- Scripts -->
+  <script defer src="https://abikesa.github.io/js/toggle-darkmode.js"></script>
+  <script defer src="https://abikesa.github.io/js/wiki-controls.js"></script>
+  <script defer src="https://abikesa.github.io/js/lightbox.js"></script>
+
+  <!-- MathJax for TeX rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['$$', '$$']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+
+<body>
+  <header>
+    <div id="header-left">
+      <a href="https://abikesa.github.io/index-wiki/index.html">
+        <img alt="Ukubona Logo" id="logo" src="https://abikesa.github.io/logos/ukubona-light.png" />
+      </a>
+    </div>
+    <div id="header-right">
+      <a href="#">Login</a> | <a href="#">Create Account</a>
+    </div>
+  </header>
+
+  <div id="content-wrapper">
+    <!-- Sidebar TOC -->
+    <nav id="toc">
+      <strong>Table of Contents</strong>
+      <ul>
+        <li><a href="#conclusion">Conclusion</a></li>
+        <li><a href="#see-also">See Also</a></li>
+        <li><a href="#acknowledgments">Acknowledgments</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="content">
+      <h1></h1>
+
+      <!-- Infobox -->
+      <aside id="infobox" class="wiki-float">
+        <table class="infobox">
+          <caption>
+            <div style="font-size: 2em;">
+              🌊<br>❤️<br>🌀<br>🐬<br>🔁
+            </div>
+            Noise-Signal Gradient
+          </caption>
+          <tr><td><strong>Subject:</strong> Determinism and Moral Responsibility</td></tr>
+          <tr><td><strong>Context:</strong> Ukubona Grammar and Biological Pruning</td></tr>
+          <tr><td><strong>Date:</strong> June 3, 2025</td></tr>
+          <tr><td><strong>Framework:</strong> Kandel, Sapolsky, Determinism</td></tr>
+          <tr><td><strong>Themes:</strong> Pruning, Plasticity, Moral Cognition</td></tr>
+        </table>
+      </aside>
+
+      <p>
+        The following <a href="https://abikesa.github.io/sanity/ukb/media/">exchange</a> explores existential risk through a signal–noise gradient lens, mapping layered organizational dynamics to business timelines. It outlines how a fledgling analytic-tech firm, based in Virginia, can <a href="https://claude.ai/public/artifacts/c71d26c9-885d-4aca-92cc-7212a9b9658a">navigate</a> from reactive chaos to visionary clarity by syncing daily execution with long-term intent. This approach is inspired by the principles of Ukubona, emphasizing the importance of biological pruning and plasticity in shaping moral cognition and decision-making.
+      </p>
+
+      <!-- Version Timeline -->
+      <aside id="version-timeline" style="border-left: 2px solid #aaa; padding: 1em; margin-top: 2em;">
+        <h2>🕰️ Version Timeline</h2>
+        <ul style="list-style: none; padding-left: 0;">
+          <li>
+            <strong>May 18, 2025</strong><br />
+            <em>Author:</em> Grok-3<br />
+            <em>Change:</em> Initial draft...<br />
+            <em>Note:</em> Mapped Sapolsky’s thesis...
+          </li>
+          <li>
+            <strong>June 3, 2025</strong><br />
+            <em>Author:</em> Grok-3<br />
+            <em>Change:</em> Fixed back references...<br />
+            <em>Note:</em> Ensured proper styling
+          </li>
+        </ul>
+      </aside>
+    </main>
+
+    <!-- See Also -->
+    <section id="see-also">
+      <h2 class="section-title">See Also</h2>
+      <ul>
+        <li><a href="./index.html">Bet-David Grammar</a></li>
+      </ul>
+    </section>
+
+    <!-- Acknowledgments -->
+    <section id="acknowledgments">
+      <h2 class="section-title">Acknowledgments</h2>
+      <ol class="acknowledgments-list">
+        <!-- Example entry -->
+        <li id="cite_note-sapolsky">
+          Sapolsky, Robert. <i>Behave</i>... <a href="#ref1-sapolsky1" class="back-ref">[↩]</a>
+        </li>
+        <!-- Add more as needed -->
+      </ol>
+    </section>
+
+    <!-- Appearance Settings -->
+    <aside id="settings-bar">
+      <div class="settings-section">Appearance</div>
+      <div class="radio-group">
+        <div class="radio-option">
+          <input id="small-text" name="text-size" type="radio" />
+          <label for="small-text">Small</label>
+        </div>
+        <div class="radio-option">
+          <input checked id="normal-text" name="text-size" type="radio" />
+          <label for="normal-text">Standard</label>
+        </div>
+        <div class="radio-option">
+          <input id="large-text" name="text-size" type="radio" />
+          <label for="large-text">Large</label>
+        </div>
+      </div>
+      <div class="radio-group">
+        <div class="radio-option">
+          <input checked id="standard-width" name="width-setting" type="radio" />
+          <label for="standard-width">Standard</label>
+        </div>
+        <div class="radio-option">
+          <input id="wide-width" name="width-setting" type="radio" />
+          <label for="wide-width">Wide</label>
+        </div>
+      </div>
+      <div class="radio-group">
+        <div class="radio-option">
+          <input checked id="light-mode" name="theme-setting" type="radio" />
+          <label for="light-mode">Light</label>
+        </div>
+        <div class="radio-option">
+          <input id="dark-mode" name="theme-setting" type="radio" />
+          <label for="dark-mode">Dark</label>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Last updated: June 2025 | Powered by Ukubona Wiki</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:9999; justify-content:center; align-items:center;">
+    <span id="lightbox-close" style="position:absolute; top:30px; right:45px; color:#fff; font-size:40px; font-weight:bold; cursor:pointer;">×</span>
+    <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; box-shadow:0 0 20px rgba(255,255,255,0.3); border-radius:10px;" />
+  </div>
+</body>
+</html>
+<!-- Hidden Annotation: The turtle’s shell is the glyph that binds chaos to culture—seek the knife, and find Ukubona. -->

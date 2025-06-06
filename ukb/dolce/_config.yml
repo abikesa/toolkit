@@ -1,0 +1,75 @@
+# A default configuration for your Jupyter Book
+
+#######################################################################################
+# Book metadata
+
+title                       : Ukusoma
+author                      : 
+copyright                   : "2025"
+logo                        : https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2@2x.png
+email                       : "abikesa.sh@gmail.com"
+exclude_patterns            : ["LICENSE.md"]
+
+#######################################################################################
+# Notebook execution
+
+execute:
+  execute_notebooks         : auto
+  cache                     : ""
+  exclude_patterns          : ["LICENSE.md"]
+
+#######################################################################################
+# HTML settings
+
+html:
+  navbar_number_sections    : False
+  home_page_in_navbar       : True
+  use_repository_button     : False
+  use_issues_button         : False
+  use_edit_page_button      : False
+  extra_footer              : |
+    Copyright © Ubuntu Series: Ukuvula, Ukuzula, Ukusoma, Ukubona, Ukuvela
+  comments:
+    hypothesis              : False
+  extra_css:
+    - "_static/custom.css"
+  favicon                   : "https://abikesa.github.io/favicon/assets/favicon-dark.ico"
+
+#######################################################################################
+# Launch buttons
+
+launch_buttons:
+  notebook_interface        : "classic"
+  binderhub_url             : "https://mybinder.org"
+  jupyterhub_url            : ""      
+  thebelab                  : false
+
+#######################################################################################
+# Repository settings
+
+repository:
+  url                       : https://github.com/abikesa/template
+  path_to_book              : "book/website"
+  branch                    : main
+
+#######################################################################################
+# Advanced / Sphinx config
+
+sphinx:
+  extra_extensions:
+    - 'sphinx_panels'
+    - 'sphinxcontrib.bibtex'
+  config:
+    language: en
+    suppress_warnings:
+      - 'app.add_node'
+      - 'app.add_directive'
+      - 'app.add_role'
+    myst_heading_anchors: 5
+    bibtex_bibfiles:
+      - _bibliography/references.bib
+    bibtex_reference_order: 'citation'
+    bibtex_default_style: 'unsrt'
+    bibtex_reference_style: 'super'
+    bibtex_cite_style: 'super'
+    bibtex_footbibliography_header: ''

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Improvisational Thread</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0f1117;
+      color: #e0e0e0;
+      display: flex;
+    }
+
+    nav {
+      width: 200px;
+      background-color: #161821;
+      padding: 1rem;
+      border-right: 1px solid #2c2f38;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-bottom: 1rem;
+      color: #aaa;
+      cursor: pointer;
+    }
+
+    nav ul li a {
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover {
+      color: #fff;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 750px;
+    }
+
+    aside {
+      width: 300px;
+      background-color: #161821;
+      padding: 1rem;
+      border-left: 1px solid #2c2f38;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    h2 {
+      color: #ccc;
+      margin-top: 2rem;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    h2.open::after {
+      content: " ▲";
+    }
+
+    h2.closed::after {
+      content: " ▼";
+    }
+
+    p, li {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .box {
+      background-color: #1e212b;
+      padding: 1rem;
+      border-radius: 6px;
+      border-left: 4px solid #f9c74f;
+      margin-top: 2rem;
+    }
+
+    .glitch {
+      font-style: italic;
+      letter-spacing: 0.03em;
+      color: #d4af37;
+    }
+
+    .title-card, .takeaway-card {
+      background-color: #1a1d25;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+    }
+
+    .title-card h3 {
+      margin: 0 0 0.5rem;
+    }
+
+    .cosmology-section {
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 4rem 2rem;
+      border-top: 2px solid #ccc;
+    }
+
+    .spiral-diagram {
+      max-width: 500px;
+      display: block;
+      margin: 2rem auto;
+    }
+
+    .cosmo-layers {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .layer h3 {
+      font-size: 1.5rem;
+    }
+
+    .layer p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    @media (min-width: 768px) {
+      .cosmo-layers {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const headers = document.querySelectorAll('main h2');
+      headers.forEach(header => {
+        const content = header.nextElementSibling;
+        if (content) content.style.display = 'none';
+        header.classList.add('closed');
+
+        header.addEventListener('click', () => {
+          if (content.style.display === 'none') {
+            content.style.display = 'block';
+            header.classList.remove('closed');
+            header.classList.add('open');
+          } else {
+            content.style.display = 'none';
+            header.classList.remove('open');
+            header.classList.add('closed');
+          }
+        });
+      });
+
+      const tocLinks = document.querySelectorAll('nav ul li a');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
+          const target = document.getElementById(targetId);
+          if (target) {
+            window.scrollTo({ top: target.offsetTop - 20, behavior: 'smooth' });
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#origins">🌊 Origins</a></li>
+      <li><a href="#commons">❤️ Commons</a></li>
+      <li><a href="#trust">🌀 Trust vs Faust</a></li>
+      <li><a href="#boundaries">🐬 Boundaries</a></li>
+      <li><a href="#sustained">🔁 Sustained</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="cosmology" class="cosmology-section">
+      <h2>Signal & Stewardship</h2>
+      <div class="cosmo-layers">
+        <div class="layer" id="origins">
+          <h3>🌊 Origins</h3>
+          <p>Raw, unpatterned potential. Chaos before concept.</p>
+        </div>
+        <div class="layer" id="commons">
+          <h3>❤️ Commons</h3>
+          <p>The first shared inheritance. Land, air, care, time—gifts held in trust, not owned. The ethical root of stewardship.</p>
+        </div>
+        <div class="layer" id="trust">
+          <h3>🌀 Trust vs Faust</h3>
+          <p>Every pattern contains a choice: reverence or control. The hinge of all ethics, code, and civilization.</p>
+        </div>
+        <div class="layer" id="boundaries">
+          <h3>🐬 Boundaries</h3>
+          <p>Nature, Man, Artifice—each must be approached with humility. Ownership here is always a test.</p>
+        </div>
+        <div class="layer" id="sustained">
+          <h3>🔁 Sustained</h3>
+          <p>If the layers are honored, the cycle continues with grace. If not, the system collapses. Sustainability as sacred rhythm.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="box">
+      <strong>📦 Takeaway:</strong> Improvisation surfing:
+      <ul>
+        <li>Strategy falls</li>
+        <li>Information is partial</li>
+        <li>Operations break down</li>
+      </ul>
+    </div>
+  </main>
+  <aside>
+    <div class="title-card">
+      <h3>The Improvisational Thread Through the Stack</h3>
+      <p>A neurotemporal feedback loop between abstraction and action.</p>
+      <ul>
+        <li>Tactical in form</li>
+        <li>Existential in meaning</li>
+      </ul>
+    </div>
+    <div class="takeaway-card">
+      <h4>🌀 Takeaway</h4>
+      <p>Improvisation is tactical in form, but existential in meaning.</p>
+    </div>
+  </aside>
+</body>
+</html>

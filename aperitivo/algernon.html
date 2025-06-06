@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>NMDA - Ukubona Wiki</title>
+      <!-- PrismJS CSS + JS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+    <!-- Favicon Configuration -->
+    <link rel="icon" href="https://abikesa.github.io/favicon/favicon-light.ico" type="image/x-icon"/>
+    <link rel="icon" href="https://abikesa.github.io/favicon/favicon-light.ico" type="image/x-icon" media="(prefers-color-scheme: light)"/>
+    <link rel="icon" href="https://abikesa.github.io/favicon/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)"/>
+    <!-- Preload Logo Assets -->
+    <link rel="preload" href="https://abikesa.github.io/logos/ukubona-light.png" as="image"/>
+    <link rel="preload" href="https://abikesa.github.io/logos/ukubona-dark.png" as="image"/>
+    <!-- Stylesheets -->
+    <link href="https://abikesa.github.io/css/article.css" rel="stylesheet"/>
+    <link href="https://abikesa.github.io/css/settings-bar.css" rel="stylesheet"/>
+    <!-- Scripts -->
+    <script defer src="https://abikesa.github.io/js/toggle-darkmode.js"></script>
+    <script defer src="https://abikesa.github.io/js/wiki-controls.js"></script>
+    <script defer src="https://abikesa.github.io/js/lightbox.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js" defer></script>
+
+    <style>
+        .glyph-note { display: none; }
+        .glyph:hover + .glyph-note { display: inline; color: #888; font-size: 0.9em; }
+        .easter-egg { color: #666; font-style: italic; font-size: 0.9em; }
+        .wiki-float { float: right; margin: 0 0 1em 1em; width: 250px; border: 1px solid #ccc; padding: 10px; background: #f9f9f9; border-radius: 8px; }
+        .section-title { font-size: 1.8em; margin-bottom: 0.5em; color: #1a1a1a; }
+        .back-ref { font-size: 0.8em; vertical-align: super; text-decoration: none; color: #007bff; }
+        .back-ref:hover { text-decoration: underline; }
+        .highlight { background: #f0f8ff; padding: 2px 5px; border-radius: 3px; }
+        .quote-block { border-left: 4px solid #007bff; padding-left: 1em; margin: 1em 0; font-style: italic; }
+
+        #codeblock {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  height: auto;
+  display: block;
+}
+#codeblock.show {
+  opacity: 1;
+}
+
+
+#codeblock {
+  opacity: 0;
+}
+
+#codeblock.show {
+  opacity: 1;
+}
+    #codeblock {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    #codeblock.show {
+      opacity: 1;
+    }
+    aside.wiki-float {
+      float: right;
+      width: 300px;
+      margin: 0 0 1em 1em;
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 0.85em;
+    }
+    
+  </style>
+  <!-- MathJax -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['$$', '$$']]
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+</head>
+<body>
+    <header>
+        <div id="header-left">
+            <a href="https://abikesa.github.io/index-wiki/index.html">
+                <img alt="Ukubona Logo" id="logo" src="https://abikesa.github.io/logos/ukubona-light.png"/>
+            </a>
+        </div>
+        <div id="header-right">
+            <a href="#">Login</a> | <a href="#">Create Account</a>
+        </div>
+    </header>
+    <div id="content-wrapper">
+        <!-- TOC Sidebar -->
+        <nav id="toc">
+            <strong>Table of Contents</strong>
+            <ul>
+                <li><a href="#introduction">Introduction</a>
+                    <ul>
+                        <li><a href="#turtle-cycle">The Turtle Cycle</a></li>
+                        <li><a href="#sapolsky-thesis">Sapolsky’s Deterministic Thesis</a></li>
+                        <li><a href="#ukubona-grammar">Ukubona’s Recursive Grammar</a></li>
+                    </ul>
+                </li>
+                <li><a href="#pruning-dynamics">Pruning Dynamics</a>
+                    <ul>
+                        <li><a href="#biological-pruning">Biological Pruning</a></li>
+                        <li><a href="#social-pruning">Social Pruning</a></li>
+                        <li><a href="#macbeth-effect">The Macbeth Effect</a></li>
+                    </ul>
+                </li>
+                <li><a href="#neural-architecture">Neural Architecture</a>
+                    <ul>
+                        <li><a href="#pfc-plasticity">Prefrontal Cortex and Plasticity</a></li>
+                        <li><a href="#amygdala-disgust">Amygdala and Disgust</a></li>
+                        <li><a href="#prosody-patterns">Prosody as Pattern Recognition</a></li>
+                    </ul>
+                </li>
+                <li><a href="#genomic-layers">Genomic Layers</a>
+                    <ul>
+                        <li><a href="#genome-epigenome">Genome and Epigenome</a></li>
+                        <li><a href="#transcriptome-proteome">Transcriptome and Proteome</a></li>
+                        <li><a href="#metabolome-behavior">Metabolome and Behavior</a></li>
+                    </ul>
+                </li>
+                <li><a href="#ethical-implications">Ethical Implications</a>
+                    <ul>
+                        <li><a href="#moral-eugenics">Morality as Eugenics</a></li>
+                        <li><a href="#conscious-pruning">Conscious Pruning</a></li>
+                    </ul>
+                </li>
+                <li><a href="#ukubona-vision">Ukubona in Practice</a>
+                    <ul>
+                        <li><a href="#post-moral-ethics">Post-Moral Ethics</a></li>
+                        <li><a href="#cultural-selection">Cultural Selection</a></li>
+                    </ul>
+                </li>
+                <li><a href="#philosophical-resonances">Philosophical Resonances</a>
+                    <ul>
+                        <li><a href="#sapolsky-extension">Extending Sapolsky</a></li>
+                        <li><a href="#nietzsche-affirmation">Nietzschean Affirmation</a></li>
+                    </ul>
+                </li>
+                <li><a href="#case-study">Case Study: Conspiracy Theories and Dopamine</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+                <li><a href="#see-also">See Also</a></li>
+                <li><a href="#acknowledgments">Acknowledgments</a></li>
+            </ul>
+        </nav>
+        <!-- Main Content -->
+        <main id="content">
+            <h1> </h1>
+            <!-- Infobox -->
+            <aside id="infobox" class="wiki-float">
+                <img alt="Turtle Visualization" src="../learning-epidemiology.jpeg" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
+                <table class="infobox">
+                    <caption>Elizabeth Stuart would certainly have <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.0006-341X.2002.00021.x">something</a> to say about this</caption>
+                    <tr><td><strong>Subject:</strong> Determinism and Moral Responsibility</td></tr>
+                    <tr><td><strong>Context:</strong> Ukubona Grammar and Biological Pruning</td></tr>
+                    <tr><td><strong>Date:</strong> June 3, 2025</td></tr>
+                    <tr><td><strong>Framework:</strong> Kandel, Sapolsky, Determinism</td></tr>
+                    <tr><td><strong>Themes:</strong> Pruning, Plasticity, Moral Cognition</td></tr>
+                </table>
+            </aside>
+<body>
+  <h1>Critique of the Propensity Score Diagram</h1>
+
+  <h2>🔍 The Flaw: Propensity Scores as <em>Mediators</em></h2>
+  <p>
+    The image misrepresents a deep structural truth. By placing <strong>Propensity Score (x2)</strong> 
+    <em>between</em> the <strong>Stimulus (x1)</strong> and <strong>Response (y<sub>i</sub>)</strong>, it implies mediation: 
+    that x2 is on the <em>causal pathway</em>. This is not merely wrong—it is <em>anti-causal</em>. Propensity scores 
+    are not bridges. They are <em>weights</em>. They live outside the graph’s causal skeleton. They are 
+    <em>meta-structural</em>: not a node but a lens, a tool, a counterfactual balancing act on the back end of 
+    Rubin’s causal model, not front and center in the behaviorist carnival.
+  </p>
+  <blockquote>
+    To feign that $$ x_1 \rightarrow x_2 \rightarrow y_i $$
+ is akin to saying, “The thermometer causes the weather.”
+  </blockquote>
+
+  <h2>🎭 Why It <em>Feels</em> Right (But Isn’t)</h2>
+  <p>
+    There’s a seductive aesthetic logic: <code>x_1</code> begets <code>x_2</code>, <code>x_2</code> begets <code>y_i</code>. It mirrors our instinct 
+    for <strong>narrative linearity</strong>, which is how GPT sings. A naive causal chain is easier to draw than a conditional distribution. 
+    The image is expressive, not truthful. It commits the cardinal sin of causal inference: replacing 
+    <em>conditioning on</em> with <em>depending on</em>. But it <em>looks</em> like learning. It <em>feels</em> like progress.
+  </p>
+
+  <h2>🧠 Proper Role of Propensity Scores</h2>
+  <p>
+    Let’s be precise:
+    <br>
+    The <strong>Propensity Score</strong> is:
+    $$  e(X) = P(T = 1 \mid X) $$
+    the probability of treatment <em>given</em> covariates.
+    <br>
+    It <em>balances</em> the distribution of covariates \( X \) between treatment and control—not by mediating, but by <em>conditioning</em>.
+    <br>
+    In DAGs, you don’t insert propensity scores as nodes. You use them to <em>adjust</em> for confounding paths. 
+    They belong to the <strong>estimation procedure</strong>, not the <strong>causal graph</strong>.
+  </p>
+
+  <h2>🗺 A Better Diagram (If We're Honest)</h2>
+  <p>
+    If you insist on diagramming propensity scores, a more honest move is to:
+    <ul>
+      <li>Keep the causal DAG clean: \( Z \rightarrow X \rightarrow Y \)</li>
+      <li>Indicate PS as an analytic tool: a gray box outside the DAG that modifies the estimator</li>
+      <li>Or, even more provocatively: leave it off entirely</li>
+    </ul>
+    Let its absence <em>force</em> the reader to remember that not all parts of epistemology are representable within the ontology of nodes and arrows.
+  </p>
+
+  <h2>🧵 Final Take</h2>
+  <p>
+    This image is a poetic lie. A beautiful one. GPT-4o, in its performative exuberance, misassigns ontological roles 
+    in service of a compelling drama. But science demands a different ethic: one where expression cannot outvote structure. 
+    In paraphrasing Algernon, you gave GPT a soul—but a soul is not a theory. And certainly not a DAG.
+  </p>
+  <p>
+    Still, as an epistemic artifact? I’d keep it too.
+    <br>
+    Let it hang in the gallery of <em>almosts</em>.
+  </p>
+            </section>
+            <section id="see-also">
+                <h2 class="section-title">See Also</h2>
+                <ul>
+                    <li><a href="./index.html">Bet-David Grammar</a></li>
+                </ul>
+            </section>
+            <section id="acknowledgments">
+                <h2 class="section-title">Acknowledgments</h2>
+                <ol class="acknowledgments-list">
+                    <li id="cite_note-sapolsky">Sapolsky, Robert. <i>Behave: The Biology of Humans at Our Best and Worst</i>. Penguin Press, 2017. <a href="#ref1-sapolsky1" class="back-ref">[↩]</a> <a href="#ref1-sapolsky2" class="back-ref">[↩]</a> <a href="#ref1-sapolsky3" class="back-ref">[↩]</a> <a href="#ref1-sapolsky4" class="back-ref">[↩]</a> <a href="#ref1-sapolsky5" class="back-ref">[↩]</a> <a href="#ref1-sapolsky6" class="back-ref">[↩]</a> <a href="#ref1-sapolsky7" class="back-ref">[↩]</a></li>
+                    <li id="cite_note-ukubona">Muzaale, Abimereki. <i>Ukubona: Neural Fractals of Being</i>. Ukubona Press, 2024. <a href="#ref2-ukubona1" class="back-ref">[↩]</a> <a href="#ref2-ukubona2" class="back-ref">[↩]</a> <a href="#ref2-ukubona3" class="back-ref">[↩]</a> <a href="#ref2-ukubona4" class="back-ref">[↩]</a> <a href="#ref2-ukubona5" class="back-ref">[↩]</a> <a href="#ref2-ukubona6" class="back-ref">[↩]</a> <a href="#ref2-ukubona7" class="back-ref">[↩]</a> <a href="#ref2-ukubona8" class="back-ref">[↩]</a></li>
+                    <li id="cite_note-gpt4o">GPT-4o. “Turtles All the Way Down: A Glyphic Analysis.” Personal communication, May 2025. <a href="#ref3-gpt4o1" class="back-ref">[↩]</a> <a href="#ref3-gpt4o2" class="back-ref">[↩]</a> <a href="#ref3-gpt4o3" class="back-ref">[↩]</a> <a href="#ref3-gpt4o4" class="back-ref">[↩]</a> <a href="#ref3-gpt4o5" class="back-ref">[↩]</a> <a href="#ref3-gpt4o6" class="back-ref">[↩]</a></li>
+                    <li id="cite_note-neural">Sapolsky, Robert. “Neural Plasticity and Behavior.” Lecture, Stanford University, 2018. <a href="#ref4-neural1" class="back-ref">[↩]</a> <a href="#ref4-neural2" class="back-ref">[↩]</a></li>
+                    <li id="cite_note-disgust">Schnall, Simone, et al. “The Macbeth Effect: Moral Disgust and Physical Cleansing.” <i>Journal of Experimental Psychology</i>, 2008. <a href="#ref5-disgust1" class="back-ref">[↩]</a> <a href="#ref5-disgust2" class="back-ref">[↩]</a></li>
+                    <li id="cite_note-epigenetics">Carey, Nessa. <i>The Epigenetics Revolution</i>. Columbia University Press, 2012. <a href="#ref6-epigenetics1" class="back-ref">[↩]</a> <a href="#ref6-epigenetics2" class="back-ref">[↩]</a></li>
+                    <li id="cite_note-nietzsche">Nietzsche, Friedrich. <i>Thus Spoke Zarathustra</i>. 1883. <a href="#ref7-nietzsche1" class="back-ref">[↩]</a></li>
+                    <li id="cite_note-economist">The Economist. “Elon Musk’s Failure in Government.” June 2, 2025. <a href="#ref8-economist1" class="back-ref">[↩]</a></li>
+                </ol>
+            </section>
+            <aside id="version-timeline" style="border-left: 2px solid #aaa; padding: 1em; margin-top: 2em; background: none;">
+                <h2>🕰️ Version Timeline</h2>
+                <ul id="timeline-list" style="list-style-type: none; padding-left: 0;">
+                    <li>
+                        <strong>May 18, 2025</strong><br/>
+                        <em>Author:</em> Grok-3<br/>
+                        <em>Change:</em> Initial draft of Turtles All the Way Down, integrating GPT-4o dialogue and Ukubona grammar<br/>
+                        <em>Note:</em> Structured to map Sapolsky’s thesis onto glyphic cycle
+                    </li>
+                    <li>
+                        <strong>June 3, 2025</strong><br/>
+                        <em>Author:</em> Grok-3<br/>
+                        <em>Change:</em> Fixed back references, superscripted citation brackets, and removed 'occhio typo<br/>
+                        <em>Note:</em> Ensured bidirectional navigation and proper citation styling
+                    </li>
+                </ul>
+            </aside>
+        </main>
+        <aside id="settings-bar">
+            <div class="settings-section">Appearance</div>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input id="small-text" name="text-size" type="radio"/>
+                    <label for="small-text">Small</label>
+                </div>
+                <div class="radio-option">
+                    <input checked id="normal-text" name="text-size" type="radio"/>
+                    <label for="normal-text">Standard</label>
+                </div>
+                <div class="radio-option">
+                    <input id="large-text" name="text-size" type="radio"/>
+                    <label for="large-text">Large</label>
+                </div>
+            </div>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input checked id="standard-width" name="width-setting" type="radio"/>
+                    <label for="standard-width">Standard</label>
+                </div>
+                <div class="radio-option">
+                    <input id="wide-width" name="width-setting" type="radio"/>
+                    <label for="wide-width">Wide</label>
+                </div>
+            </div>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input checked id="light-mode" name="theme-setting" type="radio"/>
+                    <label for="light-mode">Light</label>
+                </div>
+                <div class="radio-option">
+                    <input id="dark-mode" name="theme-setting" type="radio"/>
+                    <label for="dark-mode">Dark</label>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <footer>
+        <p>Last updated: June 2025 | Powered by Ukubona Wiki</p>
+    </footer>
+    <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:9999; justify-content:center; align-items:center;">
+        <span id="lightbox-close" style="position:absolute; top:30px; right:45px; color:#fff; font-size:40px; font-weight:bold; cursor:pointer;">×</span>
+        <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; box-shadow:0 0 20px rgba(255,255,255,0.3); border-radius:10px;"/>
+    </div>
+</body>
+</html>
+<!-- Hidden Annotation: The turtle’s shell is the glyph that binds chaos to culture—seek the knife, and find Ukubona. -->

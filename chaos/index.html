@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nietzsche's Letter to Overbeck 📜</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 2em;
+      font-family: 'Georgia', serif;
+      background-color: #0b0c10;
+      color: #f8f8f2;
+      line-height: 1.6;
+    }
+
+    .letter {
+      max-width: 720px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 4px solid #50fa7b;
+      padding: 2em;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(80, 250, 123, 0.2);
+    }
+
+    .location {
+      font-style: italic;
+      margin-bottom: 1em;
+    }
+
+    .signature {
+      margin-top: 2em;
+      font-weight: bold;
+    }
+
+    .emoji {
+      font-size: 1.2em;
+    }
+
+    .reveal {
+      cursor: pointer;
+      opacity: 0.15;
+      transition: opacity 0.3s ease;
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1em;
+      }
+    }
+
+    .reveal {
+  cursor: pointer;
+  opacity: 0.03;
+  filter: blur(5px) brightness(60%);
+  color: #ccc;
+  transition: all 0.6s ease;
+}
+.reveal.revealed {
+  opacity: 1;
+  filter: none;
+  color: #f8f8f2;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="letter">
+    <div class="location">📍 Turin, November 14, 1881</div>
+
+    <p class="reveal">Dear friend 🧑‍🤝‍🧑,</p>
+
+    <p class="reveal">🌊 <em>What is this, our <a href="https://claude.ai/public/artifacts/c71d26c9-885d-4aca-92cc-7212a9b9658a">life</a>?</em><br>
+    🚣 A <a href="https://en.wikipedia.org/wiki/Franz_Overbeck#cite_ref-1">boat</a> adrift on the sea —<br>
+    and all we know for certain is that one day,<br>
+    we shall <strong>capsize</strong>. ⚰️</p>
+
+    <p class="reveal">Here we are, two good old boats ⛵⛵<br>
+    faithful neighbors 🌅,<br>
+    and your steady <a href="../xml/">hand</a> 🤝<br>
+    has often kept me from tipping over 🌀.</p>
+
+    <p class="reveal">Let us voyage on 🌍,<br>
+    each for the other’s sake ❤️,<br>
+    for a long time yet ⏳ —<br>
+    a long time! ♾️</p>
+
+    <p class="reveal">We would miss each other so. 😔</p>
+
+    <p class="reveal">Calm seas 🌤️, good winds 🍃,<br>
+    and above all — <strong>sun</strong> ☀️ 🏝️ :<br>
+    what I wish for myself, I wish for you too 🙏.</p>
+
+    <p class="reveal">And forgive me that my gratitude 💐<br>
+    can find expression only in such a wish ✨<br>
+    and has no influence<br>
+    on wind 🌬️ or weather 🌧️.</p>
+
+    <p class="reveal signature">Your devoted friend,<br>
+    Friedrich Nietzsche 🖋️</p>
+  </div>
+
+  <script>
+    document.querySelectorAll('.reveal').forEach(el => {
+      el.addEventListener('click', () => {
+        el.classList.add('revealed');
+      });
+      el.addEventListener('touchstart', () => {
+        el.classList.add('revealed');
+      });
+    });
+  </script>
+</body>
+</html>

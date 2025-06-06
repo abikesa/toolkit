@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal Noise Development Framework</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-top: 1.5em;
+        }
+        
+        h1 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f5f5f5;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        blockquote {
+            border-left: 4px solid #ddd;
+            padding-left: 15px;
+            color: #666;
+            margin: 20px 0;
+        }
+        
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            background-color: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+        }
+        
+        .intro-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4a89dc;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .framework-card {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="emoji">🧠 Signal Noise Development Framework</h1>
+    
+    <div class="intro-box">
+        <p>A comprehensive framework for building cognitive-ethical dashboard systems that track tasks, time, and tension across layered cognition—from synapse to society.</p>
+    </div>
+    
+    <h2>📌 Concept</h2>
+    <p>Your project is a <strong>conceptual framework turned into a functional dashboard</strong>, blending:</p>
+    <ul>
+        <li><strong>Neurotemporal structure</strong> (e.g., synaptic → symbolic → societal)</li>
+        <li><strong>Ethical scaffolding</strong> (🌊 Origins → ❤️ Commons → 🌀 Trust vs Faust → 🐬 Nature/Man/Artifice → 🔁 Sustained)</li>
+        <li><strong>Signal/Noise filtering</strong></li>
+        <li><strong>Canon layers</strong>, temporal urgency, and cognition-modeling.</li>
+    </ul>
+    
+    <h2>📦 Stack Architecture</h2>
+    
+    <h3>📄 YAML (Data Model Layer)</h3>
+    <p>Structured representation of your <strong>layers, deadlines, metadata, tasks, and mappings</strong>.</p>
+    
+    <p><strong>Key files:</strong></p>
+    <ul>
+        <li><code>layers.yml</code>: Canonical definitions (e.g., temporal, neural, ethical)</li>
+        <li><code>tasks.yml</code>: Deadline tracking, importance, urgency, layer mapping</li>
+        <li><code>config.yml</code>: Site/dashboard settings (dark mode, filters, etc.)</li>
+    </ul>
+    
+    <h3>🐍 Python (Backend & Toolkit Logic)</h3>
+    <p>Serves 3 key roles:</p>
+    <ol>
+        <li><strong>CLI Tooling</strong>: Filter/view tasks by urgency, layer, etc.</li>
+        <li><strong>API Server (optional)</strong>: Local or hosted API to serve JSON from YAML.</li>
+        <li><strong>Export Utility</strong>: Turn YAML into HTML/Markdown for GitHub Pages.</li>
+    </ol>
+    
+    <p><strong>Modules:</strong></p>
+    <ul>
+        <li><code>loader.py</code>: Parse & validate YAML</li>
+        <li><code>filters.py</code>: Filter tasks (e.g., overdue, symbolic only)</li>
+        <li><code>export.py</code>: Build static HTML from templates</li>
+        <li><code>api.py</code>: Flask/FastAPI app (optional, for dynamic dashboard)</li>
+    </ul>
+    
+    <h3>🌐 Frontend (HTML + JS + CSS)</h3>
+    <p>Your <strong>Signal/Noise Dashboard UI</strong>. This reads <strong>YAML (or pre-converted JSON)</strong> and displays:</p>
+    <ul>
+        <li>Layer filters</li>
+        <li>Task timelines</li>
+        <li>Ethical framing</li>
+        <li>Dark mode, collapsibles, etc.</li>
+    </ul>
+    
+    <p><strong>Frontend files:</strong></p>
+    <ul>
+        <li><code>index.html</code>: Core layout and structure</li>
+        <li><code>style.css</code>: Branded aesthetic</li>
+        <li><code>script.js</code>: Dynamic interaction (e.g., TOC, sorting, toggling urgency layers)</li>
+    </ul>
+    
+    <h3>🗂️ GitHub (Hosting + Versioning)</h3>
+    <ul>
+        <li>GitHub repo is your <strong>project base</strong>.</li>
+        <li>GitHub Pages hosts the <strong>static dashboard</strong> (<code>docs/</code> or <code>gh-pages</code>).</li>
+        <li>YAML and Python live in the root or <code>backend/</code>.</li>
+        <li>HTML/JS/CSS live in <code>frontend/</code> or <code>docs/</code>.</li>
+    </ul>
+    
+    <pre>
+SignalNoiseToolkit/
+├── backend/
+│   ├── loader.py
+│   ├── filters.py
+│   ├── export.py
+│   └── api.py
+├── data/
+│   ├── layers.yml
+│   ├── tasks.yml
+│   └── config.yml
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+├── docs/                ← GitHub Pages entry point
+│   └── (static site)
+├── .github/workflows/   ← (optional: auto-deploy)
+└── README.md</pre>
+    
+    <h2>🧪 Scientific Method ↔ Software Stack</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th><strong>Science</strong></th>
+                <th><strong>Toolkit Equivalent</strong></th>
+                <th><strong>Explanation</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Question</strong></td>
+                <td>🧠 <em>Concept / Canon</em></td>
+                <td>Framing the problem: What signal are we tracking? What layers matter?</td>
+            </tr>
+            <tr>
+                <td><strong>Data</strong></td>
+                <td>📄 <em>YAML</em></td>
+                <td>Ground truth: structured conceptual and task data (deadlines, urgency, ethics)</td>
+            </tr>
+            <tr>
+                <td><strong>Code</strong></td>
+                <td>🐍 <em>Python backend</em></td>
+                <td>Interpretation and transformation: filters, exports, and logic</td>
+            </tr>
+            <tr>
+                <td><strong>Output</strong></td>
+                <td>🌐 <em>HTML, JS, CSS</em></td>
+                <td>Presentation layer: visual clarity, hierarchy, legibility</td>
+            </tr>
+            <tr>
+                <td><strong>App</strong></td>
+                <td>🚀 <em>GitHub / GitHub Pages</em></td>
+                <td>Distribution and versioning: public deployment, iteration, collaboration</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>🌀 Fractal Execution Model</h2>
+    
+    <div class="intro-box">
+        <p><em>"From cognition to code, from ethics to execution."</em></p>
+    </div>
+    
+    <p>This isn't just a stack — it's a <strong>recursive development ontology</strong>. Each layer, task, and ethical dilemma is treated like its own mini-experiment:</p>
+    
+    <blockquote>
+        <p>"What's the signal? What's the noise? What must persist?"</p>
+    </blockquote>
+    
+    <table>
+        <thead>
+            <tr>
+                <th><strong>Layer</strong></th>
+                <th><strong>Example</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>🧠 <em>Synaptic</em></td>
+                <td>"What is my attention being pulled toward?" → coded as high-frequency urgency</td>
+            </tr>
+            <tr>
+                <td>🌀 <em>Trust vs Faust</em></td>
+                <td>"Am I building sustainable cognition or accelerationist drift?"</td>
+            </tr>
+            <tr>
+                <td>🔁 <em>Sustained</em></td>
+                <td>"Is this a viable long-term pattern?" — feedback into the toolkit's evolution</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>✅ Recommended First Steps</h2>
+    
+    <ol>
+        <li>✅ Finalize YAML layer/task structure</li>
+        <li>⚙️ Write Python loader + CLI filters</li>
+        <li>🌐 Build a minimal HTML dashboard</li>
+        <li>🚀 Export static site & test on GitHub Pages</li>
+        <li>🔁 Iterate: Add JS interactivity, polish UI, expand filters</li>
+    </ol>
+    
+    <h2>📘 README.md Starter Template</h2>
+    
+    <pre># 🧠 Signal Noise Toolkit
+
+A neuroethical dashboard system that filters tasks, time, and tension across layered cognition—from synapse to society.
+
+---
+
+## 🧪 Signal Noise Development Framework
+
+> *From cognition to code, from ethics to execution.*
+
+This toolkit follows a universal arc based on the scientific method, adapted for layered cognitive systems:
+
+| 🔬 Scientific Stage | 💡 Toolkit Role           | 🔧 Artifacts                                       |
+|---------------------|---------------------------|----------------------------------------------------|
+| **1. Question**     | 🌊 Concept / Canon        | Neuroethical framing, cosmology, canon layers      |
+| **2. Data**         | 📄 YAML Source Files      | `layers.yml`, `tasks.yml`, `canon.yml`             |
+| **3. Code**         | 🐍 Python Backend         | `loader.py`, `filters.py`, `export.py`, `api.py`   |
+| **4. Output**       | 🌐 Frontend Dashboard     | `index.html`, `style.css`, `script.js`             |
+| **5. App**          | 🚀 GitHub Pages Deployment| Static dashboard + live web presence               |
+
+---
+
+## 🌀 Fractal Execution Model
+
+Each layer (e.g., ❤️ Commons, 🌀 Trust vs Faust) becomes its own recursive micro-experiment:
+
+> "What's the signal? What's the noise? What must persist?"
+
+---
+
+## 🔁 Intern Onboarding Flow
+
+Every task or contribution passes through the same stages:
+
+1. **Define the layer** → map to conceptual canon
+2. **Add YAML data** → update source truth
+3. **Write Python logic** → filters, exports, etc.
+4. **Visualize it** → test it in the dashboard
+5. **Push it live** → GitHub Pages & version control</pre>
+    
+    <h2>🌐 GitHub Pages Dashboard Welcome Box</h2>
+    
+    <div class="framework-card">
+        <h3 class="emoji">🧪 Signal Noise Development Framework</h3>
+        <p><em>From cognition to code, from ethics to execution.</em></p>
+        <ul>
+            <li><strong>🌊 Concept:</strong> Define the layer (question)</li>
+            <li><strong>📄 Data:</strong> Add to YAML source</li>
+            <li><strong>🐍 Code:</strong> Filter, transform, export</li>
+            <li><strong>🌐 Output:</strong> Render to HTML dashboard</li>
+            <li><strong>🚀 App:</strong> Serve on GitHub Pages</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neurocosmic Layer Framework</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 2em; color: #333; }
+    table { border-collapse: collapse; width: 100%; background: white; }
+    th, td { padding: 1em; border: 1px solid #ddd; text-align: left; }
+    th { background: #222; color: white; }
+    h1 { text-align: center; }
+    .icon { font-size: 1.5em; }
+  </style>
+</head>
+<body>
+  <h1>🧠 Neurocosmic Layer Framework</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Icon</th>
+        <th>Layer</th>
+        <th>Neurobiological Scale</th>
+        <th>Dialectic</th>
+        <th>Cosmological Axis</th>
+      </tr>
+    </thead>
+    <tbody id="layerTable">
+      <!-- JS will populate this -->
+    </tbody>
+  </table>
+
+  <script>
+    const layers = [
+      { icon: "🌊", name: "Origins", neurobiology: "Molecular / Synaptic", dialectic: "Entropy vs Signal", axis: "Origins" },
+      { icon: "❤️", name: "Commons", neurobiology: "Cellular / Axonal", dialectic: "Scarcity vs Reciprocity", axis: "Commons" },
+      { icon: "🌀", name: "Trust vs Faust", neurobiology: "Ganglionic / Sensorimotor", dialectic: "Amygdala vs PFC", axis: "Faust vs Trust" },
+      { icon: "🐬", name: "Boundaries", neurobiology: "Network / Functional", dialectic: "Hippocampus vs Thalamus", axis: "Nature / Man / Artifice" },
+      { icon: "🔁", name: "Sustainability", neurobiology: "Hallucination / Coherence", dialectic: "Insular Cortex vs DMN", axis: "Sustained" },
+    ];
+
+    const tableBody = document.getElementById("layerTable");
+
+    layers.forEach(layer => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td class="icon">${layer.icon}</td>
+        <td>${layer.name}</td>
+        <td>${layer.neurobiology}</td>
+        <td>${layer.dialectic}</td>
+        <td>${layer.axis}</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  </script>
+</body>
+</html>
+

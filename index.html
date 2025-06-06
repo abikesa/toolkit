@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neurocosmic Framework Toolkit</title>
+  <style>
+    :root {
+      --bg-color: #f8f9fa;
+      --text-color: #212529;
+      --primary: #2c3e50;
+      --secondary: #6c757d;
+      --light: #f8f9fa;
+      --dark: #343a40;
+      --border-color: #dee2e6;
+      --row-alt: #f2f2f2;
+      --hover-color: #e9ecef;
+    }
+    
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #f8f9fa;
+      --primary: #4a89dc;
+      --secondary: #a0a0a0;
+      --light: #1e1e1e;
+      --dark: #f8f9fa;
+      --border-color: #333;
+      --row-alt: #222;
+      --hover-color: #333;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      padding: 2em;
+      max-width: 1400px;
+      margin: 0 auto;
+      line-height: 1.6;
+      transition: all 0.3s ease;
+    }
+    
+    h1, h2, h3 {
+      color: var(--primary);
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 1em;
+      font-size: 2.5em;
+    }
+    
+    h2 {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5em;
+      margin-top: 2em;
+    }
+    
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+    }
+    
+    .panel {
+      flex: 1;
+      min-width: 300px;
+      background: var(--light);
+      padding: 1.5em;
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+    
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background: var(--light);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 1em 0;
+    }
+    
+    th, td {
+      padding: 1.2em;
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+    
+    th {
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+    }
+    
+    tr:nth-child(even) {
+      background-color: var(--row-alt);
+    }
+    
+    .icon {
+      font-size: 1.8em;
+      text-align: center;
+      display: block;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 1em;
+      margin: 1em 0;
+      flex-wrap: wrap;
+    }
+    
+    button, select, input {
+      padding: 0.6em 1em;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      background: var(--light);
+      color: var(--text-color);
+    }
+    
+    button {
+      cursor: pointer;
+      background: var(--primary);
+      color: white;
+      border: none;
+      transition: background 0.2s;
+    }
+    
+    button:hover {
+      opacity: 0.9;
+    }
+    
+    .theme-toggle {
+      position: fixed;
+      top: 1em;
+      right: 1em;
+      z-index: 100;
+    }
+    
+    pre {
+      background: var(--row-alt);
+      padding: 1em;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+    }
+    
+    code {
+      font-family: 'Courier New', monospace;
+      background: var(--row-alt);
+      padding: 0.2em 0.4em;
+      border-radius: 3px;
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 1em;
+      }
+      
+      .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" id="themeToggle">🌓 Toggle Theme</button>
+  
+  <h1>🧠 Neurocosmic Framework Toolkit</h1>
+  
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Search layers...">
+    <select id="filterSelect">
+      <option value="">All Categories</option>
+      <option value="Origins">Origins</option>
+      <option value="Commons">Commons</option>
+      <option value="Trust vs Faust">Trust vs Faust</option>
+      <option value="Boundaries">Boundaries</option>
+      <option value="Sustainability">Sustainability</option>
+    </select>
+    <button id="exportJson">Export JSON</button>
+    <button id="exportMarkdown">Export Markdown</button>
+  </div>
+  
+  <table id="frameworkTable">
+    <thead>
+      <tr>
+        <th>Icon</th>
+        <th>Layer</th>
+        <th>Neurobiological Scale</th>
+        <th>Conflict / Dialectic</th>
+        <th>Cosmological Axis</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- Will be populated by JavaScript -->
+    </tbody>
+  </table>
+  
+  <div class="container">
+    <div class="panel">
+      <h2>CLI Generator Workflow</h2>
+      <p>This HTML dashboard connects to your YAML data through the following workflow:</p>
+      
+      <h3>1. Folder Structure</h3>
+      <pre>
+signal-noise-toolkit/
+├── generate_dashboard.py
+├── neurocosmic_layers.yml
+├── templates/
+│   └── index_template.html
+├── output/
+│   ├── index.html
+│   ├── data.json
+│   └── README.md</pre>
+      
+      <h3>2. Python CLI Script</h3>
+      <pre>
+import yaml
+import json
+import os
+from jinja2 import Environment, FileSystemLoader
+
+# Load YAML data
+with open("neurocosmic_layers.yml", "r") as f:
+    data = yaml.safe_load(f)
+    layers = data["layers"]
+
+# Setup Jinja2 template
+env = Environment(loader=FileSystemLoader("templates"))
+template = env.get_template("index_template.html")
+
+# Generate outputs
+os.makedirs("output", exist_ok=True)
+
+# HTML
+with open("output/index.html", "w") as f:
+    f.write(template.render(layers=layers))
+
+# JSON
+with open("output/data.json", "w") as f:
+    json.dump(layers, f, indent=2)
+
+# Markdown
+with open("output/README.md", "w") as f:
+    f.write("# Neurocosmic Layer Framework\n\n")
+    f.write("| Icon | Layer | Neurobiology | Dialectic | Axis |\n")
+    f.write("|------|-------|--------------|-----------|------|\n")
+    for layer in layers:
+        f.write(f"| {layer['icon']} | {layer['name']} | {layer['neurobiology']} | {layer['dialectic']} | {layer['axis']} |\n")
+
+print("✅ Dashboard generated to /output/")</pre>
+    </div>
+    
+    <div class="panel">
+      <h2>Framework Commentary</h2>
+      <h3>🌊 Origins</h3>
+      <p><strong>Entropy vs Signal at the synaptic level</strong> - Information emerges from chaos, the primal cosmogenesis.</p>
+      
+      <h3>❤️ Commons</h3>
+      <p><strong>Scarcity vs Reciprocity</strong> - Captures the cellular tension of life: competition vs cooperation, encoded in axonal architectures.</p>
+      
+      <h3>🌀 Trust vs Faust</h3>
+      <p><strong>Amygdala vs PFC</strong> - The classic fear vs reason, limbic vs executive tension—the Faustian battlefield.</p>
+      
+      <h3>🐬 Boundaries</h3>
+      <p><strong>Hippocampus vs Thalamus</strong> - Shapes the boundaries of perception and integration—how the system determines relevance.</p>
+      
+      <h3>🔁 Sustainability</h3>
+      <p><strong>Insular vs DMN</strong> - Reflects the pivot from egocentric to allocentric cognition—key to sustainability and collective coherence.</p>
+      
+      <h3>Next Steps</h3>
+      <ul>
+        <li>Add Flask API for dynamic filtering</li>
+        <li>Implement GitHub Pages deployment</li>
+        <li>Expand with visualization components</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Framework data
+    const layers = [
+      {
+        icon: "🌊",
+        name: "Origins",
+        neurobiology: "Molecular / Synaptic",
+        dialectic: "Entropy vs Signal",
+        axis: "Origins"
+      },
+      {
+        icon: "❤️",
+        name: "Commons",
+        neurobiology: "Cellular / Axonal",
+        dialectic: "Scarcity vs Reciprocity",
+        axis: "Commons"
+      },
+      {
+        icon: "🌀",
+        name: "Trust vs Faust",
+        neurobiology: "Ganglionic / Sensorimotor",
+        dialectic: "Amygdala vs PFC",
+        axis: "Faust vs Trust"
+      },
+      {
+        icon: "🐬",
+        name: "Boundaries",
+        neurobiology: "Network / Functional",
+        dialectic: "Hippocampus vs Thalamus",
+        axis: "Nature / Man / Artifice"
+      },
+      {
+        icon: "🔁",
+        name: "Sustainability",
+        neurobiology: "Hallucination / Coherence",
+        dialectic: "Insular Cortex vs DMN",
+        axis: "Sustained"
+      }
+    ];
+
+    // DOM elements
+    const tableBody = document.getElementById('tableBody');
+    const searchInput = document.getElementById('searchInput');
+    const filterSelect = document.getElementById('filterSelect');
+    const exportJsonBtn = document.getElementById('exportJson');
+    const exportMarkdownBtn = document.getElementById('exportMarkdown');
+    const themeToggle = document.getElementById('themeToggle');
+
+    // Initialize table
+    function renderTable(data) {
+      tableBody.innerHTML = '';
+      data.forEach(layer => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td><span class="icon">${layer.icon}</span></td>
+          <td>${layer.name}</td>
+          <td>${layer.neurobiology}</td>
+          <td>${layer.dialectic}</td>
+          <td>${layer.axis}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    // Filter functionality
+    function filterTable() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const filterValue = filterSelect.value;
+      
+      const filtered = layers.filter(layer => {
+        const matchesSearch = (
+          layer.name.toLowerCase().includes(searchTerm) ||
+          layer.neurobiology.toLowerCase().includes(searchTerm) ||
+          layer.dialectic.toLowerCase().includes(searchTerm) ||
+          layer.axis.toLowerCase().includes(searchTerm)
+        );
+        
+        const matchesFilter = filterValue ? layer.name === filterValue : true;
+        
+        return matchesSearch && matchesFilter;
+      });
+      
+      renderTable(filtered);
+    }
+
+    // Export functions
+    function exportToJson() {
+      const dataStr = JSON.stringify(layers, null, 2);
+      const blob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'neurocosmic_layers.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    function exportToMarkdown() {
+      let md = `# Neurocosmic Layer Framework\n\n`;
+      md += `| Icon | Layer | Neurobiology | Dialectic | Axis |\n`;
+      md += `|------|-------|--------------|-----------|------|\n`;
+      
+      layers.forEach(layer => {
+        md += `| ${layer.icon} | ${layer.name} | ${layer.neurobiology} | ${layer.dialectic} | ${layer.axis} |\n`;
+      });
+      
+      const blob = new Blob([md], { type: 'text/markdown' });
+      const url = URL.createObjectURL(blob);
+      
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'neurocosmic_layers.md';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    // Theme toggle
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      // Set initial theme
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      
+      // Render initial table
+      renderTable(layers);
+      
+      // Event listeners
+      searchInput.addEventListener('input', filterTable);
+      filterSelect.addEventListener('change', filterTable);
+      exportJsonBtn.addEventListener('click', exportToJson);
+      exportMarkdownBtn.addEventListener('click', exportToMarkdown);
+      themeToggle.addEventListener('click', toggleTheme);
+      
+      // Add row hover effects
+      tableBody.addEventListener('mouseover', (e) => {
+        if (e.target.tagName === 'TD') {
+          e.target.parentNode.style.backgroundColor = 'var(--hover-color)';
+        }
+      });
+      
+      tableBody.addEventListener('mouseout', (e) => {
+        if (e.target.tagName === 'TD') {
+          const row = e.target.parentNode;
+          const index = Array.from(tableBody.children).indexOf(row);
+          row.style.backgroundColor = index % 2 === 0 ? 'var(--light)' : 'var(--row-alt)';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

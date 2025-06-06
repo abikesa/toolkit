@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code - The Soto–Judge Effect</title>
+  <link rel="stylesheet" href="https://abikesa.github.io/css/article.css" />
+  <link rel="stylesheet" href="https://abikesa.github.io/css/settings-bar.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-light.ico" type="image/x-icon" />
+  <link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fira+Code&display=swap" rel="stylesheet" />
+  <script defer src="https://abikesa.github.io/js/toggle-darkmode.js"></script>
+</head>
+<body>
+  <header>
+    <h1>The Code That Cracked the Effect</h1>
+    <button id="toggle-theme" aria-label="Toggle Dark Mode">🌓</button>
+  </header>
+
+  <nav>
+    🔗 
+    <a href="./final.html">Home</a> • 
+    <a href="./question.html">Question</a> • 
+    <a href="./data.html">Data</a> • 
+    <a href="./code.html">Code</a> • 
+    <a href="./results.html">Results</a> • 
+    <a href="./conclusions.html">Conclusions</a>
+  </nav>
+
+  <section>
+    <h2>Python Powerhouse</h2>
+    <p>
+      This Python script transforms raw Statcast data into a striking visualization of Juan Soto’s performance with and without Aaron Judge. Using <code>pandas</code> for data wrangling and <code>matplotlib</code> for plotting, we reveal the Soto–Judge Effect in vivid detail.
+    </p>
+    <pre><code>
+<span class="keyword">import</span> pandas <span class="keyword">as</span> pd
+<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt
+<span class="keyword">import</span> matplotlib.dates <span class="keyword">as</span> mdates
+
+<span class="comment"># Load Statcast data for Soto’s 2024 (Yankees) and 2025 (Mets) seasons</span>
+soto_2024 = pd.<span class="function">read_csv</span>(<span class="string">"../data/soto-2024.csv"</span>)
+soto_2025 = pd.<span class="function">read_csv</span>(<span class="string">"../data/soto-2025.csv"</span>)
+
+<span class="comment"># Convert dates to datetime for consistent plotting</span>
+soto_2024[<span class="string">"Date"</span>] = pd.<span class="function">to_datetime</span>(soto_2024[<span class="string">"Date"</span>], errors=<span class="string">"coerce"</span>)
+soto_2025[<span class="string">"Date"</span>] = pd.<span class="function">to_datetime</span>(soto_2025[<span class="string">"Date"</span>], errors=<span class="string">"coerce"</span>)
+
+<span class="comment"># Normalize years to align 2024 and 2025 on the same x-axis</span>
+soto_2024[<span class="string">"PlotDate"</span>] = soto_2024[<span class="string">"Date"</span>].<span class="function">apply</span>(<span class="keyword">lambda</span> d: d.<span class="function">replace</span>(year=2000) <span class="keyword">if</span> pd.<span class="function">notnull</span>(d) <span class="keyword">else</span> pd.NaT)
+soto_2025[<span class="string">"PlotDate"</span>] = soto_2025[<span class="string">"Date"</span>].<span class="function">apply</span>(<span class="keyword">lambda</span> d: d.<span class="function">replace</span>(year=2000) <span class="keyword">else</span> pd.NaT)
+
+<span class="comment"># Sort by date for proper rolling average calculation</span>
+soto_2024 = soto_2024.<span class="function">sort_values</span>(<span class="string">"PlotDate"</span>)
+soto_2025 = soto_2025.<span class="function">sort_values</span>(<span class="string">"PlotDate"</span>)
+
+<span class="comment"># Calculate 10-game rolling average of hits</span>
+soto_2024[<span class="string">"rolling_avg"</span>] = soto_2024[<span class="string">"H"</span>].<span class="function">rolling</span>(10).<span class="function">mean</span>()
+soto_2025[<span class="string">"rolling_avg"</span>] = soto_2025[<span class="string">"H"</span>].<span class="function">rolling</span>(10).<span class="function">mean</span>()
+
+<span class="comment"># Create the plot</span>
+plt.<span class="function">figure</span>(figsize=(10, 6))
+plt.<span class="function">plot</span>(soto_2024[<span class="string">"PlotDate"</span>], soto_2024[<span class="string">"rolling_avg"</span>], label=<span class="string">"Soto Late 2024"</span>, linewidth=2)
+plt.<span class="function">plot</span>(soto_2025[<span class="string">"PlotDate"</span>], soto_2025[<span class="string">"rolling_avg"</span>], label=<span class="string">"Soto Early 2025"</span>, linewidth=2)
+
+<span class="comment"># Format x-axis with month and day</span>
+plt.gca().xaxis.<span class="function">set_major_formatter</span>(mdates.<span class="function">DateFormatter</span>(<span class="string">'%b %d'</span>))
+
+<span class="comment"># Add titles, labels, and legend</span>
+plt.<span class="function">title</span>(<span class="string">"Juan Soto Rolling Hits: With vs. Without Judge"</span>)
+plt.<span class="function">xlabel</span>(<span class="string">"Game Date"</span>)
+plt.<span class="function">ylabel</span>(<span class="string">"Hits (10-game rolling avg)"</span>)
+plt.<span class="function">legend</span>()
+plt.<span class="function">xticks</span>(rotation=45)
+plt.<span class="function">grid</span>(True, which=<span class="string">'major'</span>, linestyle=<span class="string">'--'</span>, linewidth=0.5)
+plt.<span class="function">tight_layout</span>()
+
+<span class="comment"># Save the visualization</span>
+plt.<span class="function">savefig</span>(<span class="string">"../images/soto-judge-effect.jpeg"</span>)
+    </code></pre>
+    <p>
+      This script loads Soto’s data, aligns dates, computes rolling averages, and generates a clear, compelling graph. The result? A visual story of how lineup protection shapes performance.
+    </p>
+  </section>
+
+  <footer>
+    <p>Analysis by Jonathan Gasaatura • Ukubona LLC • May 2025</p>
+  </footer>
+</body>
+</html>

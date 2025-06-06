@@ -1,0 +1,154 @@
+/* style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #1a1a1a;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 4rem; /* Large for gallery screens */
+  font-weight: 800;
+  color: #003087; /* Yankees-inspired navy */
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #e81828; /* Mets-inspired accent */
+  margin: 1.5rem 0 1rem;
+}
+
+p, li, blockquote {
+  font-size: 1.8rem; /* Readable on large screens */
+  color: #333;
+}
+
+nav {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+nav a {
+  color: #003087;
+  text-decoration: none;
+  margin: 0 1rem;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #e81828;
+}
+
+img {
+  max-width: 70%; /* Reduced to prevent overwhelming */
+  display: block;
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.caption {
+  font-size: 1.4rem;
+  color: #666;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+blockquote {
+  font-style: italic;
+  border-left: 5px solid #e81828;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  color: #1a1a1a;
+}
+
+pre {
+  background-color: #2d2d2d;
+  color: #f8f8f2;
+  padding: 2rem;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Syntax highlighting for code */
+code {
+  font-family: 'Fira Code', monospace;
+}
+
+pre code .comment {
+  color: #6272a4;
+  font-style: italic;
+}
+
+pre code .string {
+  color: #f1fa8c;
+}
+
+pre code .keyword {
+  color: #ff79c6;
+}
+
+pre code .function {
+  color: #50fa7b;
+}
+
+ul {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+li {
+  margin-bottom: 0.8rem;
+}
+
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 1.4rem;
+  color: #666;
+}
+
+button#toggle-theme {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #003087;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+    color: #f9f9f9;
+  }
+  h1 { color: #66b2ff; }
+  h2 { color: #ff6666; }
+  p, li, blockquote { color: #e0e0e0; }
+  nav a { color: #66b2ff; }
+  nav a:hover { color: #ff6666; }
+  .caption { color: #999; }
+  button#toggle-theme { color: #66b2ff; }
+}

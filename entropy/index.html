@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>⚔️ For Russian Fatalism</title>
+  <link rel="icon" href="favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000814;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      font-family: system-ui, sans-serif;
+    }
+
+    .glyph-sequence {
+      display: flex;
+      gap: 3vw;
+      font-size: 12vw;
+      opacity: 0.85;
+      animation: drift 30s linear infinite;
+    }
+
+    @keyframes drift {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .glyph {
+      display: inline-block;
+      transition: transform 0.5s ease, opacity 1s;
+    }
+
+    .glyph:hover {
+      transform: scale(1.2) rotate(-2deg);
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      .glyph-sequence {
+        flex-direction: column;
+        gap: 2vh;
+        animation: none;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glyph-sequence">
+    <div class="glyph">🌊</div>
+    <div class="glyph">🚣</div>
+    <div class="glyph">🙇</div>
+    <div class="glyph">✂️</div>
+    <div class="glyph">🔁</div>
+  </div>
+</body>
+</html>

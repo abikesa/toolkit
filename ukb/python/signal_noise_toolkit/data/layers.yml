@@ -1,0 +1,99 @@
+layers:
+  - id: synaptic
+    name: "Synaptic"
+    ratio: "95/5"
+    numeric_ratio: [0.95, 0.05]
+    description: "Raw potential — ion flux, open gates, stochastic triggers"
+    domain: "biological"
+    mode: "chaotic"
+    transformability: "very high"
+    timescale: "instantaneous"
+    metaphor: "Charge and Code (ukuvula)"
+    business_timeline: "Unforeseen / Flash risk (e.g., legal, LLC registration)"
+    example_tasks:
+      - task: "LLC Registration"
+        status: "done"
+        due: "2025-03-31"
+        created: "2025-03-18"
+
+  - id: axonal
+    name: "Axonal"
+    ratio: "80/20"
+    numeric_ratio: [0.80, 0.20]
+    description: "Action potentials, spike trains, thresholds — reflexive signal"
+    domain: "neural"
+    mode: "reactive"
+    transformability: "high"
+    timescale: "milliseconds"
+    metaphor: "Neuron and Reflex (ukuzula)"
+    business_timeline: "Daily / Operational — timesheets, direct deposits, payout tracking"
+    example_tasks:
+      - task: "Ukubona-r-k1t7jk"
+        status: "done"
+        due: "2025-06-03"
+        created: "2025-05-15"
+
+  - id: sensorimotor
+    name: "Sensorimotor"
+    ratio: "50/50"
+    numeric_ratio: [0.50, 0.50]
+    description: "Breath, tension, proprioception — embodied feedback loops"
+    domain: "cognitive/body"
+    mode: "interactive"
+    transformability: "moderate"
+    timescale: "seconds to minutes"
+    metaphor: "Body-in-the-World (ukusoma)"
+    business_timeline: "Weekly / Informational — publications, partner discussions, review cycles"
+    example_tasks:
+      - task: "Digestivo-rSM-8160"
+        status: "done"
+        due: "2026-03-10"
+        created: "2025-05-01"
+
+  - id: network
+    name: "Network / Functional"
+    ratio: "20/80"
+    numeric_ratio: [0.20, 0.80]
+    description: "Cognitive cartography — abstraction, planning, systems awareness"
+    domain: "strategic"
+    mode: "predictive"
+    transformability: "low"
+    timescale: "hours to quarters"
+    metaphor: "Cognitive Cartography (ukubona)"
+    business_timeline: "Quarterly / Strategic — business plans, client targeting, cashflow forecasts"
+    example_tasks:
+      - task: "Yours-d2s08z"
+        status: "done"
+        due: "2026-03-15"
+        created: "2025-05-15"
+      - task: "Paul-i-b3iqwe"
+        status: "done"
+        due: null
+        created: "2025-05-31"
+      - task: "Jonathan-f-ji2x26"
+        status: "done"
+        due: "2025-05-23"
+        created: "2025-05-15"
+
+  - id: symbolic
+    name: "Symbolic / Representational"
+    ratio: "5/95"
+    numeric_ratio: [0.05, 0.95]
+    description: "Recursive symbolic systems — hallucination, transcendence, legacy"
+    domain: "existential/meta"
+    mode: "generative"
+    transformability: "very low (but viral)"
+    timescale: "years to lifetimes"
+    metaphor: "Symbolic Transcendence (ukuvela)"
+    business_timeline: "Annual / Existential — visa transitions, scaling team, legacy visioning"
+    example_tasks:
+      - task: "Sanity-u-d1bk2x"
+        status: "done"
+        due: null
+        created: "2025-06-02"
+# flick 20250605133019-oQ8N
+# flick 20250605140459-CJid
+# flick 20250605140712-W3iB
+# flick 20250605142421-HYf5
+# flick 20250605150736-Bxz2
+# flick 20250606060410-Cs25

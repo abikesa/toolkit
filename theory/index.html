@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nervous System Hierarchy</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      line-height: 1.8;
+    }
+
+    .line {
+      cursor: pointer;
+      position: relative;
+      margin-bottom: 28px;
+    }
+    
+
+    .label {
+      font-size: 1.2em;
+      font-weight: bold;
+      padding-bottom: 4px;
+    }
+
+    .content {
+      opacity: 0;
+      transition: opacity var(--fade-duration, 3s) ease-out;
+      background: #1f1f1f;
+      padding: 10px 14px;
+      margin-top: 8px;
+      border-left: 3px solid #555;
+      border-radius: 4px;
+      display: inline-block;
+      width: auto;
+    }
+
+    .line.show .content {
+      opacity: 1;
+    }
+
+    .fade-controls {
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    .fade-controls span {
+      display: inline-block;
+      width: 20px;
+      text-align: right;
+    }
+
+    input[type="range"] {
+      width: 120px;
+      height: 16px;
+      -webkit-appearance: none;
+      background: transparent;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 12px;
+      height: 12px;
+      background: #e0e0e0;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 0 1px #333;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 2px;
+      background: #444;
+    }
+  </style>
+  <!-- MathJax -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['$$', '$$']]
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+</head>
+<body>
+
+  <div class="fade-controls">
+    <label>Fade Duration: <span id="fadeValue">3</span>s</label>
+    <input type="range" id="fadeSlider" min="1" max="10" value="3">
+  </div>
+
+  <div class="line">
+    <div class="label">🧬 Molecular / Synaptic - Unvectorized</div>
+    <div class="content">"Charge and Code" → Raw potential, ion flux, <a href="https://claude.ai/public/artifacts/c71d26c9-885d-4aca-92cc-7212a9b9658a">open</a> gates, neurotransmission (ukuvula).</div>
+  </div>
+
+  <div class="line">
+    <div class="label">🧠 Cellular / Axonal - Vectorized</div>
+    <div class="content">"Neuron and Reflex" → Spikes, thresholds, go forth, ignition of signal (ukuzula).</div>
+  </div>
+
+  <div class="line">
+    <div class="label">🤲 Sensorimotor / Ganglionic - Operationized</div>
+    <div class="content">"Body-in-the-World" → Breath, tension, gut, proprioceptive, embodiment, <a href="../aperitivo/">association</a>, <a href="https://en.wikipedia.org/wiki/Operant_conditioning">conditioning</a> (ukusoma).</div>
+  </div>
+
+  <div class="line">
+    <div class="label">🌐 Network / Functional - Standardized</div>
+    <div class="content">"Cognitive Cartography" → Negotiation, prediction, recursion (ukubona).</div>
+  </div>
+
+  <div class="line">
+    <div class="label">🔁 Representation / Hallucination - Transmuted</div>
+    <div class="content">"Symbolic Transcendence" → Recursive symbolic intelligence (ukuvela).</div>
+  </div>
+
+  <script>
+    // Fade duration slider control
+    const fadeSlider = document.getElementById('fadeSlider');
+    const fadeValue = document.getElementById('fadeValue');
+
+    fadeSlider.addEventListener('input', () => {
+      const val = fadeSlider.value;
+      fadeValue.textContent = val;
+      document.documentElement.style.setProperty('--fade-duration', `${val}s`);
+    });
+
+    // Touch/tap toggle for content visibility
+    document.querySelectorAll('.line').forEach(line => {
+      line.addEventListener('click', () => {
+        line.classList.toggle('show');
+      });
+    });
+  </script>
+
+</body>
+</html>

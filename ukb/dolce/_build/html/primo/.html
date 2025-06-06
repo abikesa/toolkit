@@ -1,0 +1,860 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>flick 20250409184255-V1q7 &#8212; Ukusoma</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'primo/';</script>
+    <link rel="shortcut icon" href="https://abikesa.github.io/favicon/assets/favicon-dark.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2@2x.png" class="logo__image only-light" alt="Ukusoma - Home"/>
+    <script>document.write(`<img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2@2x.png" class="logo__image only-dark" alt="Ukusoma - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Nonself 🌊
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../act1/part1.html">Self 🚢</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../act1/chapter1.html">Idols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../act1/chapter2.html">Realities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../act1/chapter3.html">Question</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../act2/part2.html">Reframe 🪛 🏴‍☠️</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../act2/chapter1.html">Eternal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../act2/chapter2.html">War</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../act2/chapter3.html">Hammer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../act3/part3.html">Boundaries 🦈 ✂️ 🛟</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../act3/act1.html">Self 🗡</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../act3/part1/part1_1.html">Adversarial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../act3/part1/part1_2.html">Competitive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../act3/part1/part1_3.html">Worthy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../act3/act2.html">Emergent 🤝</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../act3/part2/part2_1.html">Transactional</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../act3/part2/part2_2.html">Suspended</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../act3/part2/part2_3.html">Loyal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../act3/act3.html">Nonself ❤️</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../act3/part3/part3_1.html">Cooperative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../act3/part3/part3_2.html">Emergent</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../act3/part3/part3_3.html">Family 🎹</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Authorship 🏝️</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/primo/.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>flick 20250409184255-V1q7</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">flick 20250409184255-V1q7</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409185951-ouqb">flick 20250409185951-Ouqb</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409190305-egoi">flick 20250409190305-eGOI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409190740-05pn">flick 20250409190740-05Pn</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-2025-04-09-19-12-47-515-lowwm-this-folder-has-been-flicked">flick 2025-04-09 19:12:47.515 — LOWWM — this folder has been flicked</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-2025-04-09-19-18-29-qhn8ga-signed-by-the-void">flick 2025-04-09 19:18:29 — QHN8GA — signed by the void</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409201020-jmih">flick 20250409201020-JMih</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409201625-k5lc">flick 20250409201625-k5lC</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409201827-nfgm">flick 20250409201827-NfgM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409203153-kztg">flick 20250409203153-kzTG</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409205106-ijb4">flick 20250409205106-Ijb4</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409210141-krzf">flick 20250409210141-kRZf</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409210141-jrb0">flick 20250409210141-JRb0</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409212222-2yzh">flick 20250409212222-2YzH</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409214220-ftrp">flick 20250409214220-FTRP</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409214638-wsak">flick 20250409214638-wSak</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409231151-rqkk">flick 20250409231151-RQkK</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410002732-uouf">flick 20250410002732-UOUF</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410005409-7y5r">flick 20250410005409-7y5r</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410013245-a7pd">flick 20250410013245-a7pd</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410031739-yy2p">flick 20250410031739-yY2p</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410032006-vuoj">flick 20250410032006-vuoj</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410131704-ovru">flick 20250410131704-OVRu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410144301-wdsz">flick 20250410144301-WdSZ</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410144934-edrd">flick 20250410144934-eDRD</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410152048-gfkn">flick 20250410152048-GfKn</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410213331-pt42">flick 20250410213331-pT42</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410225839-jwhn">flick 20250410225839-jWhN</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250414003734-8sxl">flick 20250414003734-8sXl</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250414012929-jf2x">flick 20250414012929-jf2X</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250415193509-cvwa">flick 20250415193509-CVwA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250416151914-lrar">flick 20250416151914-lRaR</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250416152309-af8d">flick 20250416152309-aF8D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250416180327-44yn">flick 20250416180327-44Yn</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250416211330-xou4">flick 20250416211330-xoU4</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250416224026-uzba">flick 20250416224026-uzba</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250416225007-jihw">flick 20250416225007-jiHW</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250417034407-iwqa">flick 20250417034407-IWQa</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250417141941-5n79">flick 20250417141941-5N79</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250422034841-0qku">flick 20250422034841-0QKU</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250422211720-efgg">flick 20250422211720-Efgg</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250422231552-ujmo">flick 20250422231552-ujMo</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250423200929-rv4g">flick 20250423200929-Rv4G</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250429105312-vo4j">flick 20250429105312-Vo4J</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250430131506-2tgn">flick 20250430131506-2tgn</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250501010526-ozs7">flick 20250501010526-oZS7</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250501200716-7n0z">flick 20250501200716-7n0Z</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250501212139-bc0h">flick 20250501212139-bc0H</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250502040434-azn8">flick 20250502040434-aZN8</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250502151636-bbyu">flick 20250502151636-BbYu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250504121056-e3ov">flick 20250504121056-E3oV</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250505164555-4rob">flick 20250505164555-4Rob</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250506210511-evfu">flick 20250506210511-EvFU</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250508161849-ljem">flick 20250508161849-LjEm</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250510104353-wdhy">flick 20250510104353-wdHY</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250510105835-qfop">flick 20250510105835-QFoP</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250511005217-lfeu">flick 20250511005217-Lfeu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250511220510-eltz">flick 20250511220510-eltZ</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250512005001-nmhq">flick 20250512005001-nmhq</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250512150529-wyl7">flick 20250512150529-WYL7</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250512161845-g15f">flick 20250512161845-G15f</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250516235428-dyyw">flick 20250516235428-dyyw</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250518181323-1z3q">flick 20250518181323-1Z3Q</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250527210615-lmsh">flick 20250527210615-Lmsh</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250527223148-falw">flick 20250527223148-fALw</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250527224200-o5yr">flick 20250527224200-O5yR</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250528160231-38no">flick 20250528160231-38nO</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250529014403-apoe">flick 20250529014403-aPOe</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250530004618-ffyq">flick 20250530004618-FFyq</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250602214626-ng93">flick 20250602214626-ng93</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250602215531-xu3g">flick 20250602215531-xu3g</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250602220152-megy">flick 20250602220152-megy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250603160408-ybif">flick 20250603160408-yBif</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250603210407-7twv">flick 20250603210407-7twv</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250604234424-x956">flick 20250604234424-X956</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="flick-20250409184255-v1q7">
+<h1>flick 20250409184255-V1q7<a class="headerlink" href="#flick-20250409184255-v1q7" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250409185951-ouqb">
+<h1>flick 20250409185951-Ouqb<a class="headerlink" href="#flick-20250409185951-ouqb" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250409190305-egoi">
+<h1>flick 20250409190305-eGOI<a class="headerlink" href="#flick-20250409190305-egoi" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250409190740-05pn">
+<h1>flick 20250409190740-05Pn<a class="headerlink" href="#flick-20250409190740-05pn" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-2025-04-09-19-12-47-515-lowwm-this-folder-has-been-flicked">
+<h1>flick 2025-04-09 19:12:47.515 — LOWWM — this folder has been flicked<a class="headerlink" href="#flick-2025-04-09-19-12-47-515-lowwm-this-folder-has-been-flicked" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-2025-04-09-19-18-29-qhn8ga-signed-by-the-void">
+<h1>flick 2025-04-09 19:18:29 — QHN8GA — signed by the void<a class="headerlink" href="#flick-2025-04-09-19-18-29-qhn8ga-signed-by-the-void" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250409201020-jmih">
+<h1>flick 20250409201020-JMih<a class="headerlink" href="#flick-20250409201020-jmih" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250409201625-k5lc">
+<h1>flick 20250409201625-k5lC<a class="headerlink" href="#flick-20250409201625-k5lc" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250409201827-nfgm">
+<h1>flick 20250409201827-NfgM<a class="headerlink" href="#flick-20250409201827-nfgm" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250409203153-kztg">
+<h1>flick 20250409203153-kzTG<a class="headerlink" href="#flick-20250409203153-kztg" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250409205106-ijb4">
+<h1>flick 20250409205106-Ijb4<a class="headerlink" href="#flick-20250409205106-ijb4" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250409210141-krzf">
+<h1>flick 20250409210141-kRZf<a class="headerlink" href="#flick-20250409210141-krzf" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250409210141-jrb0">
+<h1>flick 20250409210141-JRb0<a class="headerlink" href="#flick-20250409210141-jrb0" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250409212222-2yzh">
+<h1>flick 20250409212222-2YzH<a class="headerlink" href="#flick-20250409212222-2yzh" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250409214220-ftrp">
+<h1>flick 20250409214220-FTRP<a class="headerlink" href="#flick-20250409214220-ftrp" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250409214638-wsak">
+<h1>flick 20250409214638-wSak<a class="headerlink" href="#flick-20250409214638-wsak" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250409231151-rqkk">
+<h1>flick 20250409231151-RQkK<a class="headerlink" href="#flick-20250409231151-rqkk" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250410002732-uouf">
+<h1>flick 20250410002732-UOUF<a class="headerlink" href="#flick-20250410002732-uouf" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250410005409-7y5r">
+<h1>flick 20250410005409-7y5r<a class="headerlink" href="#flick-20250410005409-7y5r" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250410013245-a7pd">
+<h1>flick 20250410013245-a7pd<a class="headerlink" href="#flick-20250410013245-a7pd" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250410031739-yy2p">
+<h1>flick 20250410031739-yY2p<a class="headerlink" href="#flick-20250410031739-yy2p" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250410032006-vuoj">
+<h1>flick 20250410032006-vuoj<a class="headerlink" href="#flick-20250410032006-vuoj" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250410131704-ovru">
+<h1>flick 20250410131704-OVRu<a class="headerlink" href="#flick-20250410131704-ovru" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250410144301-wdsz">
+<h1>flick 20250410144301-WdSZ<a class="headerlink" href="#flick-20250410144301-wdsz" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250410144934-edrd">
+<h1>flick 20250410144934-eDRD<a class="headerlink" href="#flick-20250410144934-edrd" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250410152048-gfkn">
+<h1>flick 20250410152048-GfKn<a class="headerlink" href="#flick-20250410152048-gfkn" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250410213331-pt42">
+<h1>flick 20250410213331-pT42<a class="headerlink" href="#flick-20250410213331-pt42" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250410225839-jwhn">
+<h1>flick 20250410225839-jWhN<a class="headerlink" href="#flick-20250410225839-jwhn" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250414003734-8sxl">
+<h1>flick 20250414003734-8sXl<a class="headerlink" href="#flick-20250414003734-8sxl" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250414012929-jf2x">
+<h1>flick 20250414012929-jf2X<a class="headerlink" href="#flick-20250414012929-jf2x" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250415193509-cvwa">
+<h1>flick 20250415193509-CVwA<a class="headerlink" href="#flick-20250415193509-cvwa" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250416151914-lrar">
+<h1>flick 20250416151914-lRaR<a class="headerlink" href="#flick-20250416151914-lrar" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250416152309-af8d">
+<h1>flick 20250416152309-aF8D<a class="headerlink" href="#flick-20250416152309-af8d" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250416180327-44yn">
+<h1>flick 20250416180327-44Yn<a class="headerlink" href="#flick-20250416180327-44yn" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250416211330-xou4">
+<h1>flick 20250416211330-xoU4<a class="headerlink" href="#flick-20250416211330-xou4" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250416224026-uzba">
+<h1>flick 20250416224026-uzba<a class="headerlink" href="#flick-20250416224026-uzba" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250416225007-jihw">
+<h1>flick 20250416225007-jiHW<a class="headerlink" href="#flick-20250416225007-jihw" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250417034407-iwqa">
+<h1>flick 20250417034407-IWQa<a class="headerlink" href="#flick-20250417034407-iwqa" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250417141941-5n79">
+<h1>flick 20250417141941-5N79<a class="headerlink" href="#flick-20250417141941-5n79" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250422034841-0qku">
+<h1>flick 20250422034841-0QKU<a class="headerlink" href="#flick-20250422034841-0qku" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250422211720-efgg">
+<h1>flick 20250422211720-Efgg<a class="headerlink" href="#flick-20250422211720-efgg" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250422231552-ujmo">
+<h1>flick 20250422231552-ujMo<a class="headerlink" href="#flick-20250422231552-ujmo" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250423200929-rv4g">
+<h1>flick 20250423200929-Rv4G<a class="headerlink" href="#flick-20250423200929-rv4g" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250429105312-vo4j">
+<h1>flick 20250429105312-Vo4J<a class="headerlink" href="#flick-20250429105312-vo4j" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250430131506-2tgn">
+<h1>flick 20250430131506-2tgn<a class="headerlink" href="#flick-20250430131506-2tgn" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250501010526-ozs7">
+<h1>flick 20250501010526-oZS7<a class="headerlink" href="#flick-20250501010526-ozs7" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250501200716-7n0z">
+<h1>flick 20250501200716-7n0Z<a class="headerlink" href="#flick-20250501200716-7n0z" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250501212139-bc0h">
+<h1>flick 20250501212139-bc0H<a class="headerlink" href="#flick-20250501212139-bc0h" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250502040434-azn8">
+<h1>flick 20250502040434-aZN8<a class="headerlink" href="#flick-20250502040434-azn8" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250502151636-bbyu">
+<h1>flick 20250502151636-BbYu<a class="headerlink" href="#flick-20250502151636-bbyu" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250504121056-e3ov">
+<h1>flick 20250504121056-E3oV<a class="headerlink" href="#flick-20250504121056-e3ov" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250505164555-4rob">
+<h1>flick 20250505164555-4Rob<a class="headerlink" href="#flick-20250505164555-4rob" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250506210511-evfu">
+<h1>flick 20250506210511-EvFU<a class="headerlink" href="#flick-20250506210511-evfu" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250508161849-ljem">
+<h1>flick 20250508161849-LjEm<a class="headerlink" href="#flick-20250508161849-ljem" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250510104353-wdhy">
+<h1>flick 20250510104353-wdHY<a class="headerlink" href="#flick-20250510104353-wdhy" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250510105835-qfop">
+<h1>flick 20250510105835-QFoP<a class="headerlink" href="#flick-20250510105835-qfop" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250511005217-lfeu">
+<h1>flick 20250511005217-Lfeu<a class="headerlink" href="#flick-20250511005217-lfeu" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250511220510-eltz">
+<h1>flick 20250511220510-eltZ<a class="headerlink" href="#flick-20250511220510-eltz" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250512005001-nmhq">
+<h1>flick 20250512005001-nmhq<a class="headerlink" href="#flick-20250512005001-nmhq" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250512150529-wyl7">
+<h1>flick 20250512150529-WYL7<a class="headerlink" href="#flick-20250512150529-wyl7" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250512161845-g15f">
+<h1>flick 20250512161845-G15f<a class="headerlink" href="#flick-20250512161845-g15f" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250516235428-dyyw">
+<h1>flick 20250516235428-dyyw<a class="headerlink" href="#flick-20250516235428-dyyw" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250518181323-1z3q">
+<h1>flick 20250518181323-1Z3Q<a class="headerlink" href="#flick-20250518181323-1z3q" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250527210615-lmsh">
+<h1>flick 20250527210615-Lmsh<a class="headerlink" href="#flick-20250527210615-lmsh" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250527223148-falw">
+<h1>flick 20250527223148-fALw<a class="headerlink" href="#flick-20250527223148-falw" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250527224200-o5yr">
+<h1>flick 20250527224200-O5yR<a class="headerlink" href="#flick-20250527224200-o5yr" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250528160231-38no">
+<h1>flick 20250528160231-38nO<a class="headerlink" href="#flick-20250528160231-38no" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250529014403-apoe">
+<h1>flick 20250529014403-aPOe<a class="headerlink" href="#flick-20250529014403-apoe" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250530004618-ffyq">
+<h1>flick 20250530004618-FFyq<a class="headerlink" href="#flick-20250530004618-ffyq" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250602214626-ng93">
+<h1>flick 20250602214626-ng93<a class="headerlink" href="#flick-20250602214626-ng93" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250602215531-xu3g">
+<h1>flick 20250602215531-xu3g<a class="headerlink" href="#flick-20250602215531-xu3g" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250602220152-megy">
+<h1>flick 20250602220152-megy<a class="headerlink" href="#flick-20250602220152-megy" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250603160408-ybif">
+<h1>flick 20250603160408-yBif<a class="headerlink" href="#flick-20250603160408-ybif" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250603210407-7twv">
+<h1>flick 20250603210407-7twv<a class="headerlink" href="#flick-20250603210407-7twv" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="flick-20250604234424-x956">
+<h1>flick 20250604234424-X956<a class="headerlink" href="#flick-20250604234424-x956" title="Permalink to this heading">#</a></h1>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">flick 20250409184255-V1q7</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409185951-ouqb">flick 20250409185951-Ouqb</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409190305-egoi">flick 20250409190305-eGOI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409190740-05pn">flick 20250409190740-05Pn</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-2025-04-09-19-12-47-515-lowwm-this-folder-has-been-flicked">flick 2025-04-09 19:12:47.515 — LOWWM — this folder has been flicked</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-2025-04-09-19-18-29-qhn8ga-signed-by-the-void">flick 2025-04-09 19:18:29 — QHN8GA — signed by the void</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409201020-jmih">flick 20250409201020-JMih</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409201625-k5lc">flick 20250409201625-k5lC</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409201827-nfgm">flick 20250409201827-NfgM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409203153-kztg">flick 20250409203153-kzTG</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409205106-ijb4">flick 20250409205106-Ijb4</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409210141-krzf">flick 20250409210141-kRZf</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409210141-jrb0">flick 20250409210141-JRb0</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409212222-2yzh">flick 20250409212222-2YzH</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409214220-ftrp">flick 20250409214220-FTRP</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409214638-wsak">flick 20250409214638-wSak</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250409231151-rqkk">flick 20250409231151-RQkK</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410002732-uouf">flick 20250410002732-UOUF</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410005409-7y5r">flick 20250410005409-7y5r</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410013245-a7pd">flick 20250410013245-a7pd</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410031739-yy2p">flick 20250410031739-yY2p</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410032006-vuoj">flick 20250410032006-vuoj</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410131704-ovru">flick 20250410131704-OVRu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410144301-wdsz">flick 20250410144301-WdSZ</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410144934-edrd">flick 20250410144934-eDRD</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410152048-gfkn">flick 20250410152048-GfKn</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410213331-pt42">flick 20250410213331-pT42</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250410225839-jwhn">flick 20250410225839-jWhN</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250414003734-8sxl">flick 20250414003734-8sXl</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250414012929-jf2x">flick 20250414012929-jf2X</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250415193509-cvwa">flick 20250415193509-CVwA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250416151914-lrar">flick 20250416151914-lRaR</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250416152309-af8d">flick 20250416152309-aF8D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250416180327-44yn">flick 20250416180327-44Yn</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250416211330-xou4">flick 20250416211330-xoU4</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250416224026-uzba">flick 20250416224026-uzba</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250416225007-jihw">flick 20250416225007-jiHW</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250417034407-iwqa">flick 20250417034407-IWQa</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250417141941-5n79">flick 20250417141941-5N79</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250422034841-0qku">flick 20250422034841-0QKU</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250422211720-efgg">flick 20250422211720-Efgg</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250422231552-ujmo">flick 20250422231552-ujMo</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250423200929-rv4g">flick 20250423200929-Rv4G</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250429105312-vo4j">flick 20250429105312-Vo4J</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250430131506-2tgn">flick 20250430131506-2tgn</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250501010526-ozs7">flick 20250501010526-oZS7</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250501200716-7n0z">flick 20250501200716-7n0Z</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250501212139-bc0h">flick 20250501212139-bc0H</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250502040434-azn8">flick 20250502040434-aZN8</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250502151636-bbyu">flick 20250502151636-BbYu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250504121056-e3ov">flick 20250504121056-E3oV</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250505164555-4rob">flick 20250505164555-4Rob</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250506210511-evfu">flick 20250506210511-EvFU</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250508161849-ljem">flick 20250508161849-LjEm</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250510104353-wdhy">flick 20250510104353-wdHY</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250510105835-qfop">flick 20250510105835-QFoP</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250511005217-lfeu">flick 20250511005217-Lfeu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250511220510-eltz">flick 20250511220510-eltZ</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250512005001-nmhq">flick 20250512005001-nmhq</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250512150529-wyl7">flick 20250512150529-WYL7</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250512161845-g15f">flick 20250512161845-G15f</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250516235428-dyyw">flick 20250516235428-dyyw</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250518181323-1z3q">flick 20250518181323-1Z3Q</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250527210615-lmsh">flick 20250527210615-Lmsh</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250527223148-falw">flick 20250527223148-fALw</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250527224200-o5yr">flick 20250527224200-O5yR</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250528160231-38no">flick 20250528160231-38nO</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250529014403-apoe">flick 20250529014403-aPOe</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250530004618-ffyq">flick 20250530004618-FFyq</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250602214626-ng93">flick 20250602214626-ng93</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250602215531-xu3g">flick 20250602215531-xu3g</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250602220152-megy">flick 20250602220152-megy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250603160408-ybif">flick 20250603160408-yBif</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250603210407-7twv">flick 20250603210407-7twv</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#flick-20250604234424-x956">flick 20250604234424-X956</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Copyright © Ubuntu Series: Ukuvula, Ukuzula, Ukusoma, Ukubona, Ukuvela
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

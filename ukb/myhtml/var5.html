@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Improvisational Thread Through the Stack</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --accent: #1a73e8;
+      --infobox-bg: #f5f5f5;
+      --infobox-border: #ccc;
+    }
+    body.dark {
+      --bg: #121212;
+      --text: #eeeeee;
+      --accent: #4ea1f3;
+      --infobox-bg: #1e1e1e;
+      --infobox-border: #444;
+    }
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 1fr minmax(0, 60ch) 1fr;
+      gap: 1rem;
+      width: 100%;
+    }
+    .content {
+      grid-column: 2;
+    }
+    .infobox {
+      grid-column: 3;
+      background-color: var(--infobox-bg);
+      border: 1px solid var(--infobox-border);
+      padding: 1rem;
+      font-size: 0.9rem;
+      position: sticky;
+      top: 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      border-bottom: 2px solid #aaa;
+      padding-bottom: 0.5rem;
+    }
+    h2 {
+      margin-top: 2rem;
+      font-size: 1.4rem;
+    }
+    .toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      z-index: 999;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .infobox {
+        grid-column: 1;
+        order: -1;
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle" onclick="document.body.classList.toggle('dark')">🌓 Toggle Theme</button>
+
+  <div class="container">
+    <div class="content">
+      <h1>🧭 The Improvisational Thread Through the Stack</h1>
+
+      <h2 id="existential">Existential:</h2>
+      <p>The 2020s are obsessed with <strong>existential risk</strong>, but most people don’t live in the vocabulary of ontology or cosmic tail events. They live in “can I eat today?” That’s not a contradiction—<strong>that’s the point</strong>. Existential concerns aren’t abstract. They’re <strong>embodied</strong>:</p>
+      <ul>
+        <li><em>“I was hungry, and you fed me.”</em></li>
+        <li><em>“I was in prison, and you visited me.”</em></li>
+      </ul>
+
+      <h2 id="operational">Operational:</h2>
+      <p>The <strong>daily grind</strong>. The rhythm of subsistence. The woman waking before dawn to cook, commute, care. The man working night shifts and watching his kid sleep. Operational life is <strong>where meaning lands</strong>, but it’s brittle. Without strategy, tomorrow collapses.</p>
+
+      <h2 id="strategic">Strategic:</h2>
+      <p>This is the realm of sustainability. Strategy anticipates. But it operates under uncertainty — never full knowledge. It’s a gamble. Get it wrong and the operations collapse.</p>
+
+      <h2 id="informational">Informational:</h2>
+      <p>Feeds strategy but never fully satisfies. Too much = paralysis. Too little = blunders. It's potential energy, not a guarantee. The informational layer whispers, never declares.</p>
+
+      <h2 id="tactical">Tactical:</h2>
+      <p>The collapse of potential into necessity. No time to gather more intel. It's what a jazz pianist does mid-riff, a medic choosing who to save. Tactics <strong>do not wait</strong>. Improvisation is tactical in form, but existential in meaning. It surfaces when:</p>
+      <ul>
+        <li>Strategy fails</li>
+        <li>Information is partial</li>
+        <li>Operations break down</li>
+        <li>Existential weight bears down</li>
+      </ul>
+      <p>It’s what you do when you don’t know what to do — but still must.</p>
+    </div>
+
+    <div class="infobox">
+      <strong>JOURNEYM|N</strong><br>
+      Aesthetic systems thinking for literary builders.<br>
+      <hr>
+      <a href="#existential">Existential</a><br>
+      <a href="#operational">Operational</a><br>
+      <a href="#strategic">Strategic</a><br>
+      <a href="#informational">Informational</a><br>
+      <a href="#tactical">Tactical</a><br>
+    </div>
+  </div>
+
+</body>
+</html>

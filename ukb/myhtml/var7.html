@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Improvisational Thread Through the Stack</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #111;
+      --sidebar-bg: #f1f1f1;
+      --infobox-bg: #fefefe;
+      --accent-color: #007acc;
+    }
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --sidebar-bg: #1f1f1f;
+      --infobox-bg: #2a2a2a;
+      --accent-color: #4ea1f3;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+    }
+    nav, aside {
+      width: 250px;
+      padding: 1rem;
+      background-color: var(--sidebar-bg);
+      height: 100vh;
+      overflow-y: auto;
+    }
+    nav {
+      border-right: 1px solid #ccc;
+    }
+    aside {
+      border-left: 1px solid #ccc;
+    }
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 70ch;
+      margin: auto;
+    }
+    h1 {
+      font-size: 2rem;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.5rem;
+    }
+    .infobox {
+      float: right;
+      margin: 1rem;
+      padding: 1rem;
+      background-color: var(--infobox-bg);
+      border: 1px solid #ccc;
+      max-width: 250px;
+      font-size: 0.9rem;
+    }
+    .illustration {
+      float: left;
+      max-width: 200px;
+      margin: 1rem 1.5rem 1rem 0;
+      border: 1px solid #ccc;
+    }
+    .toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    a {
+      color: var(--accent-color);
+    }
+    @media (max-width: 768px) {
+      nav, aside {
+        display: none;
+      }
+      .infobox, .illustration {
+        float: none;
+        display: block;
+        width: 100%;
+        margin: 1rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle" onclick="document.body.classList.toggle('dark-mode')">🌓 Theme</button>
+  <nav>
+    <h3>Contents</h3>
+    <ul>
+      <li><a href="#existential">Existential</a></li>
+      <li><a href="#operational">Operational</a></li>
+      <li><a href="#strategic">Strategic</a></li>
+      <li><a href="#informational">Informational</a></li>
+      <li><a href="#tactical">Tactical</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>🧭 The Improvisational Thread Through the Stack</h1>
+
+    <div class="infobox">
+      <strong>JOURNEYM|N</strong><br>
+      Aesthetic systems thinking for literary builders.<br><br>
+      <a href="#see-also">See also</a><br>
+      <a href="#backrefs">Backreferences</a>
+    </div>
+
+    <img src="https://via.placeholder.com/200" alt="Improvisation Graphic" class="illustration" />
+
+    <h2 id="existential">Existential</h2>
+    <p>The 2020s are obsessed with <strong>existential risk</strong>, but most people don’t live in the vocabulary of ontology or cosmic tail events. They live in “can I eat today?” That’s not a contradiction — that’s the point. Existential concerns aren’t abstract. They’re <strong>embodied</strong>:</p>
+    <ul>
+      <li><em>“I was hungry, and you fed me.”</em></li>
+      <li><em>“I was in prison, and you visited me.”</em></li>
+    </ul>
+
+    <h2 id="operational">Operational</h2>
+    <p>The <strong>daily grind</strong>. The rhythm of subsistence. The woman waking before dawn to cook, commute, care. The man working night shifts and watching his kid sleep. Operational life is <strong>where meaning lands</strong>, but it’s brittle. Without strategy, tomorrow collapses.</p>
+
+    <h2 id="strategic">Strategic</h2>
+    <p>This is the realm of sustainability. Strategy anticipates. But it operates under uncertainty — never full knowledge. It’s a gamble. Get it wrong and the operations collapse.</p>
+
+    <h2 id="informational">Informational</h2>
+    <p>Feeds strategy but never fully satisfies. Too much = paralysis. Too little = blunders. It's potential energy, not a guarantee. The informational layer whispers, never declares.</p>
+
+    <h2 id="tactical">Tactical</h2>
+    <p>The collapse of potential into necessity. No time to gather more intel. It's what a jazz pianist does mid-riff, a medic choosing who to save. Tactics <strong>do not wait</strong>. Improvisation is tactical in form, but existential in meaning. It surfaces when:</p>
+    <ul>
+      <li>Strategy fails</li>
+      <li>Information is partial</li>
+      <li>Operations break down</li>
+      <li>Existential weight bears down</li>
+    </ul>
+    <p>It’s what you do when you don’t know what to do — but still must.</p>
+
+    <h2 id="see-also">See Also</h2>
+    <ul>
+      <li><a href="#">Improvisation Theory</a></li>
+      <li><a href="#">Tactical Emergence</a></li>
+    </ul>
+
+    <h2 id="backrefs">Backreferences</h2>
+    <ul>
+      <li><a href="#existential">Existential Layer</a></li>
+      <li><a href="#operational">Operational Layer</a></li>
+    </ul>
+  </main>
+
+  <aside>
+    <h3>Preferences</h3>
+    <p>Use the theme toggle button above.</p>
+  </aside>
+</body>
+</html>
