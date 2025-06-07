@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signal Noise Dashboard</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    .layer {
+      border-left: 6px solid;
+      padding: 1rem;
+      margin: 1rem 0;
+      background: white;
+      border-radius: 0.5rem;
+    }
+
+    .dark .layer {
+      background: #1e1e1e;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .task {
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+      background: #eee;
+      border-radius: 0.3rem;
+    }
+
+    .dark .task {
+      background: #2a2a2a;
+    }
+
+    .overdue {
+      color: red;
+    }
+
+    .form-group {
+      margin: 1rem 0;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      margin-right: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="toggleTheme()">Toggle Dark Mode</button>
+
+  <div id="dashboard"></div>
+
+  <hr>
+  <h3>Add New Task</h3>
+  <div class="form-group">
+    <label>Layer: <input type="text" id="layer"></label>
+    <label>Title: <input type="text" id="title"></label>
+    <label>Due: <input type="date" id="due"></label>
+    <label>Owner: <input type="text" id="owner"></label>
+    <label>Tags (comma separated): <input type="text" id="tags"></label>
+    <button onclick="addTask()">Add Task</button>
+  </div>
+
+  <script>
+    let data = {};
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+
+    function fetchData() {
+      fetch('/data')
+        .then(response => response.json())
+        .then(json => {
+          data = json;
+          renderDashboard();
+        });
+    }
+
+    function renderDashboard() {
+      const dash = document.getElementById('dashboard');
+      dash.innerHTML = '';
+
+      for (const layerKey in data.layers) {
+        const layer = data.layers[layerKey];
+        const section = document.createElement('div');
+        section.className = 'layer';
+        section.style.borderColor = layer.color || '#000';
+
+        const header = document.createElement('h2');
+        header.textContent = layer.name || layerKey;
+        section.appendChild(header);
+
+        const tasks = layer.tasks || [];
+        tasks.sort((a, b) => new Date(a.due) - new Date(b.due));
+
+        tasks.forEach(task => {
+          const taskDiv = document.createElement('div');
+          taskDiv.className = 'task';
+          const dueDate = new Date(task.due);
+          const now = new Date();
+          const daysLeft = Math.floor((dueDate - now) / (1000 * 60 * 60 * 24));
+          const overdue = daysLeft < 0 ? 'overdue' : '';
+
+          taskDiv.innerHTML = `
+            <strong>${task.title}</strong><br>
+            <em>Status:</em> ${task.status} |
+            <em>Owner:</em> ${task.owner} |
+            <em>Due:</em> <span class="${overdue}">${task.due} (${daysLeft} days)</span><br>
+            <em>Tags:</em> ${task.tags.join(', ')}
+          `;
+          section.appendChild(taskDiv);
+        });
+
+        dash.appendChild(section);
+      }
+    }
+
+    function addTask() {
+      const layerKey = document.getElementById('layer').value.trim();
+      const title = document.getElementById('title').value.trim();
+      const due = document.getElementById('due').value;
+      const owner = document.getElementById('owner').value.trim();
+      const tags = document.getElementById('tags').value.split(',').map(tag => tag.trim());
+
+      if (!layerKey || !title || !due || !owner) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      const newTask = {
+        title: title,
+        due: due,
+        owner: owner,
+        status: "pending",
+        tags: tags
+      };
+
+      if (!data.layers[layerKey]) {
+        data.layers[layerKey] = {
+          name: layerKey,
+          color: "#cccccc",
+          tasks: []
+        };
+      }
+
+      data.layers[layerKey].tasks.push(newTask);
+
+      fetch('/update', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(response => {
+          if (!response.ok) throw new Error("Update failed.");
+          return response.json();
+        })
+        .then(json => {
+          data = json;
+          renderDashboard();
+        })
+        .catch(error => alert("Error: " + error.message));
+    }
+
+    fetchData();
+  </script>
+</body>
+</html>
+

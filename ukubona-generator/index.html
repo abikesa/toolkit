@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ukubona – Live Layer System</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #f4f4f9;
+      font-family: 'Inter', sans-serif;
+      color: #111;
+      padding: 2rem;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    input, button {
+      padding: 0.6rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-family: 'Inter', sans-serif;
+    }
+    button {
+      background: #0077b6;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005f8e;
+    }
+    .layer {
+      background: white;
+      border-left: 8px solid #0077b6;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+    .layer:hover {
+      transform: scale(1.02);
+    }
+    .emoji {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+    .title {
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+    .note {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #333;
+      border-left: 4px solid #aaa;
+      padding-left: 0.75rem;
+      font-family: 'DM Serif Display', serif;
+    }
+    .tag {
+      display: inline-block;
+      background: #eef;
+      color: #005;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      margin-right: 0.5rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .tag:hover {
+      background: #dde;
+    }
+    #filterBar {
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌌 Ukubona — Live Layer System</h1>
+
+  <form id="layerForm">
+    <input type="text" id="emoji" placeholder="Emoji (e.g. 🌊)" required />
+    <input type="text" id="title" placeholder="Title (e.g. Molecular / Synaptic)" required />
+    <input type="text" id="description" placeholder="Note (optional)" />
+    <input type="text" id="tags" placeholder="Tags (comma-separated)" />
+    <button type="submit">Add Layer</button>
+  </form>
+
+  <div id="filterBar"></div>
+  <div id="userLayers"></div>
+
+  <script>
+    const API_URL = "http://localhost:5000/layers";
+    let activeTag = null;
+
+    function renderLayer(layer) {
+      const div = document.createElement("div");
+      div.className = "layer";
+      div.dataset.tags = layer.tags.join(",");
+
+      if (activeTag && !layer.tags.includes(activeTag)) {
+        div.style.display = "none";
+      }
+
+      div.innerHTML = `
+        <div class="title"><span class="emoji">${layer.emoji}</span>${layer.title}</div>
+        ${layer.description ? `<div class="note">${layer.description}</div>` : ""}
+        ${layer.tags.length ? `<div>${layer.tags.map(tag => `<span class="tag" onclick="setFilter('${tag}')">#${tag}</span>`).join(" ")}</div>` : ""}
+      `;
+      document.getElementById("userLayers").appendChild(div);
+    }
+
+    function updateFilterBar(layers) {
+      const container = document.getElementById("filterBar");
+      container.innerHTML = '';
+      const allTags = new Set();
+      layers.forEach(l => l.tags.forEach(tag => allTags.add(tag)));
+      if (allTags.size === 0) return;
+
+      container.innerHTML = 'Filter: ';
+      allTags.forEach(tag => {
+        const span = document.createElement("span");
+        span.textContent = `#${tag}`;
+        span.className = "tag";
+        span.onclick = () => setFilter(tag);
+        container.appendChild(span);
+      });
+
+      const clear = document.createElement("span");
+      clear.textContent = "✖ Clear";
+      clear.className = "tag";
+      clear.style.background = "#fcc";
+      clear.style.color = "#600";
+      clear.onclick = () => {
+        activeTag = null;
+        document.querySelectorAll(".layer").forEach(l => l.style.display = "block");
+      };
+      container.appendChild(clear);
+    }
+
+    function setFilter(tag) {
+      activeTag = tag;
+      document.querySelectorAll(".layer").forEach(div => {
+        const tags = div.dataset.tags.split(",");
+        div.style.display = tags.includes(tag) ? "block" : "none";
+      });
+    }
+
+    async function loadLayers() {
+      const res = await fetch(API_URL);
+      const layers = await res.json();
+      document.getElementById("userLayers").innerHTML = "";
+      layers.forEach(renderLayer);
+      updateFilterBar(layers);
+    }
+
+    document.getElementById("layerForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const emoji = document.getElementById("emoji").value.trim();
+      const title = document.getElementById("title").value.trim();
+      const description = document.getElementById("description").value.trim();
+      const tagsRaw = document.getElementById("tags").value.trim();
+      const tags = tagsRaw ? tagsRaw.split(",").map(t => t.trim()) : [];
+
+      const layer = { emoji, title, description, tags };
+
+      await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(layer)
+      });
+
+      this.reset();
+      loadLayers();
+    });
+
+    // Load layers on startup
+    window.onload = loadLayers;
+  </script>
+
+</body>
+</html>
+

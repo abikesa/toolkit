@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ukubona Inc — Signal Noise Simulation Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0a0f1c;
+      color: #fff;
+    }
+    .section {
+      padding: 2rem;
+    }
+    .card {
+      background-color: #1e1e2f;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 6px rgba(255,255,255,0.1);
+    }
+    .timeline-tag {
+      font-size: 0.9em;
+      margin-left: 0.5rem;
+      color: #f5f5f5;
+    }
+    .is-overdue { color: #ff3860; }
+    .is-due-today { color: #ffdd57; }
+    .is-upcoming { color: #23d160; }
+    .timeline-bar {
+      height: 10px;
+      background-color: #444;
+      margin-top: 10px;
+      border-radius: 5px;
+      position: relative;
+    }
+    .timeline-fill {
+      height: 100%;
+      background-color: #23d160;
+      border-radius: 5px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    input[type="text"], input[type="date"] {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      color: white;
+      width: 100%;
+    }
+    input[type="text"]:focus, input[type="date"]:focus {
+      outline: none;
+      border-bottom: 1px solid #23d160;
+    }
+  </style>
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title has-text-white">📊 Ukubona Inc — Simulation Dashboard</h1>
+      <div class="select mb-4">
+        <select id="roleSelect"></select>
+      </div>
+      <div class="buttons">
+        <button class="button is-link" onclick="exportCSV()">Export CSV</button>
+        <input type="file" id="csvInput" accept=".csv" style="display: none;">
+        <button class="button is-warning" onclick="document.getElementById('csvInput').click()">Import CSV</button>
+      </div>
+      <div id="dashboard"></div>
+    </div>
+  </section>
+
+  <script>
+    let mockData = {
+      "CEO": [
+        { name: "Aaliyah T. Karim", id: "CEO-001", task: "Approve Q3 Roadmap", due: "2025-06-05" },
+        { name: "Aaliyah T. Karim", id: "CEO-001", task: "Sign Series B Term Sheet", due: "2025-06-12" }
+      ],
+      "Intern": [
+        { name: "Sophie Lin", id: "INT-782", task: "Summarize market report", due: "2025-06-06" },
+        { name: "Sophie Lin", id: "INT-782", task: "Create slide deck mockups", due: "2025-06-09" }
+      ]
+      // Add more roles...
+    };
+
+    const roleSelect = document.getElementById('roleSelect');
+    Object.keys(mockData).forEach(role => {
+      const opt = document.createElement('option');
+      opt.value = role;
+      opt.textContent = role;
+      roleSelect.appendChild(opt);
+    });
+
+    roleSelect.addEventListener('change', () => renderDashboard(roleSelect.value));
+
+    function getStatusClass(dueDateStr) {
+      const today = new Date();
+      const due = new Date(dueDateStr);
+      const diff = Math.ceil((due - today) / (1000 * 60 * 60 * 24));
+      if (diff < 0) return 'is-overdue';
+      if (diff === 0) return 'is-due-today';
+      return 'is-upcoming';
+    }
+
+    function renderDashboard(role) {
+      const dashboard = document.getElementById('dashboard');
+      dashboard.innerHTML = '';
+      (mockData[role] || []).forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'card p-4';
+
+        const name = document.createElement('input');
+        name.type = 'text';
+        name.value = item.name;
+
+        const task = document.createElement('input');
+        task.type = 'text';
+        task.value = item.task;
+
+        const due = document.createElement('input');
+        due.type = 'date';
+        due.value = item.due;
+        const statusClass = getStatusClass(item.due);
+
+        const timeline = document.createElement('div');
+        timeline.className = 'timeline-bar';
+        const fill = document.createElement('div');
+        fill.className = `timeline-fill ${statusClass}`;
+        const today = new Date();
+        const dueDate = new Date(item.due);
+        const daysDiff = (dueDate - today) / (1000 * 60 * 60 * 24);
+        const percent = Math.max(0, Math.min(100, 100 - daysDiff * 10));
+        fill.style.width = percent + '%';
+        timeline.appendChild(fill);
+
+        card.appendChild(name);
+        card.appendChild(task);
+        card.appendChild(due);
+        card.appendChild(timeline);
+        dashboard.appendChild(card);
+      });
+    }
+
+    function exportCSV() {
+      const role = roleSelect.value;
+      const data = mockData[role] || [];
+      const rows = data.map(item => `${item.name},${item.id},${item.task},${item.due}`);
+      const csv = ['name,id,task,due', ...rows].join('\n');
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${role}_tasks.csv`;
+      a.click();
+    }
+
+    document.getElementById('csvInput').addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const lines = reader.result.split('\n').slice(1);
+        mockData[roleSelect.value] = lines.map(line => {
+          const [name, id, task, due] = line.split(',');
+          return { name, id, task, due };
+        });
+        renderDashboard(roleSelect.value);
+      };
+      reader.readAsText(file);
+    });
+
+    renderDashboard(roleSelect.value || 'CEO');
+  </script>
+</body>
+</html>

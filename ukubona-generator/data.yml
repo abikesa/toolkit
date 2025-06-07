@@ -1,0 +1,77 @@
+layers:
+  roots:
+    name: "Roots"
+    color: "#4CAF50"
+    description: "Associative memory, instinctual links, Humean impressions"
+    tasks:
+      - title: "Collect raw perceptual fragments"
+        status: "pending"
+        due: "2025-06-10"
+        owner: "intern"
+        tags: ["sensation", "memory", "pre-symbolic"]
+
+  trunk:
+    name: "Trunk"
+    color: "#795548"
+    description: "Pattern recognition, basic neural assemblies, inference chains"
+    tasks:
+      - title: "Organize fragments into concepts"
+        status: "in-progress"
+        due: "2025-06-12"
+        owner: "founder"
+        tags: ["structure", "learning"]
+
+  branches:
+    name: "Branches"
+    color: "#FF9800"
+    description: "Conceptual abstraction, idea recombination, cultural scaffolding"
+    tasks:
+      - title: "Connect concepts to cultural symbols"
+        status: "pending"
+        due: "2025-06-14"
+        owner: "ceo"
+        tags: ["symbol", "culture"]
+
+  canopy:
+    name: "Canopy"
+    color: "#03A9F4"
+    description: "Narrative self, strategic foresight, philosophical integration"
+    tasks:
+      - title: "Compose guiding narrative for dashboard"
+        status: "in-progress"
+        due: "2025-06-16"
+        owner: "founder"
+        tags: ["story", "vision", "dashboard"]
+
+  sky:
+    name: "Sky"
+    color: "#E1BEE7"
+    description: "Transcendent connections, poetic unity, systemic consciousness"
+    tasks:
+      - title: "Embed symbolic quotes in UI"
+        status: "pending"
+        due: "2025-06-18"
+        owner: "designer"
+        tags: ["poetic", "UI", "transcendence"]
+
+  collapse:
+    name: "Operational Collapse Stack"
+    color: "#ff8a80"
+    tasks:
+      - title: "Monitor weak signals for failure"
+        status: "pending"
+        due: "2025-06-13"
+        owner: "founder"
+        tags: ["signal", "resilience", "risk"]
+
+      - title: "Run stress-test scenarios"
+        status: "in-progress"
+        due: "2025-06-14"
+        owner: "ceo"
+        tags: ["failover", "systemic", "test"]
+
+      - title: "Document last known stable config"
+        status: "pending"
+        due: "2025-06-15"
+        owner: "intern"
+        tags: ["documentation", "backup", "thresholds"]
