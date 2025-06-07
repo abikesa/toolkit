@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neurocosmic Framework Toolkit</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      padding: 2em;
+      max-width: 1400px;
+      margin: 0 auto;
+      line-height: 1.6;
+      transition: all 0.3s ease;
+    }
+    .tabs button {
+      margin: 0.5em;
+      padding: 0.75em 1.5em;
+      border: none;
+      background: var(--primary);
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .tabs button:hover {
+      background: var(--secondary);
+    }
+    .tab-content {
+      display: none;
+      margin-top: 2em;
+      padding: 1em;
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
+      background: var(--row-alt);
+    }
+    .tab-content.active {
+      display: block;
+    }
+    blockquote {
+      margin: 1em 0;
+      padding-left: 1em;
+      border-left: 4px solid var(--primary);
+      font-style: italic;
+    }
+    #shibboleth {
+      background: radial-gradient(circle, rgba(255,255,255,0.05), rgba(0,0,0,0.4));
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      animation: shimmer 4s infinite ease-in-out;
+    }
+    @keyframes shimmer {
+      0% { background-position: 0 0; }
+      100% { background-position: 100% 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Neurocosmic Framework Toolkit</h1>
+    <div class="theme-toggle">
+      <label>
+        <input type="checkbox" id="themeSwitch"> Dark Mode
+      </label>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button data-tab="cognition">🧠 Cognition</button>
+    <button data-tab="prosody">🎶 Prosody</button>
+    <button data-tab="boundaries">🚪 Boundaries</button>
+    <button data-tab="shibboleth">🌀 Shibboleth Mode</button>
+  </div>
+
+  <div id="cognition" class="tab-content active">
+    <h2>🧠 Cognition</h2>
+    <p>Cognition lives at the intersection of structure and sense-making. It is the grammar beneath expression, the map behind the terrain.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Grammar (Structure)</th>
+          <th>Prosody (Expression)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Chord theory</td><td>Felt groove</td></tr>
+        <tr><td>Syntax</td><td>Accent / cadence</td></tr>
+        <tr><td>Vocabulary</td><td>Idiom / Shibboleth</td></tr>
+        <tr><td>Fluency</td><td>Belonging</td></tr>
+      </tbody>
+    </table>
+    <blockquote>
+      “Fluency is accuracy, but prosody is belonging.”
+    </blockquote>
+  </div>
+
+  <div id="prosody" class="tab-content">
+    <h2>🎶 Prosody</h2>
+    <p>Prosody isn’t just how something is said—it’s the timing, tone, and trust built into cadence. It lives in the delay of a gospel moan, in the silence before a beat drops.</p>
+    <blockquote>
+      “Prosody must be earned. It passes through your body first.”
+    </blockquote>
+    <p>Feel is a boundary, not of knowledge, but of experience. To cross it, you must listen longer than you speak.</p>
+  </div>
+
+  <div id="boundaries" class="tab-content">
+    <h2>🚪 Boundaries</h2>
+    <p>Boundaries define. They constrain and liberate, exclude and clarify. Natural boundaries like rivers and synapses; human boundaries like laws and borders; artificial ones like copyrights and algorithms.</p>
+    <p><strong>Intellectual property</strong> is a codified form of boundary—a modern shibboleth drawn in legalese instead of dialect.</p>
+    <blockquote>
+      “Shibboleths expose more than skill. They reveal origin, immersion, identity.”
+    </blockquote>
+  </div>
+
+  <div id="shibboleth" class="tab-content">
+    <h2>🌀 Shibboleth Mode</h2>
+    <p>This is the soul filter. It does not test for knowledge. It tests for immersion.</p>
+    <p>What you see here may not be visible to those outside the rhythm.</p>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tabs button');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        contents.forEach(c => c.classList.remove('active'));
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    const themeSwitch = document.getElementById('themeSwitch');
+    themeSwitch.addEventListener('change', () => {
+      document.documentElement.setAttribute('data-theme', themeSwitch.checked ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
+

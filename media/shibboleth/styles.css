@@ -1,0 +1,54 @@
+:root {
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --primary: #2c3e50;
+  --hover-color: #e9ecef;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f8f9fa;
+  --primary: #4a89dc;
+  --hover-color: #333;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary);
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.tab-button {
+  background: var(--hover-color);
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  margin: 0 0.2em;
+}
+
+.tab-button.active {
+  background: var(--primary);
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  max-width: 800px;
+  margin: auto;
+}
+
+.tab-content.active {
+  display: block;
+}

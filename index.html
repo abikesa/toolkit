@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="keywords" content="shibboleth, boundaries, prosody, gospel, IP, immersion, language, toolkit">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neurocosmic Framework Toolkit</title>
   <style>
@@ -163,9 +165,29 @@
         flex-direction: column;
       }
     }
+    .shibboleth-mode em {
+  background: yellow;
+  color: black;
+  font-style: normal;
+  border-bottom: 2px dashed red;
+}
+
   </style>
 </head>
 <body>
+  <label style="display:block; margin-bottom: 1em;">
+  <input type="checkbox" id="shibbolethMode" onchange="toggleShibboleth()"> Reveal Boundaries (Shibboleth Mode)
+</label>
+<div id="boundaryReflection" style="display:none; border-left: 4px solid var(--secondary); padding-left: 1em; margin: 2em 0;">
+  <blockquote>
+    <strong>On Boundaries:</strong>  
+    The edge between fluency and alienation isn’t a border, it’s a beat.<br>
+    Intellectual property draws its power from ownership; prosody draws its power from belonging.<br>
+    A melody is only yours if it’s been sung through you.
+  </blockquote>
+</div>
+
+
   <button class="theme-toggle" id="themeToggle">🌓 Toggle Theme</button>
   
   <h1>🧠 Neurocosmic Framework Toolkit</h1>
@@ -198,7 +220,9 @@
       <!-- Will be populated by JavaScript -->
     </tbody>
   </table>
-  
+
+  <p>Grammar can be taught. <em>Prosody</em> must be earned.</p>
+
   <div class="container">
     <div class="panel">
       <h2>CLI Generator Workflow</h2>
@@ -438,6 +462,15 @@ print("✅ Dashboard generated to /output/")</pre>
         }
       });
     });
+      function toggleShibboleth() {
+    document.body.classList.toggle('shibboleth-mode');
+    document.getElementById('boundaryReflection').style.display =
+      document.body.classList.contains('shibboleth-mode') ? 'block' : 'none';
+  }
   </script>
+  <footer style="margin-top: 3em; font-style: italic; color: var(--secondary);">
+  <p><strong>Note on Boundaries:</strong> This framework honors origins. Concepts and code are shared, but the <em>feel</em> is earned. If you cross this boundary, do so with reverence.</p>
+</footer>
+
 </body>
 </html>

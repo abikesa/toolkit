@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neurocosmic Framework Toolkit</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <button onclick="toggleTheme()">Toggle Theme</button>
+  <h1>Neurocosmic Framework Toolkit</h1>
+  <div class="tabs">
+    <button class="tab-button active" onclick="openTab(event, 'cognition')">Cognition</button>
+    <button class="tab-button" onclick="openTab(event, 'prosody')">Prosody</button>
+    <button class="tab-button" onclick="openTab(event, 'boundaries')">Boundaries</button>
+    <button class="tab-button" onclick="openTab(event, 'shibboleth')">Shibboleth</button>
+  </div>
+  <div id="cognition" class="tab-content active">
+    <h2>Cognition</h2>
+    <p>The structure of thought, logic, and interpretation. Grammar as signal.</p>
+  </div>
+  <div id="prosody" class="tab-content">
+    <h2>Prosody</h2>
+    <p>The rhythm of feeling, timing, and presence. Earned, not taught.</p>
+  </div>
+  <div id="boundaries" class="tab-content">
+    <h2>Boundaries</h2>
+    <p>Natural, human, and artificial thresholds. Where signal ends, noise begins—or vice versa.</p>
+  </div>
+  <div id="shibboleth" class="tab-content">
+    <h2>Shibboleth</h2>
+    <p>Markers of identity. The prosodic passcode to belonging.</p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
