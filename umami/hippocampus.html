@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Hippocampus Eats Miso Soup</title>
+  <style>
+    body { font-family: 'Georgia', serif; background: #fdfaf5; margin: 0; padding: 2rem; color: #333; }
+    h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .layer-toggle { margin: 1rem 0; }
+    .quote { font-style: italic; margin: 1rem 0; }
+    .section { margin-bottom: 2rem; }
+    .layer { display: none; margin-top: 1rem; }
+    .layer.active { display: block; animation: fadeIn 0.5s ease-in-out; }
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    .button { padding: 0.5rem 1rem; background: #e0dfda; border: none; border-radius: 5px; cursor: pointer; }
+    .button:hover { background: #c5c4be; }
+  </style>
+</head>
+<body>
+  <h1>The Hippocampus Eats Miso Soup</h1>
+  <div class="quote">“The warm memory of miso soup on a winter morning isn’t in the glutamate. It’s in the life around it.”</div>
+
+  <div class="layer-toggle">
+    <button class="button" onclick="toggleLayer('layer1')">🌊 Origins (Glutamate)</button>
+    <button class="button" onclick="toggleLayer('layer2')">❤️ Commons (Umami)</button>
+    <button class="button" onclick="toggleLayer('layer3')">🌀 Trust (Protein & Memory)</button>
+    <button class="button" onclick="toggleLayer('layer4')">🐬 Reverence (Foraging)</button>
+    <button class="button" onclick="toggleLayer('layer5')">🔁 Ritual (Reduction vs Bourdainism)</button>
+  </div>
+
+  <div class="section">
+    <div id="layer1" class="layer">
+      <h2>🌊 Glutamate (Origins)</h2>
+      <p>Glutamate is the elemental signal — a noise-signal molecule marking savory, richness, and foundational input to the nervous system. It was chemically universal but culturally dormant in the West.</p>
+    </div>
+    <div id="layer2" class="layer">
+      <h2>❤️ Umami (Commons)</h2>
+      <p>Umami emerged as a cultural commons in East Asia. More than flavor, it's a situational registration of care, repetition, and community. Dashi, miso, kombu — practices, not ingredients.</p>
+    </div>
+    <div id="layer3" class="layer">
+      <h2>🌀 Protein & Trust (Memory)</h2>
+      <p>Protein builds trust, both biologically and culturally. Like the hippocampus consolidating experience, shared meals bind social memory. Umami lives here, between molecule and mood.</p>
+    </div>
+    <div id="layer4" class="layer">
+      <h2>🐬 Foraging & Reverence</h2>
+      <p>Bourdain’s journeys mirrored ancient foraging: seeking not novelty, but nourishment of context. His compass traced flavor gradients across space-time, always reverent, never extractive.</p>
+    </div>
+    <div id="layer5" class="layer">
+      <h2>🔁 Ritual vs Reduction</h2>
+      <p>Kandel isolates; Bourdain rebinds. The scientific method parses signal from noise, but cultural meaning emerges from layered ritual. Both necessary, but only one tastes like home.</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleLayer(id) {
+      const layers = document.querySelectorAll('.layer');
+      layers.forEach(layer => layer.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+</html>
+

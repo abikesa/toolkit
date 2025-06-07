@@ -1,0 +1,32 @@
+layers:
+- description: Chemical foundation. Pre-cultural, primal signal.
+  name: Origins
+  noise: 5
+  signal: 95
+  symbol: "\U0001F30A"
+  theme: Glutamate
+- description: 'Interpersonal flavor: fermented, shared, and seasonal.'
+  name: Commons
+  noise: 20
+  signal: 80
+  symbol: "\u2764\uFE0F"
+  theme: Umami
+- description: Umami builds memory, intimacy, and social trust.
+  name: Trust/Memory
+  noise: 50
+  signal: 50
+  symbol: "\U0001F300"
+  theme: Protein
+- description: Sourcing matters. Context matters. Humility matters.
+  name: Reverence
+  noise: 80
+  signal: 20
+  symbol: "\U0001F42C"
+  theme: Foraging
+- description: Canon is repetition. Ritual makes signal sacred.
+  name: Ritual
+  noise: 95
+  signal: 5
+  symbol: "\U0001F501"
+  theme: Reduction vs Bourdain
+title: The Hippocampus Eats Miso Soup

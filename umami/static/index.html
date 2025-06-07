@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Umami Interactive Dashboard</title>
+  <style>
+    body { font-family: Georgia, serif; padding: 2rem; background: #fffdf7; max-width: 800px; margin: auto; }
+    .layer { border-left: 5px solid #ccc; padding-left: 1em; margin-bottom: 2em; }
+    .symbol { font-size: 2rem; margin-right: 0.5em; }
+    input[type="number"] { width: 60px; }
+  </style>
+</head>
+<body>
+  <h1>🌐 Umami Interactive Dashboard</h1>
+  <div id="layers"></div>
+  <button onclick="save()">💾 Save</button>
+
+  <script>
+    let data = {}
+
+    async function load() {
+      const res = await fetch("/api/layers")
+      data = await res.json()
+      const container = document.getElementById("layers")
+      container.innerHTML = ""
+      data.layers.forEach((layer, i) => {
+        container.innerHTML += `
+          <div class="layer">
+            <h2><span class="symbol">${layer.symbol}</span>
+              ${layer.name}: ${layer.theme}
+            </h2>
+            <label>Signal:
+              <input type="number" value="${layer.signal}" onchange="update(${i}, 'signal', this.value)">
+            </label>
+            <label>Noise:
+              <input type="number" value="${layer.noise}" onchange="update(${i}, 'noise', this.value)">
+            </label>
+            <p>${layer.description}</p>
+          </div>`
+      })
+    }
+
+    function update(i, key, value) {
+      data.layers[i][key] = parseInt(value)
+    }
+
+    async function save() {
+      await fetch("/api/layers", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      })
+      alert("Saved ✅")
+    }
+
+    load()
+  </script>
+</body>
+</html>
+

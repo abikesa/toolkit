@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Umami Interactive Dashboard</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fffdf7;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .layer {
+      margin-bottom: 2em;
+      border-left: 5px solid #ccc;
+      padding-left: 1em;
+    }
+    .symbol {
+      font-size: 2rem;
+      margin-right: 0.5em;
+    }
+    .sn {
+      font-weight: bold;
+    }
+    input[type=range] {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">🌐 Loading...</h1>
+  <div id="layers"></div>
+
+  <script>
+    fetch("/api/layers")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("title").textContent = "�� " + data.title;
+        const container = document.getElementById("layers");
+        data.layers.forEach((layer, index) => {
+          const div = document.createElement("div");
+          div.className = "layer";
+
+          const ratio = (layer.noise === 0) ? layer.signal : (layer.signal / layer.noise).toFixed(2);
+
+          div.innerHTML = `
+            <h2><span class="symbol">${layer.symbol}</span>${layer.name}: ${layer.theme}</h2>
+            <p class="sn" id="ratio-${index}">Signal/Noise: ${layer.signal}/${layer.noise} = ${ratio}</p>
+            <label>Signal: <input type="range" min="0" max="100" value="${layer.signal}" id="signal-${index}"></label>
+            <label>Noise: <input type="range" min="0" max="100" value="${layer.noise}" id="noise-${index}"></label>
+            <p>${layer.description}</p>
+          `;
+
+          container.appendChild(div);
+
+          const updateRatio = () => {
+            const signal = parseInt(document.getElementById(`signal-${index}`).value);
+            const noise = parseInt(document.getElementById(`noise-${index}`).value);
+            const ratioDisplay = document.getElementById(`ratio-${index}`);
+            const ratio = noise === 0 ? signal : (signal / noise).toFixed(2);
+            ratioDisplay.textContent = `Signal/Noise: ${signal}/${noise} = ${ratio}`;
+          };
+
+          document.getElementById(`signal-${index}`).addEventListener("input", updateRatio);
+          document.getElementById(`noise-${index}`).addEventListener("input", updateRatio);
+        });
+      });
+  </script>
+</body>
+</html>
+
