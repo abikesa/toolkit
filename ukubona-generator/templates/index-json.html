@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Save as index.html and open in Live Server-->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -9,6 +10,7 @@
     body {
       background-color: #0a0f1c;
       color: #fff;
+      font-family: 'Segoe UI', sans-serif;
     }
     .task-card {
       background-color: #1a1f2c;
@@ -110,25 +112,54 @@
 
     let mockData = JSON.parse(localStorage.getItem("dashboardData")) || {
       "CEO": {
-        Tactical: [
-          { name: "Lebo", id: "C1", task: "Review investor deck", due: "2025-06-07" }
+        Strategic: [
+          { name: "Lebo", id: "C101", task: "Define Q3 strategic objectives", due: "2025-06-10" },
+          { name: "Lebo", id: "C102", task: "Secure Series A pitch", due: "2025-06-14" }
         ],
         Existential: [
-          { name: "Lebo", id: "C2", task: "Annual retreat planning", due: "2025-12-15" }
+          { name: "Lebo", id: "C103", task: "Draft Ethical Manifesto", due: "2025-12-01" }
         ]
       },
-      "Intern": {
+      "Product Manager": {
         Tactical: [
-          { name: "Thandi", id: "I1", task: "Daily standup notes", due: "2025-06-07" }
+          { name: "Nia", id: "PM201", task: "Bug triage sprint", due: "2025-06-07" }
         ],
-        Strategic: [
-          { name: "Thandi", id: "I2", task: "Q3 onboarding draft", due: "2025-06-30" }
+        Operational: [
+          { name: "Nia", id: "PM202", task: "Design handoff review", due: "2025-06-08" }
         ]
       },
       "Engineer": {
         Operational: [
-          { name: "Kabelo", id: "E1", task: "Patch security hole", due: "2025-06-09" },
-          { name: "Kabelo", id: "E2", task: "Rework auth flow", due: "2025-06-13" }
+          { name: "Kabelo", id: "E301", task: "Refactor authentication module", due: "2025-06-09" },
+          { name: "Kabelo", id: "E302", task: "Implement fallback logic", due: "2025-06-12" }
+        ],
+        Informational: [
+          { name: "Amina", id: "E303", task: "Internal security briefing", due: "2025-06-07" }
+        ]
+      },
+      "Client Liaison": {
+        Informational: [
+          { name: "Zanele", id: "CL401", task: "Prepare Q2 client update", due: "2025-06-11" }
+        ],
+        Strategic: [
+          { name: "Zanele", id: "CL402", task: "Draft client feedback loop proposal", due: "2025-06-20" }
+        ]
+      },
+      "Intern": {
+        Tactical: [
+          { name: "Thandi", id: "I501", task: "Document API responses", due: "2025-06-07" },
+          { name: "Thandi", id: "I502", task: "Assist in usability testing", due: "2025-06-08" }
+        ],
+        Informational: [
+          { name: "Sipho", id: "I503", task: "Summarize onboarding experience", due: "2025-06-09" }
+        ]
+      },
+      "Regulatory Advisor": {
+        Existential: [
+          { name: "Dr. Mokoena", id: "RA601", task: "Prepare compliance roadmap", due: "2025-06-30" }
+        ],
+        Operational: [
+          { name: "Dr. Mokoena", id: "RA602", task: "Review GDPR implementation", due: "2025-06-15" }
         ]
       }
     };
@@ -146,13 +177,6 @@
         roleSelect.appendChild(opt);
       });
     }
-
-    roleSelect.addEventListener('change', renderDashboard);
-    scopeSelect.addEventListener('change', renderDashboard);
-    initSelectors();
-    roleSelect.value = Object.keys(mockData)[0];
-    scopeSelect.value = "Tactical";
-    renderDashboard();
 
     function getStatusClass(dueDateStr) {
       const today = new Date();
@@ -172,77 +196,71 @@
         const card = document.createElement('div');
         card.className = `task-card ${getStatusClass(item.due)}`;
         card.setAttribute('data-tooltip', QUOTES[(index + role.length + scope.length) % QUOTES.length]);
-
         card.innerHTML = `
           <input type="text" value="${item.name}" onchange="updateTask('${role}','${scope}', ${index}, 'name', this.value)">
           <input type="text" value="${item.id}" onchange="updateTask('${role}','${scope}', ${index}, 'id', this.value)">
           <input type="text" value="${item.task}" onchange="updateTask('${role}','${scope}', ${index}, 'task', this.value)">
           <input type="date" value="${item.due}" onchange="updateTask('${role}','${scope}', ${index}, 'due', this.value)">
-          <div class="timeline-bar"><div class="timeline-fill" id="fill-${role}-${scope}-${index}"></div></div>
+          <div class="timeline-bar"><div class="timeline-fill" style="width: ${(100 - index * 10) % 100}%;"></div></div>
         `;
         dashboard.appendChild(card);
-
-        const fill = document.getElementById(`fill-${role}-${scope}-${index}`);
-        const today = new Date();
-        const dueDate = new Date(item.due);
-        const daysDiff = (dueDate - today) / (1000 * 60 * 60 * 24);
-        const percent = Math.max(0, Math.min(100, 100 - daysDiff * 10));
-        fill.style.width = percent + '%';
       });
-      localStorage.setItem("dashboardData", JSON.stringify(mockData));
     }
 
-    function updateTask(role, scope, index, key, value) {
-      mockData[role][scope][index][key] = value;
-      if (key === 'due') renderDashboard();
+    function updateTask(role, scope, index, field, value) {
+      mockData[role][scope][index][field] = value;
       localStorage.setItem("dashboardData", JSON.stringify(mockData));
+      renderDashboard();
     }
 
     function exportCSV() {
-      const role = roleSelect.value;
-      const scope = scopeSelect.value;
-      const data = (mockData[role] && mockData[role][scope]) || [];
-      const rows = data.map(item => `${item.name},${item.id},${item.task},${item.due}`);
-      const csv = ['name,id,task,due', ...rows].join('\n');
+      let csv = "role,scope,name,id,task,due\n";
+      for (let role in mockData) {
+        for (let scope in mockData[role]) {
+          mockData[role][scope].forEach(task => {
+            csv += `${role},${scope},${task.name},${task.id},${task.task},${task.due}\n`;
+          });
+        }
+      }
       const blob = new Blob([csv], { type: 'text/csv' });
       const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
+      const a = document.createElement("a");
       a.href = url;
-      a.download = `${role}_${scope}_tasks.csv`;
+      a.download = "dashboard_export.csv";
       a.click();
-      URL.revokeObjectURL(url);
     }
 
-    document.getElementById('csvInput').addEventListener('change', function () {
-      const file = this.files[0];
-      if (!file) return;
+    function exportAllJSON() {
+      const blob = new Blob([JSON.stringify(mockData, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "dashboard_export.json";
+      a.click();
+    }
+
+    document.getElementById('csvInput').addEventListener('change', function (event) {
+      const file = event.target.files[0];
       const reader = new FileReader();
       reader.onload = function (e) {
-        const lines = e.target.result.trim().split('\n');
-        const [header, ...rows] = lines;
-        const data = rows.map(line => {
-          const [name, id, task, due] = line.split(',');
-          return { name, id, task, due };
+        const lines = e.target.result.split("\n").slice(1);
+        lines.forEach(line => {
+          const [role, scope, name, id, task, due] = line.split(",");
+          if (!mockData[role]) mockData[role] = {};
+          if (!mockData[role][scope]) mockData[role][scope] = [];
+          mockData[role][scope].push({ name, id, task, due });
         });
-        const role = roleSelect.value;
-        const scope = scopeSelect.value;
-        mockData[role] = mockData[role] || {};
-        mockData[role][scope] = data;
+        localStorage.setItem("dashboardData", JSON.stringify(mockData));
+        initSelectors();
         renderDashboard();
       };
       reader.readAsText(file);
     });
 
-    function exportAllJSON() {
-      const json = JSON.stringify(mockData, null, 2);
-      const blob = new Blob([json], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `ukubona_dashboard_data.json`;
-      a.click();
-      URL.revokeObjectURL(url);
-    }
+    initSelectors();
+    roleSelect.addEventListener('change', renderDashboard);
+    scopeSelect.addEventListener('change', renderDashboard);
+    renderDashboard();
   </script>
 </body>
 </html>

@@ -1,6 +1,4 @@
-You’ve *already* built the core of a Fortune 500 product. No fluff. Here’s what’s real:
 
----
 
 ### ✅ WHAT YOU HAVE RIGHT NOW
 

@@ -39,3 +39,25 @@ def update_data():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+@app.route('/api/owners')
+def get_owners():
+    data = load_data()
+    owners = set()
+    for layer in data.get("layers", {}).values():
+        for task in layer.get("tasks", []):
+            owners.add(task.get("owner", "unknown"))
+    return jsonify(sorted(owners))
+
+@app.route('/api/tasks/<owner>')
+def get_tasks_by_owner(owner):
+    data = load_data()
+    filtered_tasks = []
+    for layer_key, layer in data.get("layers", {}).items():
+        for task in layer.get("tasks", []):
+            if task.get("owner") == owner:
+                task_info = task.copy()
+                task_info["layer"] = layer.get("name", layer_key)
+                task_info["layerColor"] = layer.get("color", "#cccccc")
+                filtered_tasks.append(task_info)
+    return jsonify(filtered_tasks)

@@ -1,78 +1,288 @@
 layers:
-  roots:
-    name: "Roots"
-    color: "#4CAF50"
-    description: "Associative memory, instinctual links, Humean impressions"
+  synaptic:
+    name: Synaptic
+    color: "#8e44ad"
     tasks:
-      - title: "Collect raw perceptual fragments"
-        status: "pending"
-        due: "2025-06-10"
-        owner: "intern"
-        tags: ["sensation", "memory", "pre-symbolic"]
+      - title: Refactor input parser
+        description: Update the signal preprocessor to handle malformed entries.
+        deadline: 2025-06-09
+        status: pending
+        remaining: "2 days"
+        owner: Priya Patel
+        role: Engineer
+        scope: Tactical
 
-  trunk:
-    name: "Trunk"
-    color: "#795548"
-    description: "Pattern recognition, basic neural assemblies, inference chains"
+      - title: Code review - layer merge
+        description: Review latest PR on synaptic/axonal interface.
+        deadline: 2025-06-10
+        status: pending
+        remaining: "3 days"
+        owner: Isaac Huang
+        role: Engineer
+        scope: Informational
+
+  axonal:
+    name: Axonal
+    color: "#2980b9"
     tasks:
-      - title: "Organize fragments into concepts"
-        status: "in-progress"
-        due: "2025-06-12"
-        owner: "founder"
-        tags: ["structure", "learning"]
+      - title: Weekly metrics digest
+        description: Generate and send performance metrics to strategy team.
+        deadline: 2025-06-07
+        status: due today
+        remaining: "0 days"
+        owner: Fatima Khaled
+        role: Analyst
+        scope: Informational
 
-  branches:
-    name: "Branches"
-    color: "#FF9800"
-    description: "Conceptual abstraction, idea recombination, cultural scaffolding"
+      - title: Client model audit
+        description: Validate forecast results from client B.
+        deadline: 2025-06-14
+        status: pending
+        remaining: "7 days"
+        owner: Jayden Brooks
+        role: Data Scientist
+        scope: Strategic
+
+  symbolic:
+    name: Symbolic
+    color: "#16a085"
     tasks:
-      - title: "Connect concepts to cultural symbols"
-        status: "pending"
-        due: "2025-06-14"
-        owner: "ceo"
-        tags: ["symbol", "culture"]
+      - title: Update internal taxonomy
+        description: Harmonize terminology across layered dashboards.
+        deadline: 2025-06-11
+        status: pending
+        remaining: "4 days"
+        owner: Sofia Martins
+        role: Intern
+        scope: Operational
 
-  canopy:
-    name: "Canopy"
-    color: "#03A9F4"
-    description: "Narrative self, strategic foresight, philosophical integration"
+      - title: Design principles alignment
+        description: Draft visual language for symbolic-layered outputs.
+        deadline: 2025-06-12
+        status: pending
+        remaining: "5 days"
+        owner: Tomás Ngugi
+        role: Designer
+        scope: Strategic
+
+  existential:
+    name: Existential
+    color: "#c0392b"
     tasks:
-      - title: "Compose guiding narrative for dashboard"
-        status: "in-progress"
-        due: "2025-06-16"
-        owner: "founder"
-        tags: ["story", "vision", "dashboard"]
+      - title: Yearly board narrative
+        description: Synthesize annual story across all signal layers.
+        deadline: 2025-12-31
+        status: pending
+        remaining: "207 days"
+        owner: Dr. Lena Moreno
+        role: CEO
+        scope: Existential
 
-  sky:
-    name: "Sky"
-    color: "#E1BEE7"
-    description: "Transcendent connections, poetic unity, systemic consciousness"
+      - title: Trust simulation protocol
+        description: Draft initial theory of trust signaling through noise collapse.
+        deadline: 2025-07-01
+        status: pending
+        remaining: "24 days"
+        owner: Raul Tanaka
+        role: Researcher
+        scope: Strategic
+
+  regulatory:
+    name: Regulatory
+    color: "#f39c12"
     tasks:
-      - title: "Embed symbolic quotes in UI"
-        status: "pending"
-        due: "2025-06-18"
-        owner: "designer"
-        tags: ["poetic", "UI", "transcendence"]
+      - title: Compliance audit prep
+        description: Assemble all required documentation for federal inspection.
+        deadline: 2025-06-13
+        status: pending
+        remaining: "6 days"
+        owner: Helena Dube
+        role: Compliance Officer
+        scope: Operational
 
-  collapse:
-    name: "Operational Collapse Stack"
-    color: "#ff8a80"
+      - title: Policy harmonization review
+        description: Check state and federal regulations alignment.
+        deadline: 2025-06-15
+        status: pending
+        remaining: "8 days"
+        owner: Eli Schwartz
+        role: Legal
+        scope: Strategic
+
+layers:
+  synaptic:
+    name: Synaptic
+    color: "#8e44ad"
     tasks:
-      - title: "Monitor weak signals for failure"
-        status: "pending"
-        due: "2025-06-13"
-        owner: "founder"
-        tags: ["signal", "resilience", "risk"]
+      - title: Input pipeline hotfix
+        description: Patch malformed signal handler for edge cases.
+        deadline: 2025-06-08
+        status: pending
+        remaining: "1 day"
+        owner: Priya Patel
+        role: Engineer
+        scope: Tactical
 
-      - title: "Run stress-test scenarios"
-        status: "in-progress"
-        due: "2025-06-14"
-        owner: "ceo"
-        tags: ["failover", "systemic", "test"]
+      - title: Neural weight review
+        description: Calibrate parameter drift across runs.
+        deadline: 2025-06-12
+        status: pending
+        remaining: "5 days"
+        owner: Hugo Müller
+        role: ML Engineer
+        scope: Operational
 
-      - title: "Document last known stable config"
-        status: "pending"
-        due: "2025-06-15"
-        owner: "intern"
-        tags: ["documentation", "backup", "thresholds"]
-# flick 20250607144047-ZnCl
+      - title: Integration smoke tests
+        description: Run daily battery on layered flow.
+        deadline: 2025-06-07
+        status: due today
+        remaining: "0 days"
+        owner: Liyana Shaikh
+        role: QA Lead
+        scope: Tactical
+
+  axonal:
+    name: Axonal
+    color: "#2980b9"
+    tasks:
+      - title: Metrics pipeline upgrade
+        description: Move from batch to streaming analysis.
+        deadline: 2025-06-10
+        status: pending
+        remaining: "3 days"
+        owner: Santiago Lee
+        role: Data Engineer
+        scope: Strategic
+
+      - title: Meeting: anomaly response
+        description: Coordinate with ops on high variance event.
+        deadline: 2025-06-07
+        status: due today
+        remaining: "0 days"
+        owner: Mei-Lin Cho
+        role: Operations
+        scope: Informational
+
+      - title: Visualization enhancements
+        description: Add realtime toggles to axonal layer charts.
+        deadline: 2025-06-14
+        status: pending
+        remaining: "7 days"
+        owner: Tara Okonkwo
+        role: UX Designer
+        scope: Strategic
+
+  symbolic:
+    name: Symbolic
+    color: "#16a085"
+    tasks:
+      - title: Glossary harmonization
+        description: Align terms with updated org memory.
+        deadline: 2025-06-09
+        status: pending
+        remaining: "2 days"
+        owner: Diego Moretti
+        role: Technical Writer
+        scope: Operational
+
+      - title: Internship deliverables
+        description: Review logic layers submitted by summer interns.
+        deadline: 2025-06-13
+        status: pending
+        remaining: "6 days"
+        owner: Ava Johnson
+        role: Learning & Dev
+        scope: Strategic
+
+      - title: Onboarding tutorial draft
+        description: First pass at symbolic training flow.
+        deadline: 2025-06-15
+        status: pending
+        remaining: "8 days"
+        owner: Ben Nakamura
+        role: Educator
+        scope: Operational
+
+  existential:
+    name: Existential
+    color: "#c0392b"
+    tasks:
+      - title: Org health review
+        description: Culture, retention, resilience metrics annual deep dive.
+        deadline: 2025-12-20
+        status: pending
+        remaining: "196 days"
+        owner: CEO Dr. Lena Moreno
+        role: Executive
+        scope: Existential
+
+      - title: Narrative reboot workshop
+        description: Cross-role retreat to reframe org signal story.
+        deadline: 2025-07-04
+        status: pending
+        remaining: "27 days"
+        owner: Noah Kim
+        role: Facilitator
+        scope: Strategic
+
+      - title: Sabbatical knowledge loop
+        description: Document deep reflections during return transition.
+        deadline: 2025-06-30
+        status: pending
+        remaining: "23 days"
+        owner: Miriam Zafar
+        role: Staff Fellow
+        scope: Existential
+
+  regulatory:
+    name: Regulatory
+    color: "#f39c12"
+    tasks:
+      - title: Privacy audit trail
+        description: Map signal flow and retention compliance.
+        deadline: 2025-06-11
+        status: pending
+        remaining: "4 days"
+        owner: Layla Nasser
+        role: Privacy Officer
+        scope: Operational
+
+      - title: ISO alignment draft
+        description: Draft compliance matrix for ISO-9001:2025.
+        deadline: 2025-06-17
+        status: pending
+        remaining: "10 days"
+        owner: Markus Feldman
+        role: Legal Counsel
+        scope: Strategic
+
+  commons:
+    name: Commons
+    color: "#2ecc71"
+    tasks:
+      - title: Team lunch — DEI session
+        description: Lunch & learn on inclusion in layered teams.
+        deadline: 2025-06-07
+        status: due today
+        remaining: "0 days"
+        owner: Nia Roberts
+        role: People Ops
+        scope: Informational
+
+      - title: Shared library expansion
+        description: Add new books to the org-wide signal shelf.
+        deadline: 2025-06-10
+        status: pending
+        remaining: "3 days"
+        owner: Arjun Desai
+        role: Community
+        scope: Tactical
+
+      - title: Studio open hours
+        description: Facilitate open-ended creation in the commons lab.
+        deadline: 2025-06-08
+        status: pending
+        remaining: "1 day"
+        owner: Zoë Tremblay
+        role: Culture Lead
+        scope: Operational
