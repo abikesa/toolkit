@@ -24,7 +24,7 @@ EXCLUDED_NAMES = {
     "_toc.yml", "_config.yml", ".DS_Store", "README"
 }
 
-EXCLUDED_SUFFIXES = {".ipynb", ".png", ".jpg", ".jpeg", ".gif", ".svg", ".html", ".sh", ".py", ".txt", ".bib", ".csv", ".js", ".css", ".ico", ".md"}
+EXCLUDED_SUFFIXES = {".ipynb", ".png", ".jpg", ".jpeg", ".gif", ".svg", ".html", ".sh", ".py", ".txt", ".bib", ".csv", ".js", ".css", ".ico", ".md", ".json", ".xml", ".yaml", ".yml", ".lock", ".conf", ".log", ".tmp", ".bak", ".swp", ".db", ".sqlite3"}
 
 def random_tag():
     return ''.join(random.choices(string.ascii_letters + string.digits, k=4))
