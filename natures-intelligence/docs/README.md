@@ -1,33 +1,44 @@
 ```mermaid
 graph TD
-  A[.md → Molecular] --> A1[Genetic]
-  A1 --> A2[Epigenetic]
-  A2 --> A3[Transcriptomic]
-  A3 --> A4[Proteomic]
-  A4 --> A5[Metabolomic]
+graph TD
+  %% Layer 1: Molecular / Synaptic / .md
+  MD[.md → Molecular] --> MD1[Synaptic]
+  MD1 --> MD2[Genetic]
+  MD2 --> MD3[Epigenetic]
+  MD3 --> MD4[Transcriptomic]
+  MD4 --> MD5[Proteomic]
+  MD5 --> MD6[Metabolomic]
 
-  B[.yml → Anatomical] --> B1[Cell Type]
-  B1 --> B2[Tissue]
-  B2 --> B3[Organ]
-  B3 --> B4[System]
-  B4 --> B5[Body Map]
+  %% Layer 2: Cellular / Axonal / .yml
+  YML[.yml → Anatomical] --> YML1[Axonal]
+  YML1 --> YML2[Cell Type]
+  YML2 --> YML3[Tissue]
+  YML3 --> YML4[Organ]
+  YML4 --> YML5[System]
+  YML5 --> YML6[Body Map]
 
-  C[.py → Physiological] --> C1[Reflex]
-  C1 --> C2[Homeostasis]
-  C2 --> C3[Feedback]
-  C3 --> C4[Neurohumoral]
+  %% Layer 3: Ganglionic / Sensorimotor / .py
+  PY[.py → Physiological] --> PY1[Sensorimotor]
+  PY1 --> PY2[Reflex]
+  PY2 --> PY3[Homeostasis]
+  PY3 --> PY4[Feedback]
+  PY4 --> PY5[Neurohumoral]
+  PY5 --> PY6[Cybernetic]
 
-  C4 --> C5[Cybernetic]
+  %% Layer 4: Hippocampal / Network / .html
+  HTML[.html → Integument] --> HTML1[Networked]
+  HTML1 --> HTML2[Skin]
+  HTML2 --> HTML3[Gesture]
+  HTML3 --> HTML4[Icon]
+  HTML4 --> HTML5[Layout]
+  HTML5 --> HTML6[Interaction Grammar]
 
-  D[.html → Integument] --> D1[Skin]
-  D1 --> D2[Gesture]
-  D2 --> D3[Icon]
-  D3 --> D4[Layout]
-  D4 --> D5[Interaction Grammar]
+  %% Layer 5: Prefrontal / Behavioral / .app
+  APP[.app → Act] --> APP1[Behavioral]
+  APP1 --> APP2[Reflexive]
+  APP2 --> APP3[Habitual]
+  APP3 --> APP4[Intentional]
+  APP4 --> APP5[Cooperative]
+  APP5 --> APP6[Emergent]
 
-  E[.app → Act] --> E1[Reflexive]
-  E1 --> E2[Habitual]
-  E2 --> E3[Intentional]
-  E3 --> E4[Cooperative]
-  E4 --> E5[Emergent]
 ```
