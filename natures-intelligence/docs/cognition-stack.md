@@ -1,6 +1,6 @@
 This grounds Ukubona LLC in fractal recursion ./README.md 
 
-> Fractals (Distinctions) 700 repos       
+> Fractals (Distinctions) 1000 repos       
 > GitHub (Observed) 100,000 commits/y     
 > Peers-Clients (Admissible) grants/deals      
 > Ukubona (Unambiguously) operations      
@@ -14,7 +14,7 @@ You're laying out a layered abstraction stack — almost like a poetic ops manif
 
 | **Layer**            | **Label**      | **Essence**                                            | **Signal**                    |
 | -------------------- | -------------- | ------------------------------------------------------ | ----------------------------- |
-| 🧠 **Fractals**      | *Distinctions* | Your 700+ repos: knowledge recursively encoded         | Pattern density               |
+| 🧠 **Fractals**      | *Distinctions* | Your 1000+ repos: knowledge recursively encoded         | Pattern density               |
 | 🛠 **GitHub**        | *Observed*     | 100k commits/year: machine-readable, timestamped will  | Flow of effort                |
 | 🤝 **Peers–Clients** | *Admissible*   | Grant wins, client deals: negotiated legitimacy        | Institutional resonance       |
 | 🏢 **Ukubona**       | *Unambiguous*  | Day-to-day operations: policy, payroll, productization | Org clarity                   |
