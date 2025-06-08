@@ -1,46 +1,13 @@
-
-**Signal Noise Toolkit File Roles**
-
-1. **`.md` — Conceptual Mapping**
-   Hosts unambiguous definitions, relationships, and meanings of concepts. It is the narrative and epistemic layer: clear, canonical, and human-readable.
-
-2. **`.yml` — Structured Data Seat**
-   Contains the raw data: layers, tasks, attributes, statuses. It is the single source of truth for structured information consumed by all other layers.
-
-3. **`.py` — Backend Codification (Flask)**
-   Translates data into logic: APIs, processing, exports. Encodes how the system *thinks* and *acts* using the YAML data.
-
-4. **`.html` — Frontend UI Web Layer**
-   Renders the interface: visualizes layers, timelines, roles. Aesthetics and interactivity reside here—what users *see* and *touch*.
-
-5. **`.app` — Interface Wrapper (Local vs Web)**
-   A launchable, wrapped experience—either local desktop-style or HTTPS-served. Bridges developer environment and end-user experience.
-
----
-
-Here’s both a **table** and a **diagram-ready** version to visualize your Signal Noise Toolkit architecture clearly.
-
----
-
-### ✅ Table: File Type Roles in the Signal Noise Toolkit
-
-| File Type | Role Title                | Function                                   | Description                                                                 |
-| --------- | ------------------------- | ------------------------------------------ | --------------------------------------------------------------------------- |
-| `.md`     | **Conceptual Mapping**    | Define meaning, structure, narrative       | Canonical source of truth for human understanding—layer names, ethics, etc. |
-| `.yml`    | **Structured Data Seat**  | Store tasks, roles, attributes             | Machine-readable and human-editable core dataset, feeding all other layers. |
-| `.py`     | **Backend Codification**  | API logic, data transforms, exports        | Flask-based logic engine—turns data into endpoints, filters, and logic.     |
-| `.html`   | **Frontend UI Web Layer** | Visual display, interactive dashboard      | User-facing portal; renders `.yml` data as timelines, cards, filters.       |
-| `.app`    | **Interface Wrapper**     | Wraps system as local or hosted experience | Launch point (e.g., Electron or Flask app) that bridges dev and end-user.   |
-
----
-
+ 
 ### 🌀 Diagram Concept: Signal Noise Stack (Radial Spiral or Layered Tree)
 
-```
-                          [.app]
+
+
+        ┌─────────────────────────────┐
+        |   [.app] Interface Shell    |
+        |  Local or Global, Produce   |
+        └─────────────────────────────┘
                             ⬆
-                       Interface Shell
-                            |
         ┌─────────────────────────────┐
         |     [.html] Frontend UI     |
         |  Visualize, Interact, Filter|
@@ -64,15 +31,42 @@ Here’s both a **table** and a **diagram-ready** version to visualize your Sign
 
 > 📌 *Interpretation*:
 
-* `.md` is epistemic bedrock. molecular
-* `.yml` is operational fuel. anatomical
-* `.py` is the machine logic. physiological
-* `.html` is the expressive skin. integumentary
-* `.app` is the shell, launcher, or gateway. embodied
+* `.md` is epistemic bedrock.
+* `.yml` is operational fuel.
+* `.py` is the machine logic.
+* `.html` is the expressive skin.
+* `.app` is the shell, launcher, or gateway.
 
+ 
+**Signal Noise Toolkit File Roles**
+
+1. **`.md` — Conceptual Mapping**
+   Hosts unambiguous definitions, relationships, and meanings of concepts. It is the narrative and epistemic layer: clear, canonical, and human-readable.
+
+2. **`.yml` — Structured Data Seat**
+   Contains the raw data: layers, tasks, attributes, statuses. It is the single source of truth for structured information consumed by all other layers.
+
+3. **`.py` — Backend Codification (Flask)**
+   Translates data into logic: APIs, processing, exports. Encodes how the system *thinks* and *acts* using the YAML data.
+
+4. **`.html` — Frontend UI Web Layer**
+   Renders the interface: visualizes layers, timelines, roles. Aesthetics and interactivity reside here—what users *see* and *touch*.
+
+5. **`.app` — Interface Wrapper (Local vs Web)**
+   A launchable, wrapped experience—either local desktop-style or HTTPS-served. Bridges developer environment and end-user experience.
+
+ 
 ---
 
-Let me know if you want this exported as HTML/CSS, SVG, or even rendered in Mermaid.js or Markdown format for your GitHub README.
+### ✅ Table: File Type Roles in the Signal Noise Toolkit
+
+| File Type | Role Title                | Function                                   | Description                                                                 |
+| --------- | ------------------------- | ------------------------------------------ | --------------------------------------------------------------------------- |
+| `.md`     | **Conceptual Mapping**    | Define meaning, structure, narrative       | Canonical source of truth for human understanding—layer names, ethics, etc. |
+| `.yml`    | **Structured Data Seat**  | Store tasks, roles, attributes             | Machine-readable and human-editable core dataset, feeding all other layers. |
+| `.py`     | **Backend Codification**  | API logic, data transforms, exports        | Flask-based logic engine—turns data into endpoints, filters, and logic.     |
+| `.html`   | **Frontend UI Web Layer** | Visual display, interactive dashboard      | User-facing portal; renders `.yml` data as timelines, cards, filters.       |
+| `.app`    | **Interface Wrapper**     | Wraps system as local or hosted experience | Launch point (e.g., Electron or Flask app) that bridges dev and end-user.   |
 
 ---
 

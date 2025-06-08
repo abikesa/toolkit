@@ -1,0 +1,188 @@
+layers:
+  synaptic:
+    name: Synaptic
+    color: '#8e44ad'
+    tasks:
+    - title: Run QA tests on informational
+      description: Run QA tests on informational for designer in informational scope.
+      deadline: '2025-06-03'
+      status: overdue
+      remaining: 4 days ago
+      owner: Raul Tanaka
+      role: Designer
+      scope: Informational
+    - title: Conduct existential audit
+      description: Conduct existential audit for data scientist in existential scope.
+      deadline: '2025-06-08'
+      status: pending
+      remaining: 1 days
+      owner: Noah Kim
+      role: Data Scientist
+      scope: Existential
+  axonal:
+    name: Axonal
+    color: '#2980b9'
+    tasks:
+    - title: Deploy tactical patch
+      description: Deploy tactical patch for designer in tactical scope.
+      deadline: '2025-06-03'
+      status: overdue
+      remaining: 4 days ago
+      owner: Raul Tanaka
+      role: Designer
+      scope: Tactical
+    - title: Deploy existential patch
+      description: Deploy existential patch for designer in existential scope.
+      deadline: '2025-06-03'
+      status: overdue
+      remaining: 4 days ago
+      owner: Nia Roberts
+      role: Designer
+      scope: Existential
+  symbolic:
+    name: Symbolic
+    color: '#16a085'
+    tasks:
+    - title: Conduct strategic audit
+      description: Conduct strategic audit for educator in strategic scope.
+      deadline: '2025-06-04'
+      status: overdue
+      remaining: 3 days ago
+      owner: Jayden Brooks
+      role: Educator
+      scope: Strategic
+    - title: Refactor informational system
+      description: Refactor informational system for legal counsel in informational
+        scope.
+      deadline: '2025-06-08'
+      status: pending
+      remaining: 1 days
+      owner: Miriam Zafar
+      role: Legal Counsel
+      scope: Informational
+    - title: Run QA tests on strategic
+      description: Run QA tests on strategic for legal counsel in strategic scope.
+      deadline: '2025-06-12'
+      status: pending
+      remaining: 5 days
+      owner: Helena Dube
+      role: Legal Counsel
+      scope: Strategic
+    - title: Conduct informational audit
+      description: Conduct informational audit for data scientist in informational
+        scope.
+      deadline: '2025-06-15'
+      status: pending
+      remaining: 8 days
+      owner: Fatima Khaled
+      role: Data Scientist
+      scope: Informational
+    - title: Update strategic module
+      description: Update strategic module for community in strategic scope.
+      deadline: '2025-06-16'
+      status: pending
+      remaining: 9 days
+      owner: Helena Dube
+      role: Community
+      scope: Strategic
+  existential:
+    name: Existential
+    color: '#c0392b'
+    tasks:
+    - title: Review tactical documentation
+      description: Review tactical documentation for engineer in tactical scope.
+      deadline: '2025-06-14'
+      status: pending
+      remaining: 7 days
+      owner: Markus Feldman
+      role: Engineer
+      scope: Tactical
+    - title: Plan informational initiative
+      description: Plan informational initiative for people ops in informational scope.
+      deadline: '2025-07-07'
+      status: pending
+      remaining: 30 days
+      owner: Miriam Zafar
+      role: People Ops
+      scope: Informational
+  regulatory:
+    name: Regulatory
+    color: '#f39c12'
+    tasks:
+    - title: Refactor operational system
+      description: Refactor operational system for data scientist in operational scope.
+      deadline: '2025-06-07'
+      status: due today
+      remaining: today
+      owner: Santiago Lee
+      role: Data Scientist
+      scope: Operational
+    - title: Run QA tests on existential
+      description: Run QA tests on existential for researcher in existential scope.
+      deadline: '2025-06-12'
+      status: pending
+      remaining: 5 days
+      owner: Raul Tanaka
+      role: Researcher
+      scope: Existential
+    - title: Draft proposal for informational
+      description: Draft proposal for informational for researcher in informational
+        scope.
+      deadline: '2025-06-15'
+      status: pending
+      remaining: 8 days
+      owner: Markus Feldman
+      role: Researcher
+      scope: Informational
+    - title: Plan informational initiative
+      description: Plan informational initiative for analyst in informational scope.
+      deadline: '2025-07-01'
+      status: pending
+      remaining: 24 days
+      owner: Liyana Shaikh
+      role: Analyst
+      scope: Informational
+  commons:
+    name: Commons
+    color: '#2ecc71'
+    tasks:
+    - title: Update informational module
+      description: Update informational module for engineer in informational scope.
+      deadline: '2025-06-16'
+      status: pending
+      remaining: 9 days
+      owner: Raul Tanaka
+      role: Engineer
+      scope: Informational
+    - title: Review strategic documentation
+      description: Review strategic documentation for qa lead in strategic scope.
+      deadline: '2025-06-22'
+      status: pending
+      remaining: 15 days
+      owner: Fatima Khaled
+      role: QA Lead
+      scope: Strategic
+    - title: Conduct operational audit
+      description: Conduct operational audit for people ops in operational scope.
+      deadline: '2025-06-22'
+      status: pending
+      remaining: 15 days
+      owner: Diego Moretti
+      role: People Ops
+      scope: Operational
+    - title: Deploy informational patch
+      description: Deploy informational patch for people ops in informational scope.
+      deadline: '2025-06-26'
+      status: pending
+      remaining: 19 days
+      owner: Nia Roberts
+      role: People Ops
+      scope: Informational
+    - title: Review operational documentation
+      description: Review operational documentation for qa lead in operational scope.
+      deadline: '2025-07-01'
+      status: pending
+      remaining: 24 days
+      owner: Sofia Martins
+      role: QA Lead
+      scope: Operational
