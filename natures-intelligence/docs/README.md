@@ -1,6 +1,5 @@
 ```mermaid
 graph TD
-graph TD
   %% Layer 1: Molecular / Synaptic / .md
   MD[.md → Molecular] --> MD1[Synaptic]
   MD1 --> MD2[Genetic]
