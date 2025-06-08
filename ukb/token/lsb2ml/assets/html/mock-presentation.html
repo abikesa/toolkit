@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jonathan Gasaatura - Soto vs Judge Analytics</title>
+
+  <!-- Core Styling -->
+  <link rel="stylesheet" href="https://abikesa.github.io/css/article.css" />
+  <link rel="stylesheet" href="https://abikesa.github.io/css/settings-bar.css" />
+
+  <!-- Ukubona Branding and Favicon -->
+  <link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-light.ico" type="image/x-icon" />
+  <link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-light.ico" type="image/x-icon" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)" />
+  <link rel="preload" href="https://abikesa.github.io/logos/assets/ukubona-light.png" as="image" />
+  <link rel="preload" href="https://abikesa.github.io/logos/assets/ukubona-dark.png" as="image" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Dark Mode Toggle and Wiki Features -->
+  <script defer src="https://abikesa.github.io/js/toggle-darkmode.js"></script>
+  <script defer src="https://abikesa.github.io/js/wiki-controls.js"></script>
+  <script defer src="https://abikesa.github.io/js/lightbox.js"></script>
+
+  <style>
+    .chart-wrapper { margin: 1.5em 0; text-align: center; }
+    .chart-wrapper img { width: 90%; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .code-block { background: #1c1c1c; color: #eee; padding: 1em; border-radius: 6px; font-family: monospace; overflow-x: auto; }
+    #toggle-theme {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div id="header-left">
+      <a href="https://abikesa.github.io/index-wiki/index.html">
+        <img alt="Ukubona Logo" id="logo" src="https://abikesa.github.io/logos/ukubona-light-fixed.png" />
+      </a>
+    </div>
+    <div id="header-right">
+      <button id="toggle-theme" aria-label="Toggle Dark Mode">🌓</button>
+    </div>
+  </header>
+
+  <main id="content">
+    <h1>Jonathan Gasaatura</h1>
+    <p><strong>Role:</strong> Oakton High School Analyst Intern, Ukubona LLC</p>
+    <p><strong>Project:</strong> Juan Soto's Batting Trends with and without Lineup Protection by Aaron Judge (Yankees, 2024–2025)</p>
+
+    <section>
+      <h2>❓ Question</h2>
+
+  <h2>⚾ Juan Soto Case Study: The Judge Effect</h2>
+  <p>
+    <em>What if the difference between a home run and a strikeout isn’t talent—but who bats behind you?</em>  
+    This mid-season analysis investigates how Juan Soto’s offensive performance shifted from late 2024—when he batted in front of Aaron Judge—to early 2025, when Judge was sidelined. The hypothesis: pitchers gave Soto fewer hittable pitches without the looming threat of Judge on deck.
+  </p>
+
+
+      <p>
+        Would Juan Soto’s early 2025 performance have looked significantly different if Aaron Judge were batting behind him?
+        We examine the counterfactual by comparing his late-2024 surge (with Judge healthy) to early-2025 decline (with Judge injured).
+      </p>
+    </section>
+
+    <section>
+      <h2>📊 Data</h2>
+      <p>
+        Data pulled using <code>pybaseball</code> from Statcast. Focus: exit velocity, xwOBA, pitch selection, BB%, and OBP
+        from Aug–Sep 2024 and Mar–May 2025. Files:
+      </p>
+      <ul>
+        <li><code>data/soto_2024.csv</code> (Aug–Sep 2024)</li>
+        <li><code>data/soto_2025.csv</code> (Mar–May 2025)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>💻 Code</h2>
+      <div class="code-block">
+<pre>
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+
+# Load data
+soto_2024 = pd.read_csv("../data/soto-2024.csv")
+soto_2025 = pd.read_csv("../data/soto-2025.csv")
+
+# Convert 'Date' column to datetime
+soto_2024["Date"] = pd.to_datetime(soto_2024["Date"], errors="coerce")
+soto_2025["Date"] = pd.to_datetime(soto_2025["Date"], errors="coerce")
+
+# Normalize both to the same year (e.g., 2000) to overlay dates without parallax
+soto_2024["PlotDate"] = soto_2024["Date"].apply(lambda d: d.replace(year=2000) if pd.notnull(d) else pd.NaT)
+soto_2025["PlotDate"] = soto_2025["Date"].apply(lambda d: d.replace(year=2000) if pd.notnull(d) else pd.NaT)
+
+# Sort by normalized date
+soto_2024 = soto_2024.sort_values("PlotDate")
+soto_2025 = soto_2025.sort_values("PlotDate")
+
+# Calculate rolling hits (10-game average)
+soto_2024["rolling_avg"] = soto_2024["H"].rolling(10).mean()
+soto_2025["rolling_avg"] = soto_2025["H"].rolling(10).mean()
+
+# Plot
+plt.figure(figsize=(10, 6))
+plt.plot(soto_2024["PlotDate"], soto_2024["rolling_avg"], label="Soto Late 2024", linewidth=2)
+plt.plot(soto_2025["PlotDate"], soto_2025["rolling_avg"], label="Soto Early 2025", linewidth=2)
+
+# Format x-axis to show only Month-Day
+plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b %d'))
+
+# Enhancements
+plt.title("Juan Soto Rolling Hits: With vs. Without Judge")
+plt.xlabel("Game Date")
+plt.ylabel("Hits (10-game rolling avg)")
+plt.legend()
+plt.xticks(rotation=45)
+plt.grid(True, which='major', linestyle='--', linewidth=0.5)
+plt.tight_layout()
+
+# Save the figure
+plt.savefig("../images/soto-judge-effect.jpeg")
+
+</pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>🎥 Video</h2>
+      <p>
+        MLB highlight reel from the Yankees’ 2024 playoff run, showcasing Juan Soto’s performance with Aaron Judge healthy.
+        <br><br>
+        👉 <a href="./soto-video.html" target="_blank" rel="noopener">Watch the full video 🎥 ↗</a>
+      </p>
+    </section>
+
+<section>
+  <h2>📸 Output</h2>
+  <img src="../images/soto-judge-effect.jpeg" alt="Juan Soto Performance With vs Without Judge"
+       style="width: 90%; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: block; margin: 1.5em auto;" />
+  <p class="caption">Figure 1. Decline in exit velocity and zone % in early 2025 after Judge’s injury.</p>
+      <p>
+        🔗 <a href="https://www.gettyimages.com/photos/juan-soto" target="_blank">View Juan Soto photos</a><br>
+        🔗 <a href="https://www.gettyimages.com/photos/aaron-judge" target="_blank">View Aaron Judge photos</a>
+      </p>
+</section>
+
+
+    <section>
+      <h2>🌐 Web App</h2>
+      <p><a href="./soto-dashboard.html" target="_blank">View the full data dashboard and Statcast filters</a></p>
+      <p>Includes interactive pitch maps, OBP drill-downs, and model projections for rest-of-season Soto performance under different lineup conditions.</p>
+    </section>
+
+
+    <section>
+      <h2>📜 Workflow Summary</h2>
+      <ol>
+        <li><strong>Pose the Counterfactual:</strong> What if Judge never got injured? Frame the question not as a stat puzzle but a story of absence and influence.</li>
+        <li><strong>Split the Timeline:</strong> Segment Soto's performance across two symbolic eras—pre-injury (with protection) and post-injury (alone).</li>
+        <li><strong>Extract and Weight Signals:</strong> Pull Statcast data with <code>pybaseball</code>, then prioritize metrics that speak to tension: exit velocity, zone %, BB%, OBP, xwOBA.</li>
+        <li><strong>Visualize the Rift:</strong> Graph the fracture, highlight the drop. Make absence legible—Judge’s missing bat as epistemic silence.</li>
+        <li><strong>Render and Publish:</strong> Convert the analysis into interface. Don’t just inform—invite others into the question. The dashboard isn’t an answer; it’s an invitation to see.</li>
+      </ol>
+    </section>
+
+    <footer>
+      <p>Internship Project by Jonathan Gasaatura | Guided by Ukubona Workflow | Last updated May 2025</p>
+    </footer>
+  </main>
+</body>
+</html>

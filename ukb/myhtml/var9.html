@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spiral of Improvisation</title>
+  <style>
+    :root {
+      --dark-bg: #0f0f0f;
+      --dark-text: #f0f0f0;
+      --light-bg: #ffffff;
+      --light-text: #111;
+      --accent: #ff9800;
+      --radius: 300px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: var(--light-bg);
+      color: var(--light-text);
+      overflow-x: hidden;
+      transition: background 0.4s, color 0.4s;
+    }
+    body.dark {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+    .toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent);
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
+    .spiral {
+      position: relative;
+      width: 100%;
+      height: 1800px;
+      margin: 0 auto;
+    }
+    .layer {
+      position: absolute;
+      width: 60ch;
+      max-width: 80vw;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(6px);
+      transform: translate(-50%, -50%);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    body.dark .layer {
+      background: rgba(30, 30, 30, 0.9);
+    }
+    .layer:nth-child(2) { top: 100px; left: 50%; }
+    .layer:nth-child(3) { top: 400px; left: 70%; }
+    .layer:nth-child(4) { top: 800px; left: 40%; }
+    .layer:nth-child(5) { top: 1200px; left: 65%; }
+    .layer:nth-child(6) { top: 1600px; left: 50%; }
+    @media (max-width: 768px) {
+      .layer {
+        left: 50% !important;
+        width: 90vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle" onclick="document.body.classList.toggle('dark')">🌓 Toggle</button>
+  <h1>🌀 Improvisational Spiral</h1>
+  <div class="spiral">
+    <div class="layer">
+      <h2>Existential</h2>
+      <p>Food. Shelter. Compassion. "I was hungry, and you fed me." This is not abstraction. It is the raw, lived edge of being.</p>
+    </div>
+    <div class="layer">
+      <h2>Operational</h2>
+      <p>The rhythms of the daily. Commutes. Childcare. Hustle. The grind is not shallow. It carries meaning in motion.</p>
+    </div>
+    <div class="layer">
+      <h2>Strategic</h2>
+      <p>Where we try to stretch sustainability over uncertainty. Strategy is the dream of coherence—never a guarantee.</p>
+    </div>
+    <div class="layer">
+      <h2>Informational</h2>
+      <p>Partial knowledge. Too little and you fail. Too much and you freeze. Information is a fragment, not a compass.</p>
+    </div>
+    <div class="layer">
+      <h2>Tactical</h2>
+      <p>The moment of collapse. No time to think. Just the riff, the choice, the punch. Improvisation happens here.</p>
+    </div>
+  </div>
+</body>
+</html>

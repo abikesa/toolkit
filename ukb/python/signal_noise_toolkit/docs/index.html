@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Signal/Noise Dashboard</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f7f7f7;
+      padding: 2rem;
+    }
+    h1 {
+      color: #222;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    a {
+      text-decoration: none;
+      color: #007acc;
+      font-weight: bold;
+    }
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: 1px solid #ccc;
+      margin-top: 2rem;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Signal/Noise Dashboard</h1>
+  <p>Select a layer view:</p>
+  <ul id="links">
+    <!-- Dynamically filled -->
+  </ul>
+
+  <iframe id="viewer" src=""></iframe>
+
+  <script>
+    const views = [
+      "symbolic_done",
+      "network_done",
+      "sensorimotor_done",
+      "synaptic_done",
+      "axonal_done"
+    ];
+
+    const links = document.getElementById("links");
+    const viewer = document.getElementById("viewer");
+
+    views.forEach(name => {
+      const li = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = `${name}.html`;
+      link.textContent = name.replace("_", " ").toUpperCase();
+      link.onclick = (e) => {
+        e.preventDefault();
+        viewer.src = link.href;
+      };
+      li.appendChild(link);
+      links.appendChild(li);
+    });
+  </script>
+</body>
+</html>

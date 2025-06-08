@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Improvisational Thread Through the Stack</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1a1a1a;
+      --accent: #005f73;
+      --light-bg: #f4f4f4;
+    }
+    body.dark {
+      --bg: #121212;
+      --fg: #f0f0f0;
+      --accent: #89c2d9;
+      --light-bg: #1e1e1e;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Georgia', serif;
+      display: grid;
+      grid-template-columns: 15ch auto 15ch;
+      grid-gap: 1rem;
+      min-height: 100vh;
+    }
+    header, footer {
+      grid-column: 1 / -1;
+      padding: 1rem;
+      background: var(--light-bg);
+      text-align: center;
+    }
+    main {
+      padding: 2rem;
+      max-width: 65ch;
+    }
+    nav.left, nav.right {
+      background: var(--light-bg);
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    h1 {
+      text-align: center;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+    }
+    .infobox {
+      background: var(--light-bg);
+      padding: 1rem;
+      border-left: 4px solid var(--accent);
+      margin: 2rem 0;
+    }
+    .toggle-button {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    @media (max-width: 900px) {
+      body {
+        grid-template-columns: 1fr;
+      }
+      nav.left, nav.right {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-button" onclick="document.body.classList.toggle('dark')">🌓 Toggle</button>
+  <header>
+    <h1>🧭 The Improvisational Thread Through the Stack</h1>
+  </header>
+  <nav class="left">
+    <strong>Table of Contents</strong>
+    <ul>
+      <li><a href="#existential">Existential</a></li>
+      <li><a href="#operational">Operational</a></li>
+      <li><a href="#strategic">Strategic</a></li>
+      <li><a href="#informational">Informational</a></li>
+      <li><a href="#tactical">Tactical</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="existential">
+      <h2>Existential:</h2>
+      <p>...existential concerns aren’t abstract. They’re embodied.</p>
+      <ul>
+        <li><em>"I was hungry, and you fed me."</em></li>
+        <li><em>"I was in prison, and you visited me."</em></li>
+      </ul>
+    </section>
+    <section id="operational">
+      <h2>Operational:</h2>
+      <p>The rhythm of subsistence... operational life is where meaning lands.</p>
+    </section>
+    <section id="strategic">
+      <h2>Strategic:</h2>
+      <p>Strategy anticipates, but it’s always a gamble. Knife’s edge of information.</p>
+    </section>
+    <section id="informational">
+      <h2>Informational:</h2>
+      <p>Too much = paralysis. Too little = blunders. Information whispers, never declares.</p>
+    </section>
+    <section id="tactical">
+      <h2>Tactical:</h2>
+      <p>Improvisation is tactical in form, existential in meaning. It’s what you do when you must.</p>
+      <div class="infobox">
+        <strong>Takeaway</strong>: Tactical improvisation happens when:
+        <ul>
+          <li>Strategy fails</li>
+          <li>Information is partial</li>
+          <li>Operations break</li>
+          <li>Existential weight presses in</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <nav class="right">
+    <strong>Appearance</strong>
+    <p>Use the toggle to switch themes.<br>Ref: <a href="#">See Also</a>, <a href="#">Backrefs</a></p>
+  </nav>
+  <footer>
+    <small>&copy; JOURNEYM|N — Literary Systems Design</small>
+  </footer>
+</body>
+</html>

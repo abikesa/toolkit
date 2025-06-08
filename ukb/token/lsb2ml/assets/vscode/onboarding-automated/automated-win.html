@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ukubona Internship Onboarding – Windows (Paul)</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      background-color: #111;
+      color: #eee;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      color: #00e0ff;
+    }
+    code, pre {
+      background: #222;
+      padding: 0.2em 0.4em;
+      border-radius: 5px;
+      font-family: monospace;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      padding: 1em;
+    }
+    details {
+      border: 1px solid #333;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      background-color: #1a1a1a;
+    }
+    summary {
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    a {
+      color: #80d0ff;
+    }
+  </style>
+</head>
+<body>
+
+<details open>
+  <summary><h1>🌱 1. Ukuvula – Environment Setup (Windows)</h1></summary>
+  <h3>Install WSL2 + Ubuntu:</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/windows/wsl/install">Install WSL2</a></li>
+    <li><a href="https://apps.microsoft.com/store/detail/ubuntu-22041-lts/9PN20MSR04DW">Install Ubuntu 22.04 LTS</a></li>
+  </ul>
+  <pre><code>sudo apt update && sudo apt upgrade -y</code></pre>
+
+  <h3>Essentials:</h3>
+  <ul>
+    <li><a href="https://git-scm.com/">Git for Windows</a></li>
+    <li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+    <li>Install the WSL extension in VS Code</li>
+  </ul>
+</details>
+
+<details>
+  <summary><h1>🌀 2. Ukuzula – GitHub + SSH</h1></summary>
+  <h3>Generate and Add SSH Key</h3>
+  <pre><code>ssh-keygen -t ed25519 -C "your@email.com"
+cat ~/.ssh/id_ed25519.pub</code></pre>
+  <p>Add to <a href="https://github.com/settings/keys">GitHub SSH Keys</a></p>
+
+  <h3>Test Connection</h3>
+  <pre><code>ssh -T git@github.com</code></pre>
+
+  <h3>Clone a Repo via SSH</h3>
+  <pre><code>git clone git@github.com:ukubona/your-project.git</code></pre>
+</details>
+
+<details>
+  <summary><h1>📚 3. Ukusoma – Python Setup</h1></summary>
+  <h3>Install pyenv & Python</h3>
+  <pre><code>curl https://pyenv.run | bash
+# then add to ~/.bashrc or ~/.zshrc:
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+</code></pre>
+
+  <h3>Install Python & Create Env</h3>
+  <pre><code>pyenv install 3.11.12
+pyenv virtualenv 3.11.12 myenv
+pyenv activate myenv</code></pre>
+
+  <h3>Install Python Packages</h3>
+  <pre><code>pip install pandas matplotlib seaborn plotly jupyter</code></pre>
+</details>
+
+<details>
+  <summary><h1>👁️ 4. Ukubona – Analysis & Publication</h1></summary>
+  <h3>Choose Dataset & Hypothesis</h3>
+  <ul>
+    <li>e.g., BRFSS, HCUP, NSDUH</li>
+    <li>Behavioral Health focus</li>
+  </ul>
+  
+  <h3>Perform Analysis & Plot</h3>
+  <p>Use Python tools to explore, analyze, and visualize</p>
+
+  <h3>Push Work to GitHub Pages</h3>
+  <pre><code>git add .
+git commit -m "Initial behavioral health analysis"
+git push</code></pre>
+</details>
+
+<details>
+  <summary><h1>🌸 5. Ukuvela – Publishing & Practice</h1></summary>
+  <h3>Write & Submit</h3>
+  <ul>
+    <li>Co-author short research note or working paper</li>
+    <li>Submit to medRxiv / SSRN / ResearchGate</li>
+  </ul>
+
+  <h3>Work Tracker</h3>
+  <ul>
+    <li>Track milestones via <code>tracker.md</code></li>
+    <li>GitHub Issues encouraged</li>
+  </ul>
+</details>
+
+</body>
+</html>

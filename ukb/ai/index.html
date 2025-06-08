@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>NMDA - Ukubona Wiki</title>
+    <!-- PrismJS CSS + JS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+    <!-- Favicon Configuration -->
+    <link rel="icon" href="https://abikesa.github.io/favicon/favicon-light.ico" type="image/x-icon"/>
+    <link rel="icon" href="https://abikesa.github.io/favicon/favicon-light.ico" type="image/x-icon" media="(prefers-color-scheme: light)"/>
+    <link rel="icon" href="https://abikesa.github.io/favicon/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)"/>
+    <!-- Preload Logo Assets -->
+    <link rel="preload" href="https://abikesa.github.io/logos/ukubona-light.png" as="image"/>
+    <link rel="preload" href="https://abikesa.github.io/logos/ukubona-dark.png" as="image"/>
+    <!-- Stylesheets -->
+    <link href="https://abikesa.github.io/css/article.css" rel="stylesheet"/>
+    <link href="https://abikesa.github.io/css/settings-bar.css" rel="stylesheet"/>
+    <!-- Scripts -->
+    <script defer src="https://abikesa.github.io/js/toggle-darkmode.js"></script>
+    <script defer src="https://abikesa.github.io/js/wiki-controls.js"></script>
+    <script defer src="https://abikesa.github.io/js/lightbox.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js" defer></script>
+
+    <style>
+        .glyph-note { display: none; }
+        .glyph:hover + .glyph-note { display: inline; color: #888; font-size: 0.9em; }
+        .easter-egg { color: #666; font-style: italic; font-size: 0.9em; }
+        .wiki-float { float: right; margin: 0 0 1em 1em; width: 250px; border: 1px solid #ccc; padding: 10px; background: #f9f9f9; border-radius: 8px; }
+        .section-title { font-size: 1.8em; margin-bottom: 0.5em; color: #1a1a1a; }
+        .back-ref { font-size: 0.8em; vertical-align: super; text-decoration: none; color: #007bff; }
+        .back-ref:hover { text-decoration: underline; }
+        .highlight { background: #f0f8ff; padding: 2px 5px; border-radius: 3px; }
+        .quote-block { border-left: 4px solid #007bff; padding-left: 1em; margin: 1em 0; font-style: italic; }
+        #codeblock {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            height: auto;
+            display: block;
+        }
+        #codeblock.show {
+            opacity: 1;
+        }
+        aside.wiki-float {
+            float: right;
+            width: 300px;
+            margin: 0 0 1em 1em;
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 0.85em;
+        }
+        .emoji-large { font-size: 2em; }
+    </style>
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['$$', '$$']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <header>
+        <div id="header-left">
+            <a href="https://abikesa.github.io/index-wiki/index.html">
+                <img alt="Ukubona Logo" id="logo" src="https://abikesa.github.io/logos/ukubona-light.png"/>
+            </a>
+        </div>
+        <div id="header-right">
+            <a href="#">Login</a> | <a href="#">Create Account</a>
+        </div>
+    </header>
+    <div id="content-wrapper">
+        <!-- TOC Sidebar -->
+        <nav id="toc">
+            <strong>Table of Contents</strong>
+            <div style="list-style: none;">
+                <span><a href="#vision">Vision: The Dashboard as a Temporal Cortex</a></span><br>
+                <span><a href="#phase-1">Phase 1: Clean Static Frontend</a></span><br>
+                <div style="list-style: none; margin-left: 20px;">
+                    <span><a href="#current-strengths">Current Strengths</a></span><br>
+                    <span><a href="#immediate-fixes">Immediate Fixes</a></span><br>
+                    <span><a href="#recommendation">Recommendation</a></span><br>
+                </div>
+                <span><a href="#phase-2">Phase 2: Semi-Dynamic System</a></span><br>
+                <div style="list-style: none; margin-left: 20px;">
+                    <span><a href="#auto-export">Auto-Export Layer Views</a></span><br>
+                    <span><a href="#task-api">Task API Stub</a></span><br>
+                </div>
+                <span><a href="#phase-3">Phase 3: Live-Updating Dashboard</a></span><br>
+                <div style="list-style: none; margin-left: 20px;">
+                    <span><a href="#live-rebuild">Goal: Push → Pages, Auto Rebuild</a></span><br>
+                </div>
+                <span><a href="#phase-4">Phase 4: Layered UX</a></span><br>
+                <div style="list-style: none; margin-left: 20px;">
+                    <span><a href="#hippocampal-ux">Hippocampal-Inspired UX</a></span><br>
+                </div>
+                <span><a href="#stretch-goals">Stretch Goals</a></span><br>
+                <div style="list-style: none; margin-left: 20px;">
+                    <span><a href="#local-notebook">Local Notebook</a></span><br>
+                    <span><a href="#public-api">Public API</a></span><br>
+                </div>
+                <span><a href="#tldr">TL;DR — You Should Do This Next</a></span><br>
+                <span><a href="#see-also">See Also</a></span><br>
+                <span><a href="#acknowledgments">Acknowledgments</a></span><br>
+            </div>
+        </nav>
+        <!-- Main Content -->
+        <main id="content">
+            <h1>Signal/Noise Dashboard Roadmap</h1>
+            <!-- Infobox -->
+            <aside id="infobox" class="wiki-float">
+                <img alt="Turtle Visualization" src="../learning-epidemiology.jpeg" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
+                <table class="infobox">
+                    <caption>Elizabeth Stuart would certainly have <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.0006-341X.2002.00021.x">something</a> to say about this</caption>
+                    <tr><td><strong>Subject:</strong> Determinism and Moral Responsibility</td></tr>
+                    <tr><td><strong>Context:</strong> Ukubona Grammar and Biological Pruning</td></tr>
+                    <tr><td><strong>Date:</strong> June 3, 2025</td></tr>
+                    <tr><td><strong>Framework:</strong> Kandel, Sapolsky, Determinism</td></tr>
+                    <tr><td><strong>Themes:</strong> Pruning, Plasticity, Moral Cognition</td></tr>
+                </table>
+            </aside>
+            <div style="font-size: 1em;">
+                <section id="vision">
+                    <h2 class="section-title"><span class="emoji-large">🔭</span> Vision: The Dashboard as a Temporal Cortex</h2>
+                    <p>You’re not just tracking deadlines — you’re simulating the hippocampus as an <strong>orchestrator of salience over time</strong>, from raw chaos (molecular) to narrative consolidation (representational memory). So let's treat your dashboard like that: a gradient-sensitive <strong>perceptual engine</strong>.</p>
+                </section>
+                <hr>
+                <section id="phase-1">
+                    <h2 class="section-title"><span class="emoji-large">🛠️</span> PHASE 1: CLEAN STATIC FRONTEND (Now → Next Week)</h2>
+                    <section id="current-strengths">
+                        <h3><span class="emoji-large">✅</span> Current Strengths</h3>
+                        <div style="list-style: none;">
+                            <span>“index.html” dashboard already shows layer views via iframe</span><br>
+                            <span>Files are already generated: “docs/synaptic_done.html”, etc.</span><br>
+                            <span>GitHub Pages auto-hosts “index.html”</span>
+                        </div>
+                    </section>
+                    <section id="immediate-fixes">
+                        <h3><span class="emoji-large">🔧</span> Immediate Fixes</h3>
+                        <div style="list-style: none;">
+                            <span><strong>Human labels:</strong> Done, cleaner names with internal file mapping</span><br>
+                            <span><strong>Preload default view:</strong> Done</span><br>
+                            <span><strong>Favicon, nicer style:</strong> Done</span>
+                        </div>
+                    </section>
+                    <section id="recommendation">
+                        <h3><span class="emoji-large">🧠</span> Recommendation</h3>
+                        <p>You now need a <strong>task/status interface</strong> to accompany those conceptual layers:</p>
+                        <div style="list-style: none;">
+                            <span>Add a second panel or tab that loads from a central source (“layers.yml”, eventually a backend)</span><br>
+                            <span>Show per-layer <strong>task lists</strong>, colored by urgency</span>
+                        </div>
+                    </section>
+                </section>
+                <hr>
+                <section id="phase-2">
+                    <h2 class="section-title"><span class="emoji-large">⚙️</span> PHASE 2: SEMI-DYNAMIC SYSTEM (1–2 Weeks)</h2>
+                    <section id="auto-export">
+                        <h3><span class="emoji-large">🐍</span> Auto-Export Layer Views</h3>
+                        <p>Use “export_views.py” to regenerate the HTML views from “.md” or “.yml”.</p>
+                        <p>Make this script:</p>
+                        <pre><code class="language-bash">python export_views.py</code></pre>
+                        <div style="list-style: none;">
+                            <span>Convert all “*.md” to “*.html” with metadata injected (e.g. deadlines, status)</span><br>
+                            <span>Rebuild the “docs/” folder</span><br>
+                            <span>Commit & push to GitHub to update GH Pages</span>
+                        </div>
+                    </section>
+                    <section id="task-api">
+                        <h3><span class="emoji-large">🧩</span> Task API Stub (Local for Now)</h3>
+                        <p>Your “api.py” should serve:</p>
+                        <pre><code class="language-python">
+@app.get("/tasks")
+def get_tasks():
+    return load_from_yaml("data/layers.yml")
+                        </code></pre>
+                        <p>Use this for future React/Vue/JS frontends (or even internal iframe JSON previews).</p>
+                    </section>
+                </section>
+                <hr>
+                <section id="phase-3">
+                    <h2 class="section-title"><span class="emoji-large">🚀</span> PHASE 3: LIVE-UPDATING DASHBOARD (Weeks 3–4)</h2>
+                    <section id="live-rebuild">
+                        <h3><span class="emoji-large">🔄</span> Goal: Push → Pages, Auto Rebuild</h3>
+                        <div style="list-style: none;">
+                            <span><strong>GitHub Actions</strong>: When “layers.yml” changes or a “.md” is updated:</span><br>
+                            <div style="list-style: none; margin-left: 20px;">
+                                <span>Auto-run “export_views.py”</span><br>
+                                <span>Commit built HTML to “docs/”</span><br>
+                                <span>Auto-push to “main” → triggers GitHub Pages update</span>
+                            </div>
+                            <span><strong>Optional</strong>: Publish “.ics” calendar from tasks with due dates using “ics.py”</span>
+                        </div>
+                    </section>
+                </section>
+                <hr>
+                <section id="phase-4">
+                    <h2 class="section-title"><span class="emoji-large">🧠</span> PHASE 4: LAYERED UX THAT REFLECTS CORE MAPPING</h2>
+                    <p>Right now it’s a list of layer views. But imagine:</p>
+                    <section id="hippocampal-ux">
+                        <h3><span class="emoji-large">🧬</span> Hippocampal-Inspired UX:</h3>
+                        <div style="list-style: none;">
+                            <span><strong>Gradient bar</strong> from noise ➝ signal</span><br>
+                            <span>Nodes/panels positioned from left (synaptic) to right (representational)</span><br>
+                            <span>Tasks/events moving along the temporal axis</span><br>
+                            <span>Overdue = colored red; upcoming = green; distant = gray</span><br>
+                            <span>Add <strong>“transmutation index”</strong>: a number showing signal entropy (how much randomness got consolidated recently)</span>
+                        </div>
+                    </section>
+                </section>
+                <hr>
+                <section id="stretch-goals">
+                    <h2 class="section-title"><span class="emoji-large">🌿</span> Stretch Goals (But Worth It)</h2>
+                    <section id="local-notebook">
+                        <h3><span class="emoji-large">📘</span> Local Notebook (Already Exists!)</h3>
+                        <p>You have “dashboard.ipynb”. Use it to:</p>
+                        <div style="list-style: none;">
+                            <span>Load “layers.yml”, visualize trends</span><br>
+                            <span>Show daily/weekly entropy of system</span><br>
+                            <span>Generate diagrams of "what is consolidating vs. being forgotten"</span>
+                        </div>
+                    </section>
+                    <section id="public-api">
+                        <h3><span class="emoji-large">📡</span> Optional: Public API</h3>
+                        <p>Use a small Flask/FastAPI server to serve:</p>
+                        <div style="list-style: none;">
+                            <span>“/tasks”</span><br>
+                            <span>“/gradient”</span><br>
+                            <span>“/status/layer/:name”</span>
+                        </div>
+                        <p>Then your JS dashboard can be totally data-driven, not file-based.</p>
+                    </section>
+                </section>
+                <hr>
+                <section id="tldr">
+                    <h2 class="section-title"><span class="emoji-large">📎</span> TL;DR — You Should Do This Next</h2>
+                    <table border="1">
+                        <tr>
+                            <th>Step</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td><span class="emoji-large">✅</span> 1</td>
+                            <td>Clean up static “index.html” (done)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="emoji-large">✅</span> 2</td>
+                            <td>Add pretty names + default view (done)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="emoji-large">🟡</span> 3</td>
+                            <td>Add second panel for task lists (pull from “layers.yml”)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="emoji-large">🔄</span> 4</td>
+                            <td>Automate “export_views.py” and commit via GitHub Action</td>
+                        </tr>
+                        <tr>
+                            <td><span class="emoji-large">🧠</span> 5</td>
+                            <td>Evolve UX into "temporal transmutation engine"</td>
+                        </tr>
+                        <tr>
+                            <td><span class="emoji-large">⚡</span> 6</td>
+                            <td>Optionally: turn “api.py” into live JSON provider</td>
+                        </tr>
+                    </table>
+                    <p>Want me to generate the updated “export_views.py”, a GitHub Action YAML file, or a dual-panel “index.html” with task display? I can do any/all — just say the word.</p>
+                </section>
+            </div>
+            <section id="see-also">
+                <h2 class="section-title">See Also</h2>
+                <div style="list-style: none;">
+                    <span><a href="./index.html">Bet-David Grammar</a></span><br>
+                    <span><a href="https://docs.github.com/en/pages">GitHub Pages Documentation</a></span><br>
+                    <span><a href="https://flask.palletsprojects.com/">Flask Documentation</a></span><br>
+                    <span><a href="https://fastapi.tiangolo.com/">FastAPI Documentation</a></span><br>
+                    <span><a href="./ukubona-grammar.html">Ukubona Grammar</a></span><br>
+                </div>
+            </section>
+            <section id="acknowledgments">
+                <h2 class="section-title">Acknowledgments</h2>
+                <ol class="acknowledgments-list">
+                    <li id="cite_note-sapolsky">Sapolsky, Robert. <i>Behave: The Biology of Humans at Our Best and Worst</i>. Penguin Press, 2017. <a href="#ref1-sapolsky1" class="back-ref">[↩]</a> <a href="#ref1-sapolsky2" class="back-ref">[↩]</a> <a href="#ref1-sapolsky3" class="back-ref">[↩]</a> <a href="#ref1-sapolsky4" class="back-ref">[↩]</a> <a href="#ref1-sapolsky5" class="back-ref">[↩]</a> <a href="#ref1-sapolsky6" class="back-ref">[↩]</a> <a href="#ref1-sapolsky7" class="back-ref">[↩]</a></li>
+                    <li id="cite_note-ukubona">Muzaale, Abimereki. <i>Ukubona: Neural Fractals of Being</i>. Ukubona Press, 2024. <a href="#ref2-ukubona1" class="back-ref">[↩]</a> <a href="#ref2-ukubona2" class="back-ref">[↩]</a> <a href="#ref2-ukubona3" class="back-ref">[↩]</a> <a href="#ref2-ukubona4" class="back-ref">[↩]</a> <a href="#ref2-ukubona5" class="back-ref">[↩]</a> <a href="#ref2-ukubona6" class="back-ref">[↩]</a> <a href="#ref2-ukubona7" class="back-ref">[↩]</a> <a href="#ref2-ukubona8" class="back-ref">[↩]</a></li>
+                    <li id="cite_note-gpt4o">GPT-4o. “Turtles All the Way Down: A Glyphic Analysis.” Personal communication, May 2025. <a href="#ref3-gpt4o1" class="back-ref">[↩]</a> <a href="#ref3-gpt4o2" class="back-ref">[↩]</a> <a href="#ref3-gpt4o3" class="back-ref">[↩]</a> <a href="#ref3-gpt4o4" class="back-ref">[↩]</a> <a href="#ref3-gpt4o5" class="back-ref">[↩]</a> <a href="#ref3-gpt4o6" class="back-ref">[↩]</a></li>
+                    <li id="cite_note-neural">Sapolsky, Robert. “Neural Plasticity and Behavior.” Lecture, Stanford University, 2018. <a href="#ref4-neural1" class="back-ref">[↩]</a> <a href="#ref4-neural2" class="back-ref">[↩]</a></li>
+                    <li id="cite_note-disgust">Schnall, Simone, et al. “The Macbeth Effect: Moral Disgust and Physical Cleansing.” <i>Journal of Experimental Psychology</i>, 2008. <a href="#ref5-disgust1" class="back-ref">[↩]</a> <a href="#ref5-disgust2" class="back-ref">[↩]</a></li>
+                    <li id="cite_note-epigenetics">Carey, Nessa. <i>The Epigenetics Revolution</i>. Columbia University Press, 2012. <a href="#ref6-epigenetics1" class="back-ref">[↩]</a> <a href="#ref6-epigenetics2" class="back-ref">[↩]</a></li>
+                    <li id="cite_note-nietzsche">Nietzsche, Friedrich. <i>Thus Spoke Zarathustra</i>. 1883. <a href="#ref7-nietzsche1" class="back-ref">[↩]</a></li>
+                    <li id="cite_note-economist">The Economist. “Elon Musk’s Failure in Government.” June 2, 2025. <a href="#ref8-economist1" class="back-ref">[↩]</a></li>
+                </ol>
+            </section>
+            <aside id="version-timeline" style="border-left: 2px solid #aaa; padding: 1em; margin-top: 2em; background: none;">
+                <h2><span class="emoji-large">🕰️</span> Version Timeline</h2>
+                <ul id="timeline-list" style="list-style-type: none; padding-left: 0;">
+                    <li>
+                        <strong>May 18, 2025</strong><br/>
+                        <em>Author:</em> Grok-3<br/>
+                        <em>Change:</em> Initial draft of Turtles All the Way Down, integrating GPT-4o dialogue and Ukubona grammar<br/>
+                        <em>Note:</em> Structured to map Sapolsky’s thesis onto glyphic cycle
+                    </li>
+                    <li>
+                        <strong>June 3, 2025</strong><br/>
+                        <em>Author:</em> Grok-3<br/>
+                        <em>Change:</em> Fixed back references, superscripted citation brackets, and removed 'occhio typo<br/>
+                        <em>Note:</em> Ensured bidirectional navigation and proper citation styling
+                    </li>
+                </ul>
+            </aside>
+        </main>
+        <aside id="settings-bar">
+            <div class="settings-section">Appearance</div>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input id="small-text" name="text-size" type="radio"/>
+                    <label for="small-text">Small</label>
+                </div>
+                <div class="radio-option">
+                    <input checked id="normal-text" name="text-size" type="radio"/>
+                    <label for="normal-text">Standard</label>
+                </div>
+                <div class="radio-option">
+                    <input id="large-text" name="text-size" type="radio"/>
+                    <label for="large-text">Large</label>
+                </div>
+            </div>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input checked id="standard-width" name="width-setting" type="radio"/>
+                    <label for="standard-width">Standard</label>
+                </div>
+                <div class="radio-option">
+                    <input id="wide-width" name="width-setting" type="radio"/>
+                    <label for="wide-width">Wide</label>
+                </div>
+            </div>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input checked id="light-mode" name="theme-setting" type="radio"/>
+                    <label for="light-mode">Light</label>
+                </div>
+                <div class="radio-option">
+                    <input id="dark-mode" name="theme-setting" type="radio"/>
+                    <label for="dark-mode">Dark</label>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <footer>
+        <p>Last updated: June 2025 | Powered by Ukubona Wiki</p>
+    </footer>
+    <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:9999; justify-content:center; align-items:center;">
+        <span id="lightbox-close" style="position:absolute; top:30px; right:45px; color:#fff; font-size:40px; font-weight:bold; cursor:pointer;">×</span>
+        <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; box-shadow:0 0 20px rgba(255,255,255,0.3); border-radius:10px;"/>
+    </div>
+</body>
+</html>
+<!-- Hidden Annotation: The turtle’s shell is the glyph that binds chaos to culture—seek the knife, and find Ukubona. -->

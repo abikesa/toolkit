@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Signal/Noise Dashboard</title>
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background: #fdfdfd;
+      color: #333;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    a {
+      text-decoration: none;
+      color: #0056b3;
+      font-weight: 500;
+    }
+    a:hover {
+      color: #003d80;
+    }
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: 1px solid #ccc;
+      margin-top: 2rem;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Signal<a href="https://abikesa.github.io/sanity">/</a>Noise Dashboard</h1>
+  <p>Select a layer view:</p>
+  <ul id="links"></ul>
+
+  <iframe id="viewer" src=""></iframe>
+
+  <script>
+    const views = [
+      
+      
+      { label: "Molecular/Synaptic 🌊", file: "signal_noise_toolkit/docs/synaptic_done.html" },
+      { label: "Cellular/Axonal ❤️", file: "signal_noise_toolkit/docs/axonal_done.html" },
+      { label: "Ganglionic/Sensorimotor 🌀", file: "signal_noise_toolkit/docs/sensorimotor_done.html" },
+      { label: "Networks/Functional 🐬", file: "signal_noise_toolkit/docs/network_done.html" },
+      { label: "Amor Fatí/Recursion 🔁", file: "signal_noise_toolkit/docs/symbolic_done.html" },
+    ];
+
+    const links = document.getElementById("links");
+    const viewer = document.getElementById("viewer");
+
+    views.forEach(view => {
+      const li = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = view.file;
+      link.textContent = view.label;
+      link.onclick = (e) => {
+        e.preventDefault();
+        viewer.src = view.file;
+      };
+      li.appendChild(link);
+      links.appendChild(li);
+    });
+
+    // Load first view by default
+    viewer.src = views[0].file;
+  </script>
+</body>
+</html>

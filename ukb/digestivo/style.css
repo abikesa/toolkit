@@ -1,0 +1,27 @@
+body {
+  font-family: sans-serif;
+  background: #121212;
+  color: #eee;
+  padding: 2rem;
+}
+h1 {
+  margin-bottom: 1rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #444;
+  text-align: left;
+}
+.done {
+  color: #4caf50;
+}
+.overdue {  
+  color: #f44336;
+}     
+.upcoming {
+  color: #ffeb3b;
+}

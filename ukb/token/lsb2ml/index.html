@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ukubona</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-light.ico" type="image/x-icon" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="https://abikesa.github.io/favicon/assets/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-light: #ffffff;
+      --bg-dark: #000000;
+    }
+
+    html[data-theme='light'] {
+      background-color: var(--bg-light);
+    }
+
+    html[data-theme='dark'] {
+      background-color: var(--bg-dark);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    #logo {
+      width: clamp(120px, 40vw, 400px);
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
+      animation: spin 60s linear infinite;
+      transition: opacity 0.4s ease-in;
+      opacity: 0;
+    }
+
+    body.loaded #logo {
+      opacity: 1;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 2rem;
+    }
+
+    .top-left, .top-right {
+      position: absolute;
+      top: 1em;
+      z-index: 999;
+    }
+
+    .top-left {
+      left: 1em;
+    }
+
+    .top-right {
+      right: 1em;
+    }
+
+    .menu-icon {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      width: 32px;
+      height: 32px;
+    }
+
+    html[data-theme='light'] .menu-icon div {
+      background-color: #000;
+    }
+
+    html[data-theme='dark'] .menu-icon div {
+      background-color: #fff;
+    }
+
+    .menu-icon div {
+      width: 8px;
+      height: 8px;
+      border-radius: 1px;
+    }
+
+    #toggle-theme {
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+    }
+
+    .app-grid {
+      position: absolute;
+      top: 4rem;
+      left: 1em;
+      display: none;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      max-height: 80vh;
+      overflow-y: auto;
+      width: 90vw;
+      max-width: 1000px;
+      z-index: 998;
+    }
+
+    html[data-theme='dark'] .app-grid {
+      background: rgba(0, 0, 0, 0.95);
+      color: #eee;
+    }
+
+    .app-grid a {
+      text-decoration: none;
+      color: inherit;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.4rem;
+      border-radius: 6px;
+      transition: background-color 0.2s, transform 0.3s;
+      opacity: 0;
+      animation: fadeTile 0.5s ease forwards;
+    }
+
+    @keyframes fadeTile {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .icon-box {
+      font-size: 1.4rem;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-left">
+    <div class="menu-icon" id="gridToggle" role="button" aria-label="Open navigation menu" tabindex="0">
+      <div></div><div></div><div></div>
+      <div></div><div></div><div></div>
+      <div></div><div></div><div></div>
+    </div>
+  </div>
+
+  <div class="top-right">
+    <button id="toggle-theme">🌞 / 🌙</button>
+  </div>
+
+  <div class="logo-wrapper">
+    <img
+      src="https://abikesa.github.io/logos/assets/ukubona-light.png"
+      alt="Ukubona Logo"
+      id="logo"
+      loading="eager"
+    />
+  </div>
+
+  <div class="app-grid" id="gridMenu"></div>
+
+  <script>
+    const html = document.documentElement;
+    const toggleBtn = document.getElementById('toggle-theme');
+    const logo = document.getElementById('logo');
+
+    const LIGHT_LOGO = 'https://abikesa.github.io/logos/assets/ukubona-light.png';
+    const DARK_LOGO  = 'https://abikesa.github.io/logos/assets/ukubona-dark.png';
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      logo.src = theme === 'dark' ? DARK_LOGO : LIGHT_LOGO;
+      toggleBtn.textContent = theme === 'dark' ? '🌙' : '🌞';
+    }
+
+    const storedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(storedTheme);
+
+    toggleBtn.addEventListener('click', () => {
+      const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+    });
+
+    const toggle = document.getElementById('gridToggle');
+    const menu = document.getElementById('gridMenu');
+
+    toggle.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'grid' ? 'none' : 'grid';
+    });
+
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle.click();
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.style.display = 'none';
+      }
+    });
+
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+
+    const links = [
+      { name: 'ChatGPT', url: 'https://abikesa.github.io/t-s-eliot/gpt-z1.html', icon: '🌊' },
+      { name: 'DeepSeek', url: 'https://abikesa.github.io/t-s-eliot/deepseek-1.html', icon: '🚢' },
+      { name: 'Grok-3', url: 'https://abikesa.github.io/t-s-eliot/grok-1.html', icon: '🏴‍☠️' },
+      { name: 'Internship', url: 'https://jonnygas07.github.io/class-presentation-template/', icon: '✂️' },
+      { name: 'Mythopoetics', url: './assets/vscode/onboarding-myth/creative-destruction.html', icon: '🏺' },
+      { name: 'MacOS', url: './assets/vscode/onboarding-automated/automated-mac.html', icon: '🍎' },
+      { name: 'WindowsOS', url: './assets/vscode/onboarding-automated/automated-win.html', icon: '🪟' },
+      { name: 'Mock', url: './assets/html/mock-presentation.html', icon: '⚾️' },
+      { name: 'Final', url: './assets/html/final.html', icon: '🎓' },
+      { name: 'Guide', url: './assets/html/ukb-i-002-0.html', icon: '🧭 ' }
+    ];
+
+    links.forEach((link, i) => {
+      const a = document.createElement('a');
+      a.href = link.url;
+      a.target = '_blank';
+      a.style.animationDelay = `${i * 0.03}s`;
+
+      const icon = document.createElement('div');
+      icon.textContent = link.icon;
+      icon.className = 'icon-box';
+      a.appendChild(icon);
+      a.appendChild(document.createTextNode(link.name));
+      menu.appendChild(a);
+    });
+  </script>
+</body>
+</html>
