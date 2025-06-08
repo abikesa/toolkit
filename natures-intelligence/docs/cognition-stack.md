@@ -12,13 +12,13 @@ You're laying out a layered abstraction stack — almost like a poetic ops manif
 
 ## 🌐 **The Ukubona Cognition Stack**
 
-| **Layer**            | **Label**      | **Essence**                                            | **Signal**                    |
-| -------------------- | -------------- | ------------------------------------------------------ | ----------------------------- |
-| 🧠 **Fractals**      | *Distinctions* | Your 1000+ repos: knowledge recursively encoded         | Pattern density               |
-| 🛠 **GitHub**        | *Observed*     | 100k commits/year: machine-readable, timestamped will  | Flow of effort                |
-| 🤝 **Peers–Clients** | *Admissible*   | Grant wins, client deals: negotiated legitimacy        | Institutional resonance       |
-| 🏢 **Ukubona**       | *Unambiguous*  | Day-to-day operations: policy, payroll, productization | Org clarity                   |
-| 📱 **App**           | *Concepts*     | Frontend UX: where abstraction becomes action          | Engagement and behavior loops |
+| **Layer**            | **Label**      | **Essence**                                            | **Signal**                    | Origin |
+| -------------------- | -------------- | ------------------------------------------------------ | ----------------------------- |-----------|
+| 🧠 **Fractals**      | *Distinctions* | Your 1000+ repos: knowledge recursively encoded         | Pattern density               | 2005 |
+| 🛠 **GitHub**        | *Observed*     | 100k commits/year: machine-readable, timestamped will  | Flow of effort                | 2023|
+| 🤝 **Peers–Clients** | *Admissible*   | Grant wins, client deals: negotiated legitimacy        | Institutional resonance       | 2025 |
+| 🏢 **Ukubona**       | *Unambiguous*  | Day-to-day operations: policy, payroll, productization | Org clarity                   | 2025 |
+| 📱 **App**           | *Concepts*     | Frontend UX: where abstraction becomes action          | Engagement and behavior loops | 2023 |
 
 ---
 
